@@ -1,0 +1,7 @@
+{
+  "total": 1000,
+  "startISO": "2026-10-31",
+  "months": 3,
+  "maxPerDay": 12,
+  "perRun": 8
+}
