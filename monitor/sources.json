@@ -1,0 +1,15 @@
+[
+  { "slug": "bigmodel-pricing", "name": "智谱bigmodel 定价页", "url": "https://docs.bigmodel.cn/cn/guide/start/pricing.md", "mode": "text" },
+  { "slug": "bigmodel-promotion", "name": "智谱bigmodel 活动页", "url": "https://docs.bigmodel.cn/cn/update/promotion", "mode": "html" },
+  { "slug": "zcode-docs", "name": "ZCode 官方文档（免费额度）", "url": "https://zcode.z.ai/cn/docs/welcome", "mode": "html" },
+  { "slug": "qoder-dsflash", "name": "Qoder DeepSeek 限免活动页", "url": "https://docs.qoder.com/events/deepseek-flash-free", "mode": "html" },
+  { "slug": "qoder-qwen-flash", "name": "Qoder Qwen3.8-Flash 免费活动页", "url": "https://docs.qoder.com/events/flashoffer", "mode": "html" },
+  { "slug": "qoder-pricing", "name": "Qoder 定价页", "url": "https://docs.qoder.com/zh/account/pricing", "mode": "html" },
+  { "slug": "siliconflow-pricing", "name": "硅基流动定价页", "url": "https://www.siliconflow.cn/pricing", "mode": "html" },
+  { "slug": "siliconflow-bonus", "name": "硅基流动 2026 赠金券页", "url": "https://siliconflow.cn/2026bonus", "mode": "html" },
+  { "slug": "bailian-quota", "name": "阿里云百炼新免费额度规则", "url": "https://help.aliyun.com/zh/model-studio/new-free-quota", "mode": "html" },
+  { "slug": "volc-ark-quota", "name": "火山方舟免费额度说明", "url": "https://docs.volcengine.com/docs/ark/free-inference-quota", "mode": "html" },
+  { "slug": "volc-ark-reward", "name": "火山方舟协作奖励计划", "url": "https://www.volcengine.com/docs/ark/collaboration-reward-program", "mode": "html" },
+  { "slug": "kimi-free-trial", "name": "Kimi 开放平台免费试用页", "url": "https://www.kimi.com/help/kimi-api/api-free-trial", "mode": "html" },
+  { "slug": "qianfan-free", "name": "百度千帆免费模型公告", "url": "https://ai.baidu.com/ai-doc/WENXINWORKSHOP/wlwg8f1i3", "mode": "html" }
+]
