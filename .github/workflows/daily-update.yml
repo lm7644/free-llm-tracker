@@ -1,0 +1,51 @@
+name: daily-update
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 00:00 UTC = 北京时间 08:00
+  workflow_dispatch:
+
+jobs:
+  patrol:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run page diff monitor (13 official pages)
+        shell: pwsh
+        run: monitor/run-monitor.ps1 -WsRoot $env:GITHUB_WORKSPACE
+
+      - name: Run Tavily discovery (optional, needs TAVILY_KEY secret)
+        shell: pwsh
+        env:
+          TAVILY_KEY: ${{ secrets.TAVILY_KEY }}
+        run: monitor/tavily-search.ps1 -WsRoot $env:GITHUB_WORKSPACE
+
+      - name: Run Bocha weekly search (optional, needs BOCHA_KEY secret)
+        shell: pwsh
+        env:
+          BOCHA_KEY: ${{ secrets.BOCHA_KEY }}
+        run: monitor/bocha-search.ps1 -WsRoot $env:GITHUB_WORKSPACE
+
+      - name: Rebuild app HTML from template + logos
+        shell: pwsh
+        run: |
+          $t = [IO.File]::ReadAllText('app_template.html')
+          $j = [IO.File]::ReadAllText('logos.json')
+          $t = $t.Replace('/*__LOGOS__*/{}', $j)
+          [IO.File]::WriteAllText('大模型免费渠道全景表.html', $t, (New-Object Text.UTF8Encoding($false)))
+          Copy-Item '大模型免费渠道全景表.html' 'index.html' -Force
+
+      - name: Commit patrol results
+        shell: pwsh
+        run: |
+          git config user.name 'freellm-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -A
+          if (git diff --cached --quiet) { Write-Host 'no changes'; exit 0 }
+          git commit -m 'daily patrol: refresh data, reports and feed'
+          git push
