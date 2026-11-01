@@ -1,0 +1,10 @@
+# 密钥与本地状态——绝不上传
+monitor/.env
+monitor/*-seen.txt
+monitor/heartbeat.log
+monitor/bocha-usage.log
+monitor/store/
+
+# 运行时临时文件
+*.tmp
+Thumbs.db
