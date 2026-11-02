@@ -186,9 +186,9 @@ footer ul{padding-left:1.2em}
 /* ===== 响应式：<900px 卡片化 ===== */
 @media (max-width:900px){
   .controls{position:static;padding-bottom:4px}
-  .row-main{grid-template-columns:1fr auto;grid-template-areas:"name exp" "quota quota" "limit limit" "usage usage" "ver ver";gap:6px 12px;padding:14px 2px}
+  .row-main{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-areas:"name exp" "quota quota" "limit limit" "usage usage" "ver ver";gap:6px 12px;padding:14px 2px}
   .c-name{grid-area:name}.c-quota{grid-area:quota}.c-limit{grid-area:limit}.c-usage{grid-area:usage}
-  .c-exp{grid-area:exp;text-align:right;justify-self:end}.c-ver{grid-area:ver}
+  .c-exp{grid-area:exp;text-align:right;justify-self:end;max-width:100%;min-width:0;overflow-wrap:anywhere;word-break:break-word}.c-ver{grid-area:ver}
   .chev{grid-area:exp;align-self:start;margin-top:2px}
   .c-exp{padding-right:26px}
   .detail-grid{grid-template-columns:1fr}
@@ -280,6 +280,12 @@ footer ul{padding-left:1.2em}
   <ul class="dead-list" id="deadlist"></ul>
 </details>
 
+<details class="dead">
+  <summary>海外难以直连（存档）<span class="n" id="ovseasn"></span></summary>
+  <p style="padding:0 18px;font-size:14px;color:var(--ink-2)">这些渠道因域名在中国大陆被阻断、官方不对大陆提供服务、或准入需海外支付工具与身份，主表不再收录；资料存档备查，来源与核实日期仍然有效。</p>
+  <ul class="dead-list" id="ovseaslist"></ul>
+</details>
+
 <footer>
   <h2>怎么读这张表</h2>
   <div class="legend">
@@ -297,7 +303,7 @@ footer ul{padding-left:1.2em}
     <li>同类项目：<a href="https://github.com/mnfst/awesome-free-llm-apis" target="_blank" rel="noopener">mnfst/awesome-free-llm-apis</a>（英文 API 清单）| <a href="https://github.com/panxunying/ai-coding-welfare" target="_blank" rel="noopener">panxunying/ai-coding-welfare</a>（编程中转站导航）| <a href="https://github.com/peter123023/awesome-free-llm-api" target="_blank" rel="noopener">peter123023/awesome-free-llm-api</a>（中文 API 导航）| <a href="https://models.dev" target="_blank" rel="noopener">models.dev</a></li>
     <li>机器可读：<a href="llms.txt">llms.txt</a>（数据集说明）| <a href="monitor/feed.xml">monitor/feed.xml</a>（变更 RSS）| <a href="monitor/yuanbao-checklist.md">公众号情报协作包</a></li>
   </ul>
-    <p class="changelog">更新记录：v2.9（2026-11-01）新增 Trae宝（Trae 全自动智能体）限时一周免费条目——用户一手实测，发布当日全网无收录故标注「用户一手」档；v2.8（2026-11-01）新增「每日签到 · 领额度」板块（WorkBuddy 活跃奖励 / Trae 签到积分 / 百度搭子 / 豆包签到）；v2.7（2026-11-01）按用户一手实测修正 Qoder 双免费活动为进行中口径（官方页标注截止已过而实测可用，疑已顺延）；豆包签到行措辞去歧义；限时窗口不再展示已过期的截止日；v2.6（2026-10-31）前端精修——票券母题贯穿（刊头撕裂边、票根侧耳、金色票号）、分类导航 scrollspy、展开动效、lint 全绿；v2.5（2026-10-31）数据修正——ZCode「Global Build」每日 3 亿（每晚 19:00 领取、当晚 23:00–次日 09:00 可用）确认成条，旧 Weekend Build 条目重写，活动页过期信息清理；v2.4（2026-10-31）主题色改为琉璃绀×琥珀；v2.3（2026-10-31）票券刊头视觉重构 + 新增每日公众号情报检索；v2.2（2026-10-30）移动端适配与 PWA 化；v2.1（2026-10-30）审计修订；v2（2026-10-30）三口径核实、全表字段补全；v1（2026-10-29）初版 5 路调研。</p>
+    <p class="changelog">更新记录：v3.0（2026-11-03）修复移动端行卡网格（到期列长文本撑爆 auto 列导致名称列被挤成竖排——改为比例双列并允许换行）；按用户决策将 13 条大陆难以直连的渠道（Google AI Pro 学生版、Gemini CLI、OpenAI Codex CLI、Google Colab、Perplexity 学生计划、Notion 教育版、HuggingFace、Groq、Cerebras、Together AI、Chutes、SambaNova、阿里云国际站）移入新增的「海外难以直连（存档）」折叠区，主表与统计不再计入；社区传闻行移除 xAI 内容；v2.9（2026-11-01）新增 Trae宝（Trae 全自动智能体）限时一周免费条目——用户一手实测，发布当日全网无收录故标注「用户一手」档；v2.8（2026-11-01）新增「每日签到 · 领额度」板块（WorkBuddy 活跃奖励 / Trae 签到积分 / 百度搭子 / 豆包签到）；v2.7（2026-11-01）按用户一手实测修正 Qoder 双免费活动为进行中口径（官方页标注截止已过而实测可用，疑已顺延）；豆包签到行措辞去歧义；限时窗口不再展示已过期的截止日；v2.6（2026-10-31）前端精修——票券母题贯穿（刊头撕裂边、票根侧耳、金色票号）、分类导航 scrollspy、展开动效、lint 全绿；v2.5（2026-10-31）数据修正——ZCode「Global Build」每日 3 亿（每晚 19:00 领取、当晚 23:00–次日 09:00 可用）确认成条，旧 Weekend Build 条目重写，活动页过期信息清理；v2.4（2026-10-31）主题色改为琉璃绀×琥珀；v2.3（2026-10-31）票券刊头视觉重构 + 新增每日公众号情报检索；v2.2（2026-10-30）移动端适配与 PWA 化；v2.1（2026-10-30）审计修订；v2（2026-10-30）三口径核实、全表字段补全；v1（2026-10-29）初版 5 路调研。</p>
 </footer>
 
 </div>
@@ -372,20 +378,20 @@ const DATA = [
 {n:'硅基流动 SiliconFlow',p:'硅基流动',g:'siliconflow',r:'c',c:'cloud',m:'Qwen/DeepSeek/GLM 等 100+ 模型',q:'多款小模型 ¥0 长期免费（Hunyuan-MT-7B、PaddleOCR-VL-1.5、Kolors、SenseVoiceSmall、bge 系列等）；新用户 2026 版 18 元通用券（可抵扣 Pro 模型）；邀请双方各得奖励',t:'永久',l:'免费模型名单动态调整，以定价页为准',u:'siliconflow.cn 注册+实名 → API 兼容 OpenAI 格式；18 元券见 siliconflow.cn/2026bonus',e:'赠金约一年有效（第三方口径）',a:'手机号+实名',k:'旧的 ¥14 赠金活动已被 18 元通用券取代',s:'active',v:'官方',d:'2026-10-30',L:[['定价页','https://www.siliconflow.cn/pricing'],['券活动','https://siliconflow.cn/2026bonus']]},
 {n:'魔搭 ModelScope',p:'阿里云',g:'modelscope',r:'c',c:'cloud',m:'Qwen/DeepSeek 等 1000+ 开源模型',q:'API-Inference 免费调用',t:'每日',l:'每日 2000 次（按模型计，单模型另有动态限额，如 DeepSeek-R1 200 次/日）',u:'modelscope.cn 注册 → 绑定阿里云实名 → 建访问 token → OpenAI 兼容接口',e:'长期有效',a:'注册+阿里云实名',k:'另有新用户 36 小时 GPU 算力（见免费算力区）',s:'active',v:'多方',d:'2026-10-30',L:[['使用说明','https://developer.aliyun.com/article/1644361']]},
 {n:'阿里云百炼',p:'阿里云',g:'aliyun',r:'c',c:'cloud',m:'Qwen/DeepSeek 等',q:'新用户每模型约 100 万 tokens 免费额度（各模型独立、合计约 7000 万）',t:'一次性',l:'仅实时推理，不含 Batch/微调',u:'bailian.console.aliyun.com 开通 → 各模型额度自动到账',e:'开通起 90 天内有效',a:'实名','k':'不同模型额度与有效期有差异，以控制台显示为准；2026-10-31 官方文档更新：需先实名认证才发放免费额度，「额度用完即停」改为默认关闭需手动开启',s:'active',v:'官方',d:'2026-10-31',L:[['新免费额度规则','https://help.aliyun.com/zh/model-studio/new-free-quota']]},
-{n:'阿里云 Model Studio 国际站',p:'阿里云国际',g:'alibabacloud',r:'i',c:'cloud',m:'Qwen 系为主',q:'新用户每模型约 100 万 tokens（合计约 7000 万）',t:'一次性',l:'仅新加坡区国际账号',u:'alibabacloud.com 注册 → Model Studio 开通',e:'约 90 天有效',a:'国际账号',k:'国内账号不适用，需国际站身份',s:'active',v:'官方',d:'2026-10-29',L:[['官方说明','https://www.alibabacloud.com/help/en/model-studio/new-free-quota']]},
+{n:'阿里云 Model Studio 国际站',p:'阿里云国际',g:'alibabacloud',r:'i',c:'overseas',m:'Qwen 系为主',q:'新用户每模型约 100 万 tokens（合计约 7000 万）',t:'一次性',l:'仅新加坡区国际账号',u:'alibabacloud.com 注册 → Model Studio 开通',e:'约 90 天有效',a:'国际账号',k:'国内账号不适用，需国际站身份',s:'active',v:'官方',d:'2026-10-29',L:[['官方说明','https://www.alibabacloud.com/help/en/model-studio/new-free-quota']]},
 {n:'火山方舟',p:'字节跳动·火山引擎',g:'volcengine',r:'c',c:'cloud',m:'豆包全系',q:'开通赠每模型 50 万 tokens（一次性）；加入「协作奖励计划」后每日单模型最高 500 万 tokens',t:'每日',l:'奖励计划额度 T+1 返还；不抵扣批量推理',u:'console.volcengine.com/ark 开通 → 领取赠金 → 加入协作奖励计划',e:'赠金一次性；奖励计划为活动制，以规则页为准',a:'实名',k:'奖励计划属活动性质，名额与规则可能调整',s:'active',v:'官方',d:'2026-10-30',L:[['免费额度说明','https://docs.volcengine.com/docs/ark/free-inference-quota'],['协作奖励计划','https://www.volcengine.com/docs/ark/collaboration-reward-program']]},
 {n:'百度千帆',p:'百度智能云',g:'baidu',r:'c',c:'cloud',m:'ERNIE Speed / Lite / Tiny',q:'ERNIE Speed-8K/Lite/Tiny 按量调用永久免费',t:'永久',l:'Speed-8K/Lite：300 RPM、30 万 TPM；Speed-128K：60 RPM',u:'千帆平台登录后自动开通 → 拿 API Key',e:'长期有效（配额随版本调整）',a:'实名',k:'旧版本号会退役，注意选当前版本',s:'active',v:'官方',d:'2026-10-30',L:[['免费公告','https://ai.baidu.com/ai-doc/WENXINWORKSHOP/wlwg8f1i3']]},
 {n:'OpenRouter',p:'OpenRouter',g:'openrouter',r:'i',c:'cloud',m:'DeepSeek/GLM/Llama 等 :free 模型',q:'聚合平台 :free 标记模型免费调用',t:'每日',l:'20 RPM；每日 50 次（账户累计充值过 10 美元 → 每日 1000 次）',u:'openrouter.ai 注册 → Settings/Keys 建 key → OpenAI 兼容接口',e:'长期政策',a:'邮箱',k:'免费模型 pool 时空闲容量有限，高峰可能排队',s:'active',v:'官方',d:'2026-10-30',L:[['限额文档','https://openrouter.ai/docs/api-reference/limits']]},
 {n:'Cloudflare Workers AI',p:'Cloudflare',g:'cloudflare',r:'i',c:'cloud',m:'Llama/Qwen 等开源模型',q:'每日 10,000 neurons 免费额度',t:'每日',l:'10k neurons/日（00:00 UTC 重置），8B 模型约合 40 万输入 tokens/日',u:'Cloudflare Dashboard 建 Workers AI binding 或 REST 调用',e:'长期有效',a:'邮箱，无需信用卡',k:'neurons 同时计入 token 数与算力，大模型消耗快',s:'active',v:'官方',d:'2026-10-30',L:[['定价说明','https://developers.cloudflare.com/workers-ai/platform/pricing/']]},
-{n:'Groq',p:'Groq',g:'groq',r:'i',c:'cloud',m:'Llama/Qwen/DeepSeek 开源系',q:'全部模型有免费层',t:'每日',l:'约 30 RPM、6-8K TPM、约 1000 RPD（按模型不同，小模型可达 14.4K RPD）',u:'console.groq.com 注册 → 拿 key → OpenAI 兼容',e:'长期有效',a:'邮箱',k:'速度极快但 TPM 偏低，长上下文场景注意',s:'active',v:'多方',d:'2026-10-30',L:[['限流页','https://console.groq.com/docs/rate-limits']]},
-{n:'Cerebras',p:'Cerebras',g:'cerebras',r:'i',c:'cloud',m:'Llama/Qwen 开源系',q:'免费推理层 + 5 美元赠金',t:'每日',l:'免费层约 5 RPM、30K TPM、1M tokens/日；赠金 30 天有效',u:'cloud.cerebras.ai 注册 → 拿 key',e:'赠金 30 天',a:'邮箱',k:'2026 年注册流程有变动，个别来源称需绑卡激活，以注册页实测为准',s:'active',v:'多方',d:'2026-10-30',L:[['限流页','https://inference-docs.cerebras.ai/support/rate-limits']]},
+{n:'Groq',p:'Groq',g:'groq',r:'i',c:'overseas',m:'Llama/Qwen/DeepSeek 开源系',q:'全部模型有免费层',t:'每日',l:'约 30 RPM、6-8K TPM、约 1000 RPD（按模型不同，小模型可达 14.4K RPD）',u:'console.groq.com 注册 → 拿 key → OpenAI 兼容',e:'长期有效',a:'邮箱',k:'速度极快但 TPM 偏低，长上下文场景注意',s:'active',v:'多方',d:'2026-10-30',L:[['限流页','https://console.groq.com/docs/rate-limits']]},
+{n:'Cerebras',p:'Cerebras',g:'cerebras',r:'i',c:'overseas',m:'Llama/Qwen 开源系',q:'免费推理层 + 5 美元赠金',t:'每日',l:'免费层约 5 RPM、30K TPM、1M tokens/日；赠金 30 天有效',u:'cloud.cerebras.ai 注册 → 拿 key',e:'赠金 30 天',a:'邮箱',k:'2026 年注册流程有变动，个别来源称需绑卡激活，以注册页实测为准',s:'active',v:'多方',d:'2026-10-30',L:[['限流页','https://inference-docs.cerebras.ai/support/rate-limits']]},
 {n:'Mistral La Plateforme',p:'Mistral AI',g:'mistral',r:'i',c:'cloud',m:'Mistral 全系（Experiment 层）',q:'Experiment 免费层',t:'每月',l:'第三方口径约 1B tokens/月、500K TPM、1 req/s；部分旗舰模型 403',u:'console.mistral.ai 注册（需手机号验证）→ 拿 key',e:'长期有效',a:'手机号验证',k:'免费层数据可能被用于模型训练，敏感场景慎用',s:'active',v:'多方',d:'2026-10-30',L:[['用量限制','https://docs.mistral.ai/admin/billing-usage/usage-limits']]},
 {n:'Cohere',p:'Cohere',g:'cohere',r:'i',c:'cloud',m:'Command 系列 / Embed / Rerank',q:'Trial key 全端点免费',t:'每月',l:'1000 次/月、20 RPM（chat）',u:'dashboard.cohere.com 注册 → 拿 trial key',e:'长期有效',a:'邮箱',k:'Trial key 禁止商用',s:'active',v:'官方',d:'2026-10-29',L:[['限流文档','https://docs.cohere.com/docs/rate-limits']]},
 {n:'NVIDIA NIM',p:'NVIDIA',g:'nvidia',r:'i',c:'cloud',m:'Llama/NVIDIA 系开源模型',q:'注册送 1000 credits，可申请提升至 5000',t:'一次性',l:'约 40 RPM，试用体验定位',u:'build.nvidia.com 注册 → 拿 key',e:'credits 用完即止',a:'邮箱',k:'适合体验大参数开源模型',s:'active',v:'官方',d:'2026-10-29',L:[['build.nvidia.com','https://build.nvidia.com']]},
-{n:'Together AI',p:'Together AI',g:'together',r:'i',c:'cloud',m:'Llama-Vision-Free 等少量端点',q:'少量免费端点 + 新户赠金（历史 $1，2026 现状未确认）',t:'一次性',l:'免费端点少且为低配版本',u:'together.ai 注册 → 拿 key',e:'以控制台为准',a:'邮箱',k:'免费端点名单变动频繁',s:'active',v:'第三方',d:'2026-10-29',L:[['Changelog','https://docs.together.ai/docs/changelog']]},
-{n:'Chutes.ai',p:'Chutes',g:'chutes',r:'i',c:'cloud',m:'DeepSeek/Qwen/Llama 开源系',q:'每日 200 次免费',t:'每日',l:'00:00 UTC 重置；需先充值 5 美元解锁免费档',u:'chutes.ai 充值 $5 → 拿 key → OpenAI 兼容',e:'长期政策',a:'充值 $5',k:'「免费」有 5 美元门槛，适合中量使用者',s:'active',v:'第三方',d:'2026-10-29',L:[['官网','https://chutes.ai']]},
-{n:'HuggingFace Inference Providers',p:'HuggingFace',g:'huggingface',r:'i',c:'cloud',m:'托管的开源模型',q:'免费月赠金 0.10 美元（PRO 订阅 2 美元/月）',t:'每月',l:'金额制，用完需购 credit',u:'huggingface.co 账号 → Inference Providers',e:'每月重置',a:'邮箱',k:'量级很小，仅够试用接口',s:'active',v:'官方',d:'2026-10-29',L:[['定价','https://huggingface.co/docs/inference-providers/pricing']]},
-{n:'SambaNova Cloud',p:'SambaNova',g:'sambanova',r:'i',c:'cloud',m:'Llama/DeepSeek 开源系',q:'免费层',t:'每日',l:'20 RPM / 20 RPD / 200K tokens·日·模型',u:'cloud.sambanova.ai 注册 → 拿 key',e:'长期有效',a:'2026-08 起需绑卡',k:'从「无卡可用」收紧为需绑卡，日限也低',s:'active',v:'多方',d:'2026-10-30',L:[['限流文档','https://docs.sambanova.ai/docs/en/models/rate-limits']]},
+{n:'Together AI',p:'Together AI',g:'together',r:'i',c:'overseas',m:'Llama-Vision-Free 等少量端点',q:'少量免费端点 + 新户赠金（历史 $1，2026 现状未确认）',t:'一次性',l:'免费端点少且为低配版本',u:'together.ai 注册 → 拿 key',e:'以控制台为准',a:'邮箱',k:'免费端点名单变动频繁',s:'active',v:'第三方',d:'2026-10-29',L:[['Changelog','https://docs.together.ai/docs/changelog']]},
+{n:'Chutes.ai',p:'Chutes',g:'chutes',r:'i',c:'overseas',m:'DeepSeek/Qwen/Llama 开源系',q:'每日 200 次免费',t:'每日',l:'00:00 UTC 重置；需先充值 5 美元解锁免费档',u:'chutes.ai 充值 $5 → 拿 key → OpenAI 兼容',e:'长期政策',a:'充值 $5',k:'「免费」有 5 美元门槛，适合中量使用者',s:'active',v:'第三方',d:'2026-10-29',L:[['官网','https://chutes.ai']]},
+{n:'HuggingFace Inference Providers',p:'HuggingFace',g:'huggingface',r:'i',c:'overseas',m:'托管的开源模型',q:'免费月赠金 0.10 美元（PRO 订阅 2 美元/月）',t:'每月',l:'金额制，用完需购 credit',u:'huggingface.co 账号 → Inference Providers',e:'每月重置',a:'邮箱',k:'量级很小，仅够试用接口',s:'active',v:'官方',d:'2026-10-29',L:[['定价','https://huggingface.co/docs/inference-providers/pricing']]},
+{n:'SambaNova Cloud',p:'SambaNova',g:'sambanova',r:'i',c:'overseas',m:'Llama/DeepSeek 开源系',q:'免费层',t:'每日',l:'20 RPM / 20 RPD / 200K tokens·日·模型',u:'cloud.sambanova.ai 注册 → 拿 key',e:'长期有效',a:'2026-08 起需绑卡',k:'从「无卡可用」收紧为需绑卡，日限也低',s:'active',v:'多方',d:'2026-10-30',L:[['限流文档','https://docs.sambanova.ai/docs/en/models/rate-limits']]},
 /* ===== 编程 Agent ===== */
 {n:'ZCode（智谱编程工具）',p:'智谱AI',g:'zcode',r:'c',c:'agent',m:'GLM-5.3 / GLM-5-turbo / GLM-5.3-Flash',q:'新用户 5 天体验：GLM-5.3 每日 300 万 tokens + GLM-5-turbo 每日 200 万（合计 500 万/天）；订阅用户另有「闲时任务」0 消耗；每晚 19:00 的 Global Build 活动另见限时窗口区',t:'每日',l:'以客户端与文档为准',u:'zcode.z.ai 下载客户端（3.10+）→ 登录领取',e:'体验期 5 天',a:'手机号',k:'「每日 3 亿」为 Global Build 活动额度（每天 19:00 领取、当晚 23:00–次日 09:00 可用），对用户等效于每晚 3 亿，但属活动权益而非基础配额',s:'active',v:'官方',d:'2026-10-31',L:[['官方文档','https://zcode.z.ai/cn/docs/welcome']]},
 {n:'iFlow CLI 心流',p:'心流（阿里系）',g:'iflow',r:'c',c:'agent',m:'Qwen3-Max / Kimi K2 / Qwen3-Coder',q:'个人版永久免费，无需 API key',t:'永久',l:'宣传不限量，无官方限速数字，实际有速率限制',u:'npm i -g @iflow-ai/iflow-cli → /auth 登录',e:'长期（政策风险自负）',a:'注册登录',k:'免费多模型聚合是它最大卖点；注意 2026-03-20 官方公告 iFlow CLI 向 Qoder CLI 迁移（提交 Qoder 注册邮箱、T+2 审核发放），迁移节奏需持续关注',s:'active',v:'多方',d:'2026-10-30',L:[['cli.iflow.cn','https://cli.iflow.cn'],['社区讨论','https://vibex.iflow.cn/t/topic/5533']]},
@@ -397,8 +403,8 @@ const DATA = [
 {n:'文心快码 Comate',p:'百度',g:'comate',r:'c',c:'agent',m:'文心大模型',q:'个人版基础功能免费',t:'永久',l:'高级功能 300 次/周',u:'comate.baidu.com 下载插件（VS Code/JetBrains）→ 百度账号登录',e:'长期有效',a:'百度账号',k:'补全免费够用，高级 Agent 功能按周限次',s:'active',v:'第三方',d:'2026-10-29',L:[['官网','https://comate.baidu.com']]},
 {n:'GitHub Copilot Free',p:'GitHub / 微软',g:'github',r:'i',c:'agent',m:'自动分配模型（Auto）',q:'每月 2000 次代码补全 + 少量 AI Credits（聊天与 Agent 用）',t:'每月',l:'补全 2000/月；聊天次数官方已不再公布固定数字（旧口径 50 次/月）',u:'IDE 或 github.com 登录启用 Copilot Free',e:'长期有效',a:'GitHub 账号，无需信用卡',k:'Free 档不能自选模型，只有 Auto；完整体验需 Pro（学生见学生区）',s:'active',v:'官方',d:'2026-10-30',L:[['计划说明','https://docs.github.com/en/copilot/get-started/plans']]},
 {n:'Copilot 学生版',p:'GitHub / 微软',g:'github',r:'i',c:'agent',m:'Auto + 少量自选',q:'学生认证后免费 Copilot Student：无限补全 + 约 200 AI 积分/月；教师与开源维护者仍送完整 Copilot Pro',t:'学生',l:'2026-03-12 起学生权益缩水，不再送完整 Pro',u:'github.com/education 认证学生身份',e:'认证有效期内',a:'学籍认证（13+）',k:'比 2025 年的「学生送 Pro」缩水了，但补全仍无限',s:'active',v:'官方',d:'2026-10-30',L:[['社区公告','https://github.com/orgs/community/discussions/189268'],['教育入口','https://education.github.com']]},
-{n:'Gemini CLI',p:'Google',g:'googleai',r:'i',c:'agent',m:'Gemini Flash / Pro 系',q:'个人 Google 账号免费使用',t:'每日',l:'官方口径 60 RPM / 1000 请求/日，实测常更低',u:'npm i -g @google/gemini-cli → Google 账号登录',e:'长期有效',a:'Google 账号',k:'国内网络环境需自行解决访问问题',s:'active',v:'多方',d:'2026-10-30',L:[['FAQ','https://google-gemini.github.io/gemini-cli/docs/faq.html']]},
-{n:'OpenAI Codex CLI',p:'OpenAI',g:'openai',r:'i',c:'agent',m:'GPT-5 系',q:'免费版 ChatGPT 账号可在 CLI 内使用 Codex',t:'每日',l:'5 小时滚动窗口 + 周上限，额度较轻',u:'安装 Codex CLI → 用 ChatGPT 账号登录',e:'长期有效',a:'ChatGPT 账号',k:'免费档额度轻，适合尝鲜；重度需 Plus/Pro',s:'active',v:'第三方',d:'2026-10-30',L:[['帮助中心','https://help.openai.com']]},
+{n:'Gemini CLI',p:'Google',g:'googleai',r:'i',c:'overseas',m:'Gemini Flash / Pro 系',q:'个人 Google 账号免费使用',t:'每日',l:'官方口径 60 RPM / 1000 请求/日，实测常更低',u:'npm i -g @google/gemini-cli → Google 账号登录',e:'长期有效',a:'Google 账号',k:'国内网络环境需自行解决访问问题',s:'active',v:'多方',d:'2026-10-30',L:[['FAQ','https://google-gemini.github.io/gemini-cli/docs/faq.html']]},
+{n:'OpenAI Codex CLI',p:'OpenAI',g:'openai',r:'i',c:'overseas',m:'GPT-5 系',q:'免费版 ChatGPT 账号可在 CLI 内使用 Codex',t:'每日',l:'5 小时滚动窗口 + 周上限，额度较轻',u:'安装 Codex CLI → 用 ChatGPT 账号登录',e:'长期有效',a:'ChatGPT 账号',k:'免费档额度轻，适合尝鲜；重度需 Plus/Pro',s:'active',v:'第三方',d:'2026-10-30',L:[['帮助中心','https://help.openai.com']]},
 {n:'Cursor Hobby',p:'Cursor',g:'cursor',r:'i',c:'agent',m:'有限自选',q:'免费层：有限 Agent/Chat 请求 + 有限 Tab 补全',t:'每月',l:'官方不公示具体数字',u:'cursor.com 下载 → 注册即用',e:'长期有效',a:'邮箱，无需信用卡',k:'2026-10 改版为 Free / Plus($8) / Premium($30)，免费额度更紧',s:'active',v:'第三方',d:'2026-10-30',L:[['定价解读','https://uibakery.io/blog/cursor-ai-pricing-explained']]},
 {n:'Windsurf',p:'Windsurf（原 Codeium）',g:'windsurf',r:'i',c:'agent',m:'SWE 系',q:'免费层：轻量 Agent 日/周配额 + 无限内联补全',t:'每日',l:'2026-03-19 起取消月度 Credits，改日/周配额',u:'windsurf.com 下载编辑器',e:'长期有效',a:'邮箱',k:'计费口径变动频繁，以官网为准',s:'active',v:'多方',d:'2026-10-30',L:[['定价','https://devin.ai/pricing']]},
 {n:'Kiro',p:'AWS',g:'kiro',r:'i',c:'agent',m:'Claude 系',q:'免费 50 credits/月',t:'每月',l:'1 次 Agent 交互 = 1 credit；无 Spec 请求',u:'kiro.dev 下载 → AWS Builder ID 登录（无需信用卡）',e:'长期有效',a:'Builder ID',k:'500 credit 新人礼已于 2026-05-08 停发',s:'active',v:'第三方',d:'2026-10-30',L:[['计费说明','https://usagebar.com/blog/kiro-pricing-and-rate-limits']]},
@@ -409,12 +415,12 @@ const DATA = [
 {n:'豆包学生权益',p:'字节跳动',g:'doubao',r:'c',c:'student',m:'豆包 2.1 Pro 等',q:'在校大学生认证后领 3 个月订阅权益（全用户 1 个月标准套餐 + 学生认证额外赠 2 个月）；免费使用额度为基础版 2.5 倍；专业版学生价 38 元/月连续包月（原价 68 元/月）',t:'学生',l:'每账号限一次；权益内容以 App 内展示为准',u:'仅限豆包电脑版：设置 → 豆包专业版订阅 → 右上「学生权益」，或在 App 内发送「我要领取学生优惠」；抖音账号认证（手机号注册+实名）',e:'学生活动自 2026 年 8 月中旬上线，官方未公告结束时间，能否领取以电脑版入口实测为准',a:'在校大学生（学生认证）',k:'2026-09-24 豆包还向全体用户送过 30 天订阅权益，可关注同类活动',s:'event',v:'多方',d:'2026-10-30',L:[['活动报道','https://www.163.com/dy/article/L5LR9NDF0519U3I5.html'],['领取攻略','https://blog.csdn.net/weixin_42522009/article/details/166658231']]},
 {n:'GitHub Student Developer Pack',p:'GitHub',g:'github',r:'i',c:'student',m:'Copilot Student 等',q:'学生认证后得 Copilot Student（无限补全+积分）与 70 余项开发者工具权益',t:'学生',l:'包内各权益有效期不同',u:'education.github.com/pack 用学籍材料认证',e:'1 年，可续',a:'13+ 学生认证',k:'AI 相关权益以 Copilot Student 为主，教师/维护者送 Copilot Pro',s:'active',v:'官方',d:'2026-10-30',L:[['学生包','https://education.github.com/pack']]},
 {n:'Azure for Students',p:'微软',g:'azure',r:'i',c:'student',m:'Azure AI 服务',q:'100 美元额度 + 12 个月热门免费服务 + 永久免费层',t:'学生',l:'额度 12 个月内用完即止',u:'azure.microsoft.com/free/students 学校邮箱认证',e:'12 个月，可续',a:'高校学生（学校邮箱），无需信用卡',k:'可用来跑 Azure OpenAI/AI Foundry 的付费模型',s:'active',v:'官方',d:'2026-10-29',L:[['学生页','https://azure.microsoft.com/en-us/free/students']]},
-{n:'Google AI Pro 学生版',p:'Google',g:'googleai',r:'i',c:'student',m:'Gemini Pro / Deep Research / Veo',q:'免费 12 个月（含 2TB 云盘）',t:'学生',l:'最新波次领取截止 2026-12-31',u:'one.google.com/join/students 提交 SheerID 学生验证（18+ 大学生，个人 Gmail）',e:'12 个月',a:'SheerID 学生验证',k:'按波次开放，领完即止；国内学生参与门槛高',s:'event',v:'多方',d:'2026-10-29',L:[['学生优惠','https://one.google.com/join/students']]},
-{n:'Perplexity Pro 学生计划',p:'Perplexity',g:'perplexity',r:'i',c:'student',m:'多模型搜索',q:'学生最长 2 年免费',t:'学生',l:'以教育计划页为准',u:'perplexity.ai/hub/education 完成 SheerID 验证',e:'2 年',a:'SheerID 学生验证',k:'不定期与高校/运营商合作送 Pro，可叠加关注',s:'active',v:'官方',d:'2026-10-29',L:[['教育计划','https://www.perplexity.ai/hub/education']]},
+{n:'Google AI Pro 学生版',p:'Google',g:'googleai',r:'i',c:'overseas',m:'Gemini Pro / Deep Research / Veo',q:'免费 12 个月（含 2TB 云盘）',t:'学生',l:'最新波次领取截止 2026-12-31',u:'one.google.com/join/students 提交 SheerID 学生验证（18+ 大学生，个人 Gmail）',e:'12 个月',a:'SheerID 学生验证',k:'按波次开放，领完即止；国内学生参与门槛高',s:'event',v:'多方',d:'2026-10-29',L:[['学生优惠','https://one.google.com/join/students']]},
+{n:'Perplexity Pro 学生计划',p:'Perplexity',g:'perplexity',r:'i',c:'overseas',m:'多模型搜索',q:'学生最长 2 年免费',t:'学生',l:'以教育计划页为准',u:'perplexity.ai/hub/education 完成 SheerID 验证',e:'2 年',a:'SheerID 学生验证',k:'不定期与高校/运营商合作送 Pro，可叠加关注',s:'active',v:'官方',d:'2026-10-29',L:[['教育计划','https://www.perplexity.ai/hub/education']]},
 {n:'阿里云云工开物',p:'阿里云',g:'aliyun',r:'c',c:'student',m:'百炼全系（抵扣）',q:'300 元/年无门槛代金券，可抵扣百炼模型推理费；部分活动期免费 ECS 1 个月；百炼新客另有消费返券',t:'学生',l:'300 元/年',u:'university.aliyun.com 学信网学生认证 → 领券',e:'每年可领',a:'国内高校学生（学信网认证）',k:'搭配百炼新用户免费额度，一年基本零成本跑模型',s:'active',v:'官方',d:'2026-10-30',L:[['云工开物','https://university.aliyun.com/action/promotion15']]},
 {n:'华为云沃土云创',p:'华为云',g:'huawei',r:'c',c:'student',m:'—（云资源为主）',q:'学生免费云主机（每年数百小时）+ 最高 500 元代金券',t:'学生',l:'以活动页为准',u:'developer.huaweicloud.com 高校计划页认证',e:'以当年政策为准',a:'学生认证',k:'偏云资源与昇腾算力，模型用途需看当前活动',s:'active',v:'多方',d:'2026-10-29',L:[['高校计划','https://developer.huaweicloud.com/college/wotugaoxiao.html']]},
 {n:'腾讯云学生优惠',p:'腾讯云',g:'tencent',r:'c',c:'student',m:'—（云资源）',q:'学生低价轻量服务器（约 10 元/月）；EdgeOne 免费计划长期且不限学生',t:'学生',l:'以学生页为准',u:'腾讯云学生认证入口；EdgeOne 在 edgeone.ai 领免费计划',e:'长期',a:'学生认证（服务器部分）',k:'EdgeOne Pages 免费额度对部署 AI 站点很实用',s:'active',v:'多方',d:'2026-10-29',L:[['EdgeOne 免费计划','https://edgeone.ai/zh/blog/details/github-developer-2']]},
-{n:'Notion 教育版',p:'Notion',g:'notion',r:'i',c:'student',m:'Notion AI（半价）',q:'教育版 Plus 计划免费；Notion AI 附加包学生半价',t:'学生',l:'—',u:'notion.com/education 用学校邮箱申请',e:'长期有效',a:'学校邮箱',k:'严格说是工具不是模型额度，但 AI 写作场景常用',s:'active',v:'多方',d:'2026-10-29',L:[['教育版','https://www.notion.com/education']]},
+{n:'Notion 教育版',p:'Notion',g:'notion',r:'i',c:'overseas',m:'Notion AI（半价）',q:'教育版 Plus 计划免费；Notion AI 附加包学生半价',t:'学生',l:'—',u:'notion.com/education 用学校邮箱申请',e:'长期有效',a:'学校邮箱',k:'严格说是工具不是模型额度，但 AI 写作场景常用',s:'active',v:'多方',d:'2026-10-29',L:[['教育版','https://www.notion.com/education']]},
 /* ===== 聊天客户端 ===== */
 {n:'豆包 App / 网页版',p:'字节跳动',g:'doubao',r:'c',c:'chat',m:'豆包主力模型',q:'聊天、图片、语音、办公任务无门槛免费',t:'永久',l:'免费版额度低于会员（学生认证可到 2.5 倍，见学生区）',u:'doubao.com 或各应用商店下载',e:'长期有效',a:'手机号',k:'专业版订阅 68 元/月（学生 38 元/月）解锁 5 倍以上额度与高级功能',s:'active',v:'多方',d:'2026-10-29',L:[['官网','https://www.doubao.com']]},
 {n:'Kimi App / 网页版',p:'月之暗面',g:'kimi',r:'c',c:'chat',m:'Kimi 主力模型',q:'长文本对话与文件解析无门槛免费',t:'永久',l:'高峰期限速',u:'kimi.com 或应用商店',e:'长期有效',a:'手机号',k:'—',s:'active',v:'多方',d:'2026-10-29',L:[['官网','https://www.kimi.com']]},
@@ -431,9 +437,9 @@ const DATA = [
 {n:'智谱开放平台活动页',p:'智谱AI',g:'bigmodel',r:'c',c:'event',m:'GLM 系列',q:'官方活动信息源：历史上的 GLM-5.3 发布送 1 亿 token、杭州 Coding 计划减免 44-51% 等已过期或已升级；当前主打「Global Build」每日发放（见独立条目）',t:'信息',l:'以活动页实时内容为准',u:'docs.bigmodel.cn/cn/update/promotion 查看当前活动',e:'持续更新',a:'开放平台账号',k:'此行只作最新活动入口；大版本发布常伴随送 token 活动，发布首周值得蹲',s:'active',v:'官方',d:'2026-10-31',L:[['活动页','https://docs.bigmodel.cn/cn/update/promotion']]},
 {n:'阿里云百炼新客返券',p:'阿里云',g:'aliyun',r:'c',c:'event',m:'百炼全系',q:'2026-06 起按消费金额返代金券',t:'限时',l:'返券比例以活动页为准',u:'百炼控制台活动页参与',e:'活动制',a:'实名新客',k:'与 300 元/年学生券（云工开物）可搭配',s:'event',v:'官方',d:'2026-10-29',L:[['活动说明','https://developer.aliyun.com/article/1748124']]},
 {n:'Trae宝（全自动智能体）',p:'字节跳动',g:'trae',r:'c',c:'event',m:'Trae宝 / SOLO 系全自动智能体',q:'新品发布限时一周免费使用（全自动智能体：从需求描述到成品交付全程自动执行）',t:'限时',l:'一周免费窗口，具体结束时间以 Trae 内公告为准',u:'Trae 内启用 Trae宝 / SOLO 模式直接体验',e:'发布周限时（约 7 天窗口，自发布日起算，以官方公告为准）',a:'Trae 账号',k:'发布当日全网检索暂无该新品资料（搜索引擎未收录），信息来自用户一手实测——额度、窗口与规则以 Trae 内公告为准',s:'event',v:'用户一手',d:'2026-11-01',L:[['Trae 官网','https://www.trae.com.cn']]},
-{n:'社区传闻渠道',p:'各平台',g:'',r:'c',c:'event',m:'—',q:'xAI 每月 25 美元免费 API、sophnet 签到送余额等说法在论坛流传',t:'信息',l:'—',u:'见 Linux.do / NodeSeek 相关帖子',e:'—',a:'—',k:'未找到官方页面佐证，真实性存疑，领前自行验证',s:'active',v:'未核实',d:'2026-10-29',L:[['Linux.do 福利区','https://linux.do/c/welfare/36/l/top'],['NodeSeek 帖','https://www.nodeseek.com/post-691402-1']]},
+{n:'社区传闻渠道',p:'各平台',g:'',r:'c',c:'event',m:'—',q:'sophnet 签到送余额等国内平台说法在论坛流传（xAI 赠金传闻见已停用历史区）',t:'信息',l:'—',u:'见 Linux.do / NodeSeek 相关帖子',e:'—',a:'—',k:'未找到官方页面佐证，真实性存疑，领前自行验证',s:'active',v:'未核实',d:'2026-10-29',L:[['Linux.do 福利区','https://linux.do/c/welfare/36/l/top'],['NodeSeek 帖','https://www.nodeseek.com/post-691402-1']]},
 /* ===== 免费算力 ===== */
-{n:'Google Colab',p:'Google',g:'colab',r:'i',c:'gpu',m:'—（GPU 环境）',q:'免费 T4 GPU（16G 显存）',t:'每日',l:'额度不透明；单会话约 9-12 小时，超额可能 24 小时冷却',u:'colab.research.google.com 直接用',e:'长期有效',a:'Google 账号',k:'国内访问需自行解决；Pro 版才稳定',s:'active',v:'官方',d:'2026-10-29',L:[['官方 FAQ','https://research.google.com/colaboratory/faq.html']]},
+{n:'Google Colab',p:'Google',g:'colab',r:'i',c:'overseas',m:'—（GPU 环境）',q:'免费 T4 GPU（16G 显存）',t:'每日',l:'额度不透明；单会话约 9-12 小时，超额可能 24 小时冷却',u:'colab.research.google.com 直接用',e:'长期有效',a:'Google 账号',k:'国内访问需自行解决；Pro 版才稳定',s:'active',v:'官方',d:'2026-10-29',L:[['官方 FAQ','https://research.google.com/colaboratory/faq.html']]},
 {n:'Kaggle Notebooks',p:'Kaggle（Google）',g:'kaggle',r:'i',c:'gpu',m:'—（GPU/TPU 环境）',q:'每周约 30 小时 GPU（T4×2）+ 120 小时 CPU，另有 TPU 配额',t:'每周',l:'单会话最长约 12 小时',u:'kaggle.com 注册 → Notebooks',e:'每周重置',a:'邮箱（手机验证后解锁 GPU）',k:'比赛与练手首选，额度比 Colab 透明',s:'active',v:'官方',d:'2026-10-29',L:[['文档','https://www.kaggle.com/docs/notebooks']]},
 {n:'魔搭 ModelScope 算力',p:'阿里云',g:'modelscope',r:'c',c:'gpu',m:'—（GPU 环境）',q:'新用户 36 小时 GPU 算力 + CPU 环境永久免费',t:'一次性',l:'另享每日 2000 次模型 API（见云平台区）',u:'modelscope.cn 注册绑阿里云 → 领算力',e:'一次性',a:'注册+实名',k:'搭配免费 API，是国内最顺手的零成本起步组合',s:'active',v:'多方',d:'2026-10-29',L:[['算力说明','https://tianchi.aliyun.com/forum/post/570847']]},
 {n:'百度飞桨 AI Studio',p:'百度',g:'aistudio',r:'c',c:'gpu',m:'—（GPU 环境）',q:'每日登录送算力卡（历史政策为 V100 单卡 12 小时/日级别）',t:'每日',l:'算力卡按项目消耗',u:'aistudio.baidu.com 每日登录领取',e:'长期有效',a:'百度账号',k:'飞桨生态项目友好；具体卡型与时长以当前政策为准',s:'active',v:'第三方',d:'2026-10-29',L:[['平台','https://aistudio.baidu.com']]},
@@ -464,12 +470,12 @@ function logo(g,n){
   return '<span class="glyph" aria-hidden="true">'+ch+'</span>';
 }
 function masthead(){
-  const live=DATA.filter(d=>d.s!=='dead');
+  const live=DATA.filter(d=>d.s!=='dead'&&d.c!=='overseas');
   const cn=live.filter(d=>d.r==='c').length,intl=live.length-cn;
   const perm=live.filter(d=>d.t==='永久'||d.t==='每日'||d.t==='每周'||d.t==='每月').length;
-  const ev=DATA.filter(d=>d.s==='event').length,dead=DATA.filter(d=>d.s==='dead').length;
+  const ev=DATA.filter(d=>d.s==='event').length,dead=DATA.filter(d=>d.s==='dead').length;const ovs=DATA.filter(d=>d.c==='overseas').length;
   $('#mastmeta').innerHTML='<span>数据截止 <b>2026-10-30</b></span><span>有效渠道 <b>'+live.length+'</b></span><span>国内 <b>'+cn+'</b> / 海外 <b>'+intl+'</b></span><span>长期或周期免费 <b>'+perm+'</b></span><span>限时活动 <b>'+ev+'</b></span><span>已停用 <b>'+dead+'</b></span>';
-  $('#deadn').textContent='（'+dead+' 条）';
+  $('#deadn').textContent='（'+dead+' 条）';$('#ovseasn').textContent='（'+ovs+' 条）';
   const sc=[['有效渠道',live.length],['国内',cn],['海外',intl],['长期/周期免费',perm],['限时活动',ev]];
   $('#stats').innerHTML=sc.map(s=>'<span><b>'+s[1]+'</b>'+s[0]+'</span>').join('');
 }
@@ -526,7 +532,7 @@ function rowHTML(d){
   '</div></div></div>';
 }
 function render(){
-  const live=DATA.filter(d=>d.s!=='dead');
+  const live=DATA.filter(d=>d.s!=='dead'&&d.c!=='overseas');
   const shown=live.filter(match);
   let html='';
   CATS.forEach(c=>{
@@ -556,7 +562,7 @@ function render(){
   });
 }
 function deadRender(){
-  $('#deadlist').innerHTML=DATA.filter(d=>d.s==='dead').map(d=>'<li>'+logo(d.g,d.n)+'<b>'+esc(d.n)+'</b><span class="was">'+esc(d.q)+'</span><span class="when">'+esc(d.e)+'</span></li>').join('');
+  $('#deadlist').innerHTML=DATA.filter(d=>d.s==='dead').map(d=>'<li>'+logo(d.g,d.n)+'<b>'+esc(d.n)+'</b><span class="was">'+esc(d.q)+'</span><span class="when">'+esc(d.e)+'</span></li>').join(''); $('#ovseaslist').innerHTML=DATA.filter(d=>d.c==='overseas').map(d=>'<li>'+logo(d.g,d.n)+'<b>'+esc(d.n)+'</b><span class="was">'+esc(d.q)+'</span><span class="when">'+esc(d.e)+'</span></li>').join('');
 }
 $('#q').addEventListener('input',e=>{F.q=e.target.value.trim();render()});
 document.querySelectorAll('.chip').forEach(c=>{
