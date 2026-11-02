@@ -8,8 +8,8 @@
 
 | 项 | 状态 | 验证时间与方式 |
 |---|---|---|
-| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200，915KB（v2.9） | 2026-11-02 Invoke-WebRequest |
-| 内容为最新版 | ✅ v2.9 三标记：Trae宝条目 / v-用户一手徽章样式 / ev.slice(0,10)；raw.githubusercontent 直连确认 commit 04ff41b | 2026-11-02 内容标记检索 |
+| 在线表格 | ⚠️ https://lm7644.github.io/free-llm-tracker/ HTTP 200，但 **Pages CDN 尚在旧版**（GitHub 构建排队滞后，非内容问题）；仓库 main 已确认 v2.9 | 2026-11-02 16:47Z Invoke-WebRequest + raw 直连 |
+| 内容为最新版 | ✅ 仓库 main（commit b220b63）v2.9 三标记：Trae宝条目 / v-用户一手徽章样式 / ev.slice(0,10)，raw.githubusercontent 直连验证；线上 CDN 待其构建完成自动更新（已请求重建） | 2026-11-02 raw 内容标记检索 |
 | RSS feed | ✅ HTTP 200 | 2026-11-01 |
 | 页面数据 | ✅ 85 条渠道（76 有效 + 9 已停用）；CSV 同步 86 行（含 Trae宝，BOM 完好）；Trae宝 详情展开、闪条收录、桌面/375px 无溢出、低对比 0 / <12px 0 均复验 | 2026-11-02 浏览器内实测 |
 | 页面 lint | ✅ 低对比 0 / <12px 0 / 装饰中点 0 / 裂图 0 | 2026-10-31 design_lint 采集脚本 |
