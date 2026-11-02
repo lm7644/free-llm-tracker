@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
@@ -149,7 +149,7 @@ p{text-wrap:pretty}
 .c-exp .soon{color:var(--amber)}
 .c-ver{font-size:13px;color:var(--ink-3);line-height:1.55}
 .c-ver .v{display:inline-block;font-weight:600}
-.v-官方{color:var(--brand-deep)} .v-多方{color:var(--brand)} .v-第三方{color:var(--amber)} .v-未核实{color:var(--red)}
+.v-官方{color:var(--brand-deep)} .v-多方{color:var(--brand)} .v-第三方{color:var(--amber)} .v-未核实{color:var(--red)} .v-用户一手{color:#1e7f5c}
 .chev{align-self:center;justify-self:end;color:var(--ink-3);transition:transform .18s}
 .row[data-open="1"] .chev{transform:rotate(180deg)}
 .detail{display:none;padding:2px 2px 18px}
@@ -297,7 +297,7 @@ footer ul{padding-left:1.2em}
     <li>同类项目：<a href="https://github.com/mnfst/awesome-free-llm-apis" target="_blank" rel="noopener">mnfst/awesome-free-llm-apis</a>（英文 API 清单）| <a href="https://github.com/panxunying/ai-coding-welfare" target="_blank" rel="noopener">panxunying/ai-coding-welfare</a>（编程中转站导航）| <a href="https://github.com/peter123023/awesome-free-llm-api" target="_blank" rel="noopener">peter123023/awesome-free-llm-api</a>（中文 API 导航）| <a href="https://models.dev" target="_blank" rel="noopener">models.dev</a></li>
     <li>机器可读：<a href="llms.txt">llms.txt</a>（数据集说明）| <a href="monitor/feed.xml">monitor/feed.xml</a>（变更 RSS）| <a href="monitor/yuanbao-checklist.md">公众号情报协作包</a></li>
   </ul>
-    <p class="changelog">更新记录：v2.8（2026-11-01）新增「每日签到 · 领额度」板块（WorkBuddy 活跃奖励 / Trae 签到积分 / 百度搭子 / 豆包签到）；v2.7（2026-11-01）按用户一手实测修正 Qoder 双免费活动为进行中口径（官方页标注截止已过而实测可用，疑已顺延）；豆包签到行措辞去歧义；限时窗口不再展示已过期的截止日；v2.6（2026-10-31）前端精修——票券母题贯穿（刊头撕裂边、票根侧耳、金色票号）、分类导航 scrollspy、展开动效、lint 全绿；v2.5（2026-10-31）数据修正——ZCode「Global Build」每日 3 亿（每晚 19:00 领取、当晚 23:00–次日 09:00 可用）确认成条，旧 Weekend Build 条目重写，活动页过期信息清理；v2.4（2026-10-31）主题色改为琉璃绀×琥珀；v2.3（2026-10-31）票券刊头视觉重构 + 新增每日公众号情报检索；v2.2（2026-10-30）移动端适配与 PWA 化；v2.1（2026-10-30）审计修订；v2（2026-10-30）三口径核实、全表字段补全；v1（2026-10-29）初版 5 路调研。</p>
+    <p class="changelog">更新记录：v2.9（2026-11-01）新增 Trae宝（Trae 全自动智能体）限时一周免费条目——用户一手实测，发布当日全网无收录故标注「用户一手」档；v2.8（2026-11-01）新增「每日签到 · 领额度」板块（WorkBuddy 活跃奖励 / Trae 签到积分 / 百度搭子 / 豆包签到）；v2.7（2026-11-01）按用户一手实测修正 Qoder 双免费活动为进行中口径（官方页标注截止已过而实测可用，疑已顺延）；豆包签到行措辞去歧义；限时窗口不再展示已过期的截止日；v2.6（2026-10-31）前端精修——票券母题贯穿（刊头撕裂边、票根侧耳、金色票号）、分类导航 scrollspy、展开动效、lint 全绿；v2.5（2026-10-31）数据修正——ZCode「Global Build」每日 3 亿（每晚 19:00 领取、当晚 23:00–次日 09:00 可用）确认成条，旧 Weekend Build 条目重写，活动页过期信息清理；v2.4（2026-10-31）主题色改为琉璃绀×琥珀；v2.3（2026-10-31）票券刊头视觉重构 + 新增每日公众号情报检索；v2.2（2026-10-30）移动端适配与 PWA 化；v2.1（2026-10-30）审计修订；v2（2026-10-30）三口径核实、全表字段补全；v1（2026-10-29）初版 5 路调研。</p>
 </footer>
 
 </div>
@@ -389,6 +389,7 @@ const DATA = [
 {n:'豆包每日签到活动',p:'字节跳动',g:'doubao',r:'c',c:'signin',m:'豆包主力模型',q:'每日签到得 200 额度（周一翻倍）；累计 500/2000/5000 里程碑额外赠 200/500/1300；累计 30 天可得 8800 额度（超过一个月标准套餐的 8400）；新用户可免费领一个月订阅',t:'限时',l:'活动制，签到与里程碑规则以 App 内活动页为准',u:'豆包 App → 签到活动页参与；订阅页面已更新对应额度显示',e:'活动进行中，未设截止（2026 年 11 月媒体集中报道）',a:'豆包账号（新用户另享一个月订阅）',k:'第三方媒体报道（凤凰网/搜狐），未找到豆包官方页佐证，参加前以 App 内活动页为准',s:'event',v:'第三方',d:'2026-11-01',L:[['凤凰网报道','https://feng.ifeng.com/c/8xdyOS7NCnN'],['搜狐转载','http://www.sohu.com/a/1094934986_121448078']]},
 {n:'智谱开放平台活动页',p:'智谱AI',g:'bigmodel',r:'c',c:'event',m:'GLM 系列',q:'官方活动信息源：历史上的 GLM-5.3 发布送 1 亿 token、杭州 Coding 计划减免 44-51% 等已过期或已升级；当前主打「Global Build」每日发放（见独立条目）',t:'信息',l:'以活动页实时内容为准',u:'docs.bigmodel.cn/cn/update/promotion 查看当前活动',e:'持续更新',a:'开放平台账号',k:'此行只作最新活动入口；大版本发布常伴随送 token 活动，发布首周值得蹲',s:'active',v:'官方',d:'2026-10-31',L:[['活动页','https://docs.bigmodel.cn/cn/update/promotion']]},
 {n:'阿里云百炼新客返券',p:'阿里云',g:'aliyun',r:'c',c:'event',m:'百炼全系',q:'2026-06 起按消费金额返代金券',t:'限时',l:'返券比例以活动页为准',u:'百炼控制台活动页参与',e:'活动制',a:'实名新客',k:'与 300 元/年学生券（云工开物）可搭配',s:'event',v:'官方',d:'2026-10-29',L:[['活动说明','https://developer.aliyun.com/article/1748124']]},
+{n:'Trae宝（全自动智能体）',p:'字节跳动',g:'trae',r:'c',c:'event',m:'Trae宝 / SOLO 系全自动智能体',q:'新品发布限时一周免费使用（全自动智能体：从需求描述到成品交付全程自动执行）',t:'限时',l:'一周免费窗口，具体结束时间以 Trae 内公告为准',u:'Trae 内启用 Trae宝 / SOLO 模式直接体验',e:'发布周限时（约 7 天窗口，自发布日起算，以官方公告为准）',a:'Trae 账号',k:'发布当日全网检索暂无该新品资料（搜索引擎未收录），信息来自用户一手实测——额度、窗口与规则以 Trae 内公告为准',s:'event',v:'用户一手',d:'2026-11-01',L:[['Trae 官网','https://www.trae.com.cn']]},
 {n:'社区传闻渠道',p:'各平台',g:'',r:'c',c:'event',m:'—',q:'xAI 每月 25 美元免费 API、sophnet 签到送余额等说法在论坛流传',t:'信息',l:'—',u:'见 Linux.do / NodeSeek 相关帖子',e:'—',a:'—',k:'未找到官方页面佐证，真实性存疑，领前自行验证',s:'active',v:'未核实',d:'2026-10-29',L:[['Linux.do 福利区','https://linux.do/c/welfare/36/l/top'],['NodeSeek 帖','https://www.nodeseek.com/post-691402-1']]},
 /* ===== 免费算力 ===== */
 {n:'Google Colab',p:'Google',g:'colab',r:'i',c:'gpu',m:'—（GPU 环境）',q:'免费 T4 GPU（16G 显存）',t:'每日',l:'额度不透明；单会话约 9-12 小时，超额可能 24 小时冷却',u:'colab.research.google.com 直接用',e:'长期有效',a:'Google 账号',k:'国内访问需自行解决；Pro 版才稳定',s:'active',v:'官方',d:'2026-10-29',L:[['官方 FAQ','https://research.google.com/colaboratory/faq.html']]},
@@ -441,7 +442,7 @@ function flash(){
     if(a.date&&b.date)return a.date<b.date?-1:1;
     if(a.date)return -1;if(b.date)return 1;return 0;
   });
-  $('#flashlist').innerHTML=ev.slice(0,8).map(({d,date})=>{
+  $('#flashlist').innerHTML=ev.slice(0,10).map(({d,date})=>{
     const urgent=date&&date<=HOTLIM;
     const daily=/每天|每日/.test(d.e);
     const due=date?'<span class="due'+(urgent?' hot':'')+'">截止 '+date+'</span>':(daily?'<span class="due">每日领取</span>':'<span class="due">窗口不定期</span>');
