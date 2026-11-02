@@ -1,10 +1,11 @@
-[
-  { "name": "莫理", "ghid": "" },
+﻿[
+  { "name": "莫理", "ghid": "gh_289c7ea50b51" },
   { "name": "狗哥玩ai", "ghid": "" },
   { "name": "牛哥谈ai", "ghid": "" },
   { "name": "阿川同学", "ghid": "" },
   { "name": "赛博禅心", "ghid": "" },
   { "name": "平野先生玩ai", "ghid": "" },
   { "name": "李叔ai", "ghid": "" },
-  { "name": "阿枫科技", "ghid": "" }
+  { "name": "阿枫科技", "ghid": "" },
+  { "name": "阿虚同学", "ghid": "gh_197019a321df" }
 ]
