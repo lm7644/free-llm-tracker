@@ -1,6 +1,8 @@
 # Account-level WeChat monitoring via Dajiala API (mirror of AIHOT's providers/dajiala.ts pattern). ASCII-only.
 # Setup: 1) signup dajiala.com, get key; 2) put DAJIALA_KEY=xxx in monitor/.env or environment;
 #        3) fill "ghid" in accounts.json (the __biz param from any article URL of that account, e.g. mp.weixin.qq.com/s?__biz=MzA5NTM2OTUyNA==).
+# Cost control: accounts.json "tier" field — 1 = monitored every run; 2 = rotated (one per run, round-robin by day);
+#               3 = skipped (pending ghid or user decision). Default (no tier) = 1. Daily cost ~0.14 * (tier1Count + 1).
 # Cost: post_history = 0.14 CNY per account per run; article_detail = 0.03 CNY (only with -Detail).
 param([switch]$Detail, [int]$MaxAccounts = 10)
 $ErrorActionPreference = 'Continue'
@@ -37,7 +39,18 @@ $errors = @()
 $done = 0
 $ghidMissing = @()
 
-foreach ($a in $accounts) {
+# tier-based selection (cost control)
+$tierOf = { param($x) if ($null -ne $x.tier) { [int]$x.tier } else { 1 } }
+$tier1 = @($accounts | Where-Object { $_.ghid -and (& $tierOf $_) -eq 1 })
+$tier2 = @($accounts | Where-Object { $_.ghid -and (& $tierOf $_) -eq 2 })
+$selected = @($tier1)
+if ($tier2.Count -gt 0) {
+  $rotIdx = ((Get-Date).DayOfYear - 1) % $tier2.Count
+  $selected += $tier2[$rotIdx]
+  Write-Output ('DAJIALA rotation: today tier2 pick = ' + $tier2[$rotIdx].name)
+}
+
+foreach ($a in $selected) {
   if ($done -ge $MaxAccounts) { break }
   if (-not $a.ghid) { $ghidMissing += $a.name; continue }
   $done++
