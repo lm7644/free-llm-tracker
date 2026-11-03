@@ -8,10 +8,10 @@
 
 | 项 | 状态 | 验证时间与方式 |
 |---|---|---|
-| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200（v3.2 已推送；.nojekyll 根治 Jekyll 构建失败，构建秒级） | 2026-11-04 push + builds API |
-| 内容为最新版 | ✅ v3.2 十项标记全过：办公小浣熊 / MonkeyCode / AutoClaw / Accio Work / Agent2API 新行、Qoder Qwen3.8-Flash 无限期免费、Trae宝 窗口 11-08（可信度升多方）、TRAE 官方口径（100/日）、WorkBuddy 收紧风险提示 | 2026-11-04 构建产物标记检索 |
+| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200（v3.3 已上线，live 长度与本地构建一致；.nojekyll 构建秒级） | 2026-11-04 push + builds API + live 标记 |
+| 内容为最新版 | ✅ v3.3 标记：千问办公 0.01 元月卡（新用户 900 积分，兑换码 12-30 前激活，多方核实）+ v3.2 十项标记 | 2026-11-04 live 内容标记 |
 | RSS feed | ✅ HTTP 200 | 2026-11-01 |
-| 页面数据 | ✅ 90 条渠道 = 68 有效 + 13 海外存档 + 9 已停用；CSV 91 行同步（BOM 完好） | 2026-11-04 CSV 行数与标记校验 |
+| 页面数据 | ✅ 91 条渠道 = 69 有效 + 13 海外存档 + 9 已停用；CSV 92 行同步（BOM 完好） | 2026-11-04 CSV 行数与标记校验 |
 | 页面 lint | ⚠️ v3.2 新增 5 行后的浏览器动态复验（闪条排序/双视口/lint 红灯）待补跑一次；静态标记已全过 | 2026-11-04 部分完成 |
 | 仓库 Secrets | ✅ TAVILY_KEY（2026-11-01T14:46Z 添加）；DAJIALA_KEY 未配置 | 2026-11-01 15:31 API |
 | 云端 Tavily 引擎 | ✅ **已在 CI 生效**：多次运行写出 tavily digest（如 run 41321665703 success） | 2026-11-01 15:31 |
