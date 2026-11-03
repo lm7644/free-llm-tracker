@@ -1,38 +1,47 @@
 ﻿[
     {
         "name":  "莫理",
-        "ghid":  "gh_289c7ea50b51"
+        "ghid":  "gh_289c7ea50b51",
+        "tier":  2
     },
     {
         "name":  "狗哥玩ai",
-        "ghid":  ""
+        "ghid":  "",
+        "tier":  3
     },
     {
         "name":  "牛哥谈ai",
-        "ghid":  ""
+        "ghid":  "",
+        "tier":  3
     },
     {
         "name":  "阿川同学",
-        "ghid":  "gh_c85c65ea2765"
+        "ghid":  "gh_c85c65ea2765",
+        "tier":  2
     },
     {
         "name":  "赛博禅心",
-        "ghid":  "gh_520ee42749ed"
+        "ghid":  "gh_520ee42749ed",
+        "tier":  1
     },
     {
         "name":  "平野先生玩ai",
-        "ghid":  ""
+        "ghid":  "",
+        "tier":  3
     },
     {
         "name":  "李叔ai",
-        "ghid":  ""
+        "ghid":  "",
+        "tier":  3
     },
     {
         "name":  "阿枫科技",
-        "ghid":  "gh_83836564ed1d"
+        "ghid":  "gh_83836564ed1d",
+        "tier":  1
     },
     {
         "name":  "阿虚同学",
-        "ghid":  "gh_197019a321df"
+        "ghid":  "gh_197019a321df",
+        "tier":  2
     }
 ]
