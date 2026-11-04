@@ -4,7 +4,7 @@
 # Cost control: accounts.json "tier" field — 1 = monitored every run; 2 = rotated (one per run, round-robin by day);
 #               3 = skipped (pending ghid or user decision). Default (no tier) = 1. Daily cost ~0.14 * (tier1Count + 1).
 # Cost: post_history = 0.14 CNY per account per run; article_detail = 0.03 CNY (only with -Detail).
-param([switch]$Detail, [int]$MaxAccounts = 10)
+param([switch]$Detail, [int]$MaxAccounts = 10, [int]$Rotate = 2)
 $ErrorActionPreference = 'Continue'
 if (-not $WsRoot) { $WsRoot = Split-Path -Parent $PSScriptRoot }
 $mon      = Join-Path $WsRoot 'monitor'
@@ -45,9 +45,15 @@ $tier1 = @($accounts | Where-Object { $_.ghid -and (& $tierOf $_) -eq 1 })
 $tier2 = @($accounts | Where-Object { $_.ghid -and (& $tierOf $_) -eq 2 })
 $selected = @($tier1)
 if ($tier2.Count -gt 0) {
-  $rotIdx = ((Get-Date).DayOfYear - 1) % $tier2.Count
-  $selected += $tier2[$rotIdx]
-  Write-Output ('DAJIALA rotation: today tier2 pick = ' + $tier2[$rotIdx].name)
+  # twice-daily continuous rotation: runIdx = day*2 + (evening?1:0), picks Rotate accounts per run
+  $slot = 0
+  if ((Get-Date).Hour -ge 12) { $slot = 1 }
+  $runIdx = ([int](Get-Date).DayOfYear) * 2 + $slot
+  $start = ($runIdx * $Rotate) % $tier2.Count
+  $picks = @()
+  for ($k = 0; $k -lt $Rotate; $k++) { $picks += $tier2[($start + $k) % $tier2.Count] }
+  $selected += @($picks)
+  Write-Output ('DAJIALA rotation: runIdx=' + $runIdx + ' tier2 picks = ' + (($picks | ForEach-Object { $_.name }) -join ', '))
 }
 
 foreach ($a in $selected) {
