@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference='Stop'
-$ws='C:\Users\Administrator\.zcode\workspace\draft-cf65791b-1509-4511-9b32-23bdd953e6f7'
+$ws=$PSScriptRoot
 $h=[System.Net.HttpListener]::new()
-$h.Prefixes.Add('http://+:8477/')
+$h.Prefixes.Add('http://127.0.0.1:8477/')
 $h.Start()
 Write-Host 'serving on 8477'
 while($h.IsListening){
@@ -10,6 +10,10 @@ while($h.IsListening){
     $p=[uri]::UnescapeDataString($c.Request.Url.AbsolutePath)
     if($p -eq '/'){$p='/大模型免费渠道全景表.html'}
     $f=Join-Path $ws ($p.TrimStart('/') -replace '/','\')
+    $full=[System.IO.Path]::GetFullPath($f)
+    $root=[System.IO.Path]::GetFullPath($ws)
+    $inside = $full -eq $root -or $full.StartsWith($root+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)
+    if(-not $inside){ $c.Response.StatusCode=403; $c.Response.OutputStream.Close(); continue }
     if([System.IO.File]::Exists($f)){
       $b=[System.IO.File]::ReadAllBytes($f)
       $ct='text/html; charset=utf-8'

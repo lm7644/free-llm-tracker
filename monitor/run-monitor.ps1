@@ -33,6 +33,10 @@ function Normalize([string]$Text, [string]$Mode) {
   return ($lines -join "`n")
 }
 
+function XmlEsc([string]$Text) {
+  return $Text.Replace('&', '&amp;').Replace('<', '&lt;').Replace('>', '&gt;').Replace('"', '&quot;').Replace("'", '&apos;')
+}
+
 function ShowLines([string[]]$Lines, [int]$Max) {
   $out = @()
   foreach ($l in $Lines) {
@@ -85,7 +89,15 @@ $hb = "$stamp ok=$okCount fail=$failCount baseline=$baselineCount changed=$($cha
 if ($failMsgs.Count -gt 0) { $hb += ' | ' + ($failMsgs -join ' ; ') }
 [System.IO.File]::AppendAllText($heartbeat, $hb + [Environment]::NewLine, $Utf8)
 
-if ($changeItems.Count -eq 0) { Write-Output ("DONE no-changes " + $hb); exit 0 }
+$srcCount = @($sources).Count
+$critical = ($srcCount -gt 0 -and $failCount * 2 -ge $srcCount)
+if ($failCount -gt 0) { Write-Warning ("source failures: " + $failCount + '/' + $srcCount) }
+
+if ($changeItems.Count -eq 0) {
+  Write-Output ("DONE no-changes " + $hb)
+  if ($critical) { Write-Output 'FAIL: majority of sources unreachable'; exit 2 }
+  exit 0
+}
 
 # markdown report (append by date)
 $repFile = Join-Path $reports ($dateFile + '.md')
@@ -110,10 +122,10 @@ foreach ($c in $changeItems) {
 # RSS feed (keep newest 60 items)
 $items = @()
 foreach ($c in $changeItems) {
-  $title = $c.name + ' changed (+' + $c.addedN + '/-' + $c.removedN + ' lines)'
+  $title = XmlEsc ($c.name + ' changed (+' + $c.addedN + '/-' + $c.removedN + ' lines)')
   $desc = ''
-  foreach ($l in (ShowLines $c.added 3)) { $desc += '+ ' + $l + ' &lt;br/&gt; ' }
-  $items += '    <item><title>' + $title + '</title><link>' + $c.url + '</link><description>' + $desc + '</description><pubDate>' + $now.ToString('r') + '</pubDate><guid isPermaLink="false">' + $c.slug + '-' + $now.ToString('yyyyMMddHHmmss') + '</guid></item>'
+  foreach ($l in (ShowLines $c.added 3)) { $desc += '+ ' + $l + ' | ' }
+  $items += '    <item><title>' + $title + '</title><link>' + (XmlEsc $c.url) + '</link><description>' + (XmlEsc $desc) + '</description><pubDate>' + $now.ToString('r') + '</pubDate><guid isPermaLink="false">' + (XmlEsc $c.slug) + '-' + $now.ToString('yyyyMMddHHmmss') + '</guid></item>'
 }
 $feedItems = $items
 if (Test-Path $feedPath) {
@@ -123,9 +135,10 @@ if (Test-Path $feedPath) {
 }
 $feedItems = @($feedItems | Select-Object -First 60)
 $feed = '<?xml version="1.0" encoding="UTF-8"?>' + "`n" + '<rss version="2.0"><channel>' + "`n" +
-  '<title>FreeLLM channel monitor</title>' + "`n" + '<link>https://localhost/</link>' + "`n" +
+  '<title>FreeLLM channel monitor</title>' + "`n" + '<link>https://lm7644.github.io/free-llm-tracker/</link>' + "`n" +
   '<description>Change monitor for official LLM free-tier pages (locally generated)</description>' + "`n" +
   ($feedItems -join "`n") + "`n" + '</channel></rss>'
 [System.IO.File]::WriteAllText($feedPath, $feed, $Utf8)
 
 Write-Output ("DONE changes=" + $changeItems.Count + " " + $hb)
+if ($critical) { Write-Output 'FAIL: majority of sources unreachable'; exit 2 }
