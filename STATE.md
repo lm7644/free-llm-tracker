@@ -8,9 +8,9 @@
 
 | 项 | 状态 | 验证时间与方式 |
 |---|---|---|
-| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200（v3.4 已推送；.nojekyll 构建秒级） | 2026-11-04 push + builds API |
-| 内容为最新版 | ✅ v3.4 标记：千问办公 0.01 元月卡 + v3.2/v3.3 全部条目 | 2026-11-04 live 内容标记 |
-| RSS feed | ✅ 根 `/feed.xml` 与 `/monitor/feed.xml` 均为全量 92 条（逐条 pubDate=各自核实日期）；`/monitor/changes.xml` 为官方页变更日志 | 2026-11-06 本地服务器 200 + XML 条目校验 |
+| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200（v3.9 已推送，commit 5859098；Pages build=built） | 2026-11-06 push + builds API + live GET |
+| 内容为最新版 | ✅ v3.9 标记：6 条数据纠错 + 「最新单条核实」口径 + 根 `/feed.xml` 全量 92 条 | 2026-11-06 live 内容标记 + Chrome 真实渲染 |
+| RSS feed | ✅ 线上 `/feed.xml`、`/monitor/feed.xml` 均 200、各 92 条（逐条 pubDate=各自核实日期）；`/monitor/changes.xml` 200（7 条变更日志） | 2026-11-06 本地 + 线上 GET + XML 条目校验 |
 | 页面数据 | ✅ 92 条渠道 = 70 有效 + 12 海外存档 + 10 已停用 + **模型速查板块（18 家厂商，v3.7 全面修订版，不计入渠道统计）**；CSV 92 渠道行同源生成 | 2026-11-06 node validate + build-assets 重建 |
 | 数据层纠错（v3.9） | ✅ 6 条错误值全部按官方/多方来源重写并落库；页首改「最新单条核实」口径；主页 70 行、存档 10+12 条均显示各自核实日期；来源链接 123 个实测 404/410 = 0 | 2026-11-06 Chrome 真实页面 + 全量链接探测 |
 | 页面 lint + 动态复验 | ✅ **Chrome 无头双视口复验全绿**（桌面 1440 + 移动 390 iframe）：69 行、限时 11、闪条 11 项含三条截止章（Trae宝/AutoClaw 11-08、千问 12-30）与章型正确、百炼返券恢复显示、7 个重点行 0 竖排、无横向溢出、lint small=0/low=0 | 2026-11-04 Chrome headless --dump-dom + 同源验证页 |
