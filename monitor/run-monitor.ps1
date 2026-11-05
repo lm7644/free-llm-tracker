@@ -6,7 +6,7 @@ if (-not $WsRoot) { $WsRoot = Split-Path -Parent $PSScriptRoot }
 $mon       = Join-Path $WsRoot 'monitor'
 $storeDir  = Join-Path $mon 'store'
 $reports   = Join-Path $mon 'reports'
-$feedPath  = Join-Path $mon 'feed.xml'
+$feedPath  = Join-Path $mon 'changes.xml'
 $heartbeat = Join-Path $mon 'heartbeat.log'
 foreach ($d in @($storeDir, $reports)) { if (-not (Test-Path $d)) { New-Item -ItemType Directory -Path $d | Out-Null } }
 $Utf8 = New-Object System.Text.UTF8Encoding($false)

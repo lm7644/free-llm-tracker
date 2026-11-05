@@ -4,7 +4,7 @@
 
 ## 它做什么
 
-每天抓取 `sources.json` 里的 13 个官方页面（定价页/活动页/规则页），与 `store/` 里的快照做**行级 diff**；有真实变更（增删行 > 0）时写入 `reports/日期.md` 并更新 `feed.xml`（RSS，保留最近 60 条）；每次运行在 `heartbeat.log` 追加一行结果。空白/动态噪声（推荐位、访问计数等）由规范化处理吸收，不产生假报告。
+每天抓取 `sources.json` 里的 13 个官方页面（定价页/活动页/规则页），与 `store/` 里的快照做**行级 diff**；有真实变更（增删行 > 0）时写入 `reports/日期.md` 并更新 `changes.xml`（变更 RSS，保留最近 60 条）；每次运行在 `heartbeat.log` 追加一行结果。空白/动态噪声（推荐位、访问计数等）由规范化处理吸收，不产生假报告。页面全量渠道 RSS（92 条）由 `build-assets.js` 从 `app_template.html` 的 DATA 生成，写入根目录 `feed.xml` 与 `monitor/feed.xml`。
 
 CI 只在 GitHub Actions 运行 `run-monitor`、Tavily、博查三个引擎；搜狗与极致了为本地/可选。单源抓取失败仅告警，**过半源失败时脚本以非零退出码结束**，工作流会失败并自动开 issue。
 
@@ -16,7 +16,8 @@ CI 只在 GitHub Actions 运行 `run-monitor`、Tavily、博查三个引擎；�
 | `run-monitor.ps1` | 主脚本（纯 ASCII，PowerShell 5.1 兼容）。可手动运行 |
 | `store/*.txt` | 各源规范化文本快照（diff 的基准，勿手改） |
 | `reports/*.md` | 变更报告（按日期，仅在有真实变更时生成） |
-| `feed.xml` | 变更 RSS feed（可拖进任何 RSS 阅读器） |
+| `changes.xml` | 官方页变更 RSS（最近 60 条变更，可拖进任何 RSS 阅读器） |
+| `build-assets.js` | 从 DATA 生成全量 `feed.xml`（根目录 + monitor）与 `免费渠道种子表.csv` |
 | `heartbeat.log` | 每次运行一行心跳（时间、ok/fail/baseline/changed） |
 
 ## 微信公众号检索：三层阶梯（2026-10-31 实测定稿）

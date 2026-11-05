@@ -51,12 +51,16 @@ jobs:
         shell: pwsh
         run: node monitor/validate-build.js
 
+      - name: Rebuild derived assets (feed.xml + CSV from DATA)
+        shell: pwsh
+        run: node monitor/build-assets.js
+
       - name: Commit patrol results
         shell: pwsh
         run: |
           git config user.name 'freellm-bot'
           git config user.email 'actions@users.noreply.github.com'
-          git add monitor/reports monitor/feed.xml index.html '大模型免费渠道全景表.html'
+          git add monitor/reports monitor/changes.xml feed.xml monitor/feed.xml index.html '大模型免费渠道全景表.html' '免费渠道种子表.csv'
           if (git diff --cached --quiet) { Write-Host 'no changes'; exit 0 }
           git commit -m 'daily patrol: refresh data, reports and feed'
           git push
