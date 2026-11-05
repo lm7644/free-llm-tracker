@@ -263,7 +263,9 @@ footer ul{padding-left:1.2em}
   .k{font-size:13px;width:3.1em}
   .flash-what{font-size:16px}
   /* 起手渠道链接：触控目标 44px（移动端） */
-  .answer-picks a{display:inline-flex;align-items:center;min-height:44px;padding:0 3px}
+  .answer-picks{line-height:1.5}
+  .answer-picks a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;margin:4px 6px 4px 0;border:1px solid rgba(255,210,138,.34);border-radius:4px;background:rgba(255,210,138,.07)}
+  .answer-picks a:hover{background:rgba(255,210,138,.14)}
   .group-head h2{font-size:19px}
   .stats{gap:2px 18px}
   .search{flex-basis:100%}
@@ -555,7 +557,7 @@ function masthead(){
   const wait=live.filter(d=>!VER_OK.includes(d.v)).length;
   const picksName=['智谱开放平台 bigmodel','硅基流动 SiliconFlow','阿里云百炼','Qoder','OpenRouter','Trae / Trae SOLO'];
   const picks=picksName.map(n=>DATA.find(d=>d.n===n)).filter(d=>d&&d.s!=='dead'&&d.c!=='overseas'&&!expired(d));
-  const pickHTML=picks.length?'<div class="answer-picks">还不知道从哪开始？先看这 '+picks.length+' 个：'+picks.map(d=>'<a href="#r-'+DATA.indexOf(d)+'" data-jump="'+esc(d.n)+'">'+esc(d.n)+'</a>').join('、')+'</div>':'';
+  const pickHTML=picks.length?'<div class="answer-picks">还不知道从哪开始？先看这 '+picks.length+' 个：'+picks.map(d=>'<a href="#r-'+DATA.indexOf(d)+'" data-jump="'+esc(d.n)+'">'+esc(d.n)+'</a>').join('')+'</div>':'';
   $('#answer').innerHTML='<div class="answer-lead"><b>'+live.length+'</b><span class="u">个渠道此刻仍可零成本使用</span><span>其中 '+perm+' 个长期或周期刷新</span></div>'+
     '<div class="answer-metrics"><span><b>'+ev+'</b> 条限时活动在窗口内</span><span><b>'+in7.length+'</b> 条 7 天内截止</span><span><b>'+wait+'</b> 条待核实</span></div>'+pickHTML;
   document.querySelectorAll('[data-jump]').forEach(a=>a.addEventListener('click',e=>{
