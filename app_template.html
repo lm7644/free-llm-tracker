@@ -89,6 +89,8 @@ header.band .wrap{position:relative}
 .st i{font-style:normal;font-size:11px;line-height:1}
 .st-ok{color:var(--ok)} .st-wait{color:var(--amber)} .st-stop{color:var(--ink-2)}
 .st-ok i{color:var(--ok)} .st-wait i{color:var(--amber)} .st-stop i{color:var(--ink-2)}
+/* 状态徽标升为「印章」层：带底与描边，和正文/来源链接拉开权重 */
+.c-status .st{padding:3px 8px;border:1px solid currentColor;border-radius:4px;background:var(--card);line-height:1.25}
 
 /* ===== 限时情报 ===== */
 .flash{position:relative;border:1px solid var(--line-2);border-radius:8px;margin:26px 0 0;background:var(--paper-2);box-shadow:0 1px 2px rgba(30,34,70,.04)}
@@ -202,6 +204,13 @@ p{text-wrap:pretty}
 .dt .mono{font-size:14px}
 .dt ul{list-style:none}
 .dt li{font-size:14px;line-height:1.7}
+/* 来源按「档案引文」处理：编号 + 标题 + 域名，触控高度 ≥44px */
+.dt li a.src{display:flex;align-items:center;gap:10px;min-height:44px;margin:0 -8px;padding:2px 8px;border-radius:6px;text-decoration:none;color:var(--ink)}
+.dt li a.src:hover{background:var(--paper-2)}
+.dt li a.src:focus-visible{background:var(--paper-2);box-shadow:0 0 0 2px var(--brand-wash)}
+.src-no{flex:0 0 2ch;font-family:var(--mono);font-size:12px;color:var(--ink-3);border-left:2px solid var(--line-2);padding-left:8px;font-variant-numeric:tabular-nums}
+.src-txt{display:flex;flex-direction:column;justify-content:center;line-height:1.35;min-width:0}
+.src-host{font-family:var(--mono);font-size:12px;color:var(--ink-3);overflow-wrap:anywhere}
 .riskline{grid-column:1/-1;border-top:1px dashed var(--line-2);padding-top:10px;font-size:14px;color:var(--red)}
 .riskline.ok{color:var(--ink-2)}
 
@@ -524,6 +533,7 @@ let F={q:'',region:'all',kind:'all',sort:'cat'};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const LOGO_RE=/^data:image\/(png|jpeg|webp|gif|x-icon|svg\+xml);base64,[A-Za-z0-9+/=]+$/;
+const hostOf=u=>{try{return new URL(u).hostname.replace(/^www\./,'')}catch(e){return ''}};
 function logo(g,n){
   const v=g&&LOGOS[g];
   if(v&&LOGO_RE.test(v))return '<img src="'+v+'" alt="" loading="lazy">';
@@ -632,7 +642,7 @@ function rowHTML(d){
     '<div class="dt"><h3>限额</h3><p class="mono">'+esc(d.l||'—')+'</p></div>'+
     '<div class="dt"><h3>到期时间</h3><p>'+esc(d.e)+'</p></div>'+
     '<div class="dt"><h3>准入门槛</h3><p>'+esc(d.a||'—')+'</p></div>'+
-    (d.L&&d.L.length?'<div class="dt"><h3>来源与入口</h3><ul>'+d.L.map(l=>'<li><a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+esc(l[0])+'</a></li>').join('')+'</ul></div>':'')+
+    (d.L&&d.L.length?'<div class="dt"><h3>来源与入口</h3><ul>'+d.L.map((l,i)=>'<li><a class="src" href="'+esc(l[1])+'" target="_blank" rel="noopener"><span class="src-no">'+String(i+1).padStart(2,'0')+'</span><span class="src-txt">'+esc(l[0])+'<span class="src-host">'+esc(hostOf(l[1])||'链接')+' ↗</span></span></a></li>').join('')+'</ul></div>':'')+
     (d.k?'<div class="riskline'+(/风险|勿|不|慎|未核实|不实|严禁/.test(d.k)?'':' ok')+'">'+esc(d.k)+'</div>':'')+
   '</div></div></div>';
 }
