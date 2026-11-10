@@ -59,7 +59,7 @@ main>section:nth-child(6){animation-delay:.21s}
 main>section:nth-child(7){animation-delay:.25s}
 main>section:nth-child(8){animation-delay:.29s}
 @media (prefers-reduced-motion:reduce){.flash,.news,.group{animation:none}}
-.flash,.news,details.dead{scroll-margin-top:84px}
+.flash,.news,details.dead{scroll-margin-top:var(--jump-margin,84px)}
 
 /* ===== 报头：深墨绿刊头横幅 ===== */
 header.band{background:var(--band);color:#fff;position:relative;overflow:hidden}
@@ -157,7 +157,7 @@ p{text-wrap:pretty}
 /* ===== 筛选 ===== */
 .controls{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 0 12px;margin-top:10px}
 .controls.scrolled{box-shadow:0 10px 18px -14px rgba(30,34,70,.28)}
-.group{scroll-margin-top:84px}
+.group{scroll-margin-top:var(--jump-margin,96px)}
 .row[data-open="1"] .detail-grid{animation:rise .32s cubic-bezier(.2,.7,.3,1)}
 .empty{border:1px dashed var(--line-2);border-radius:8px;padding:34px 20px;text-align:center;color:var(--ink-2);margin-top:26px;line-height:2}
 .empty b{color:var(--ink)}
@@ -182,7 +182,7 @@ p{text-wrap:pretty}
 .sort select{height:44px;border:1px solid var(--line-2);border-radius:5px;background:#fff;color:var(--ink);font:inherit;font-size:14px;padding:0 8px}
 
 /* ===== 分组与表 ===== */
-.group{margin-top:34px;scroll-margin-top:96px}
+.group{margin-top:34px;scroll-margin-top:var(--jump-margin,96px)}
 .group-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:2px}
 .group-head h2{font-size:21px;font-weight:700}
 .group-head h2::before{content:"";display:inline-block;width:11px;height:11px;background:var(--brand);border-radius:2px;margin-right:11px;transform:translateY(0)}
@@ -444,7 +444,7 @@ footer ul{padding-left:1.2em}
     <li>同类项目：<a href="https://github.com/mnfst/awesome-free-llm-apis" target="_blank" rel="noopener">mnfst/awesome-free-llm-apis</a>（英文 API 清单）| <a href="https://github.com/panxunying/ai-coding-welfare" target="_blank" rel="noopener">panxunying/ai-coding-welfare</a>（编程中转站导航）| <a href="https://github.com/peter123023/awesome-free-llm-api" target="_blank" rel="noopener">peter123023/awesome-free-llm-api</a>（中文 API 导航）| <a href="https://models.dev" target="_blank" rel="noopener">models.dev</a></li>
     <li>机器可读：<a href="llms.txt">llms.txt</a>（数据集说明）| <a href="feed.xml">feed.xml</a>（全量渠道 RSS，逐条核实日期）| <a href="monitor/changes.xml">monitor/changes.xml</a>（官方页变更 RSS）| <a href="monitor/README.md">监控管道说明</a></li>
   </ul>
-    <p class="changelog">更新记录：v4.0（2026-11-10）接入 AIHOT 数据源：Token羊毛每日自动同步合并（URL 规范化 + 产品级品牌/关键词/周期额度分层去重，自动收录条目标「第三方」待人工复核，下架自动移入历史区）；新增「每日十大AI新闻」板块（AIHOT 日报，不足十条以近 7 天精选补足）；新增页面目录——桌面 ≥1200px sticky 侧栏 + 移动端「目录」悬浮钮抽屉，点击平滑跳转、滚动高亮，目标被筛选隐藏时自动清除筛选；修复抽屉打开时平滑滚动被 body overflow:hidden 吞掉；修复已停用区长文本在 521px 以上移动视口横向溢出；v3.9（2026-11-06）数据层纠错：Perplexity 学生「2 年免费」→已于 2026-05-31 结束（现为首月免费 + Education Pro 半价）；WorkBuddy 500→100 积分/月；小浣熊上线礼 9000→最多 6000；LLM-Red-Team「全部下架」→ free-api 系列下架、组织仍有 4 个公开仓库；Google 学生 2TB→海外 AI Plus 400GB；HuggingFace 免费赠金已于 2026-10-07 取消并移入已停用。页首改为「最新单条核实日期」口径，每条按各自核实日期显示；新增根目录 feed.xml（全量 92 条，逐条含核实日期与来源）；v3.8（2026-11-05）混元卡更新：Hy4 正式版已发布（实测全球第一梯队开源，版权重近期开放）；v3.7（2026-11-05）模型速查全面修订（用户纠错驱动）：混元 Hy4-Preview（770B/1M）+Hy3、GPT 现行 6.1 Sol/Terra·6 Astra·6 Sol/Luna·5.6·5.5、Gemini 4 Argon/4 Carbon/3.8 Flash/3.1 Pro、小米 MiMo-V2.6-Pro/Flash、书生 Intern-S2（397B）、MiniMax M3.1 Flash（428B）、商汤 SenseNova 6.8 Flash 正式版；新增「SenseNova 6.8 Flash 限免」条目（小浣熊端限免至 12-01，花叔文章+商汤发布稿互证）；v3.6（2026-11-04）模型速查 DeepSeek 卡新增待出「Cyber」（网传网络安全模型：官网前端代码现入口+灰度申请页，未官宣）；账号监控 ghid 就绪 10/11（狗哥玩AI/平野先生玩AI/李叔AI 以大写 AI 名称反查命中——此前变体测试脚本漏 I 字符致误判，已修正）；v3.5（2026-11-04）新增「模型速查 · 现行与待出」板块（18 家厂商现行型号 + 有公开信号的待出新品：GPT-6.2「Bell」网传泄露 / Qwen 4 / Opus 5.5 平价版）；账号监控新整合码上AI记、花叔（ghid 就绪 7/11）；修复 aliyun logo 全透明（alicdn 官方图标替换）；v3.4（2026-11-04）复查修正：办公小浣熊/MonkeyCode/Accio Work/Agent2API 四条长期性质条目的状态位由限时窗口改回常规（不再挤占闪条与限时筛选，百炼返券恢复显示）；限时窗口容量 10→12；v3.3（2026-11-04）新增「千问办公 0.01 元月卡」条目（天猫旗舰店新用户专享，900 积分，兑换码 12-30 前激活；经济观察报+长江网实测多源核实）；v3.2（2026-11-04）签到板块扩容（办公小浣熊每日 300 积分、MonkeyCode 每日签到 + 500 亿共享池、Accio Work 每日 20 Credits、Agent2API 签到聚合工具）+ 新增 AutoClaw 周活动（智谱 Z.AI，本轮至 11-08）；TRAE 签到修正为官方口径（免费 100/日、付费 200/日，此前第三方 150/日口径有误）；Trae宝 窗口精确化（11-02 0 点至 11-08 24:00，赛博禅心报道与用户实测互证，可信度升「多方」）；Qoder Qwen3.8-Flash 转无限期免费（用户一手与第三方实测互证）；WorkBuddy 行追加第三方调用收紧风险提示；v3.1（2026-11-03）修复海外存档行残留在闪条与统计（限时活动 10→9，Google AI Pro 学生版不再出现在限时窗口）；新增「限时一周」闪条章型，Trae宝 等固定一周窗口不再标注为窗口不定期；v3.0（2026-11-03）修复移动端行卡网格（到期列长文本撑爆 auto 列导致名称列被挤成竖排——改为比例双列并允许换行）；按用户决策将 13 条大陆难以直连的渠道（Google AI Pro 学生版、Gemini CLI、OpenAI Codex CLI、Google Colab、Perplexity 学生计划、Notion 教育版、HuggingFace、Groq、Cerebras、Together AI、Chutes、SambaNova、阿里云国际站）移入新增的「海外难以直连（存档）」折叠区，主表与统计不再计入；社区传闻行移除 xAI 内容；v2.9（2026-11-01）新增 Trae宝（Trae 全自动智能体）限时一周免费条目——用户一手实测，发布当日全网无收录故标注「用户一手」档；v2.8（2026-11-01）新增「每日签到 · 领额度」板块（WorkBuddy 活跃奖励 / Trae 签到积分 / 百度搭子 / 豆包签到）；v2.7（2026-11-01）按用户一手实测修正 Qoder 双免费活动为进行中口径（官方页标注截止已过而实测可用，疑已顺延）；豆包签到行措辞去歧义；限时窗口不再展示已过期的截止日；v2.6（2026-10-31）前端精修——票券母题贯穿（刊头撕裂边、票根侧耳、金色票号）、分类导航 scrollspy、展开动效、lint 全绿；v2.5（2026-10-31）数据修正——ZCode「Global Build」每日 3 亿（每晚 19:00 领取、当晚 23:00–次日 09:00 可用）确认成条，旧 Weekend Build 条目重写，活动页过期信息清理；v2.4（2026-10-31）主题色改为琉璃绀×琥珀；v2.3（2026-10-31）票券刊头视觉重构 + 新增每日公众号情报检索；v2.2（2026-10-30）移动端适配与 PWA 化；v2.1（2026-10-30）审计修订；v2（2026-10-30）三口径核实、全表字段补全；v1（2026-10-29）初版 5 路调研。</p>
+    <p class="changelog">更新记录：v4.1（2026-11-11）目录分类锚点改指 section 本体，跳转边距改为随 sticky 筛选栏实高动态计算（原固定 84/96px：分类锚点原指 h2 落点 0px、且桌面筛选栏实高 107px 会遮掉标题上沿）；模型速查 18 家逐家复核（官方发布稿/官方文档口径）：Anthropic 补 Fable 5.2 / Mythos 5.2（11-09 发布，同底座双护栏，Opus 5.5 仍为官方日常主力推荐）与 Haiku 5.5；xAI Grok 4.1→4.7（9-21 发布）/4.6；Google 移除未官宣的 4 Pro/4 Flash（移入待出·仅传闻），4 Carbon 标注限量开放网络防御方；Kimi K3.1→K3.1 Pro（11-04 起开放权重）；MiniMax 开源日期 10-19→10-23（10-19 为发布日），待出补 M3.1 Pro；美团 LongCat-2.5 补 11-09 MIT 开源；Meta 补 Muse Spark Open（816B，10-16 开放权重）；阿里 Qwen 4 由「网传」改「云栖大会官宣、训练中未上线」，Qwen3.8-Max 补开源口径与 27B；腾讯待出补 Hy4 Flash，Hy4 正式版注明权重截至 11-10 未放出；讯飞/阶跃/小米补参数与开源口径；商汤补 Loop-9B-Preview；字节补 2.1 Turbo；v4.0（2026-11-10）接入 AIHOT 数据源：Token羊毛每日自动同步合并（URL 规范化 + 产品级品牌/关键词/周期额度分层去重，自动收录条目标「第三方」待人工复核，下架自动移入历史区）；新增「每日十大AI新闻」板块（AIHOT 日报，不足十条以近 7 天精选补足）；新增页面目录——桌面 ≥1200px sticky 侧栏 + 移动端「目录」悬浮钮抽屉，点击平滑跳转、滚动高亮，目标被筛选隐藏时自动清除筛选；修复抽屉打开时平滑滚动被 body overflow:hidden 吞掉；修复已停用区长文本在 521px 以上移动视口横向溢出；v3.9（2026-11-06）数据层纠错：Perplexity 学生「2 年免费」→已于 2026-05-31 结束（现为首月免费 + Education Pro 半价）；WorkBuddy 500→100 积分/月；小浣熊上线礼 9000→最多 6000；LLM-Red-Team「全部下架」→ free-api 系列下架、组织仍有 4 个公开仓库；Google 学生 2TB→海外 AI Plus 400GB；HuggingFace 免费赠金已于 2026-10-07 取消并移入已停用。页首改为「最新单条核实日期」口径，每条按各自核实日期显示；新增根目录 feed.xml（全量 92 条，逐条含核实日期与来源）；v3.8（2026-11-05）混元卡更新：Hy4 正式版已发布（实测全球第一梯队开源，版权重近期开放）；v3.7（2026-11-05）模型速查全面修订（用户纠错驱动）：混元 Hy4-Preview（770B/1M）+Hy3、GPT 现行 6.1 Sol/Terra·6 Astra·6 Sol/Luna·5.6·5.5、Gemini 4 Argon/4 Carbon/3.8 Flash/3.1 Pro、小米 MiMo-V2.6-Pro/Flash、书生 Intern-S2（397B）、MiniMax M3.1 Flash（428B）、商汤 SenseNova 6.8 Flash 正式版；新增「SenseNova 6.8 Flash 限免」条目（小浣熊端限免至 12-01，花叔文章+商汤发布稿互证）；v3.6（2026-11-04）模型速查 DeepSeek 卡新增待出「Cyber」（网传网络安全模型：官网前端代码现入口+灰度申请页，未官宣）；账号监控 ghid 就绪 10/11（狗哥玩AI/平野先生玩AI/李叔AI 以大写 AI 名称反查命中——此前变体测试脚本漏 I 字符致误判，已修正）；v3.5（2026-11-04）新增「模型速查 · 现行与待出」板块（18 家厂商现行型号 + 有公开信号的待出新品：GPT-6.2「Bell」网传泄露 / Qwen 4 / Opus 5.5 平价版）；账号监控新整合码上AI记、花叔（ghid 就绪 7/11）；修复 aliyun logo 全透明（alicdn 官方图标替换）；v3.4（2026-11-04）复查修正：办公小浣熊/MonkeyCode/Accio Work/Agent2API 四条长期性质条目的状态位由限时窗口改回常规（不再挤占闪条与限时筛选，百炼返券恢复显示）；限时窗口容量 10→12；v3.3（2026-11-04）新增「千问办公 0.01 元月卡」条目（天猫旗舰店新用户专享，900 积分，兑换码 12-30 前激活；经济观察报+长江网实测多源核实）；v3.2（2026-11-04）签到板块扩容（办公小浣熊每日 300 积分、MonkeyCode 每日签到 + 500 亿共享池、Accio Work 每日 20 Credits、Agent2API 签到聚合工具）+ 新增 AutoClaw 周活动（智谱 Z.AI，本轮至 11-08）；TRAE 签到修正为官方口径（免费 100/日、付费 200/日，此前第三方 150/日口径有误）；Trae宝 窗口精确化（11-02 0 点至 11-08 24:00，赛博禅心报道与用户实测互证，可信度升「多方」）；Qoder Qwen3.8-Flash 转无限期免费（用户一手与第三方实测互证）；WorkBuddy 行追加第三方调用收紧风险提示；v3.1（2026-11-03）修复海外存档行残留在闪条与统计（限时活动 10→9，Google AI Pro 学生版不再出现在限时窗口）；新增「限时一周」闪条章型，Trae宝 等固定一周窗口不再标注为窗口不定期；v3.0（2026-11-03）修复移动端行卡网格（到期列长文本撑爆 auto 列导致名称列被挤成竖排——改为比例双列并允许换行）；按用户决策将 13 条大陆难以直连的渠道（Google AI Pro 学生版、Gemini CLI、OpenAI Codex CLI、Google Colab、Perplexity 学生计划、Notion 教育版、HuggingFace、Groq、Cerebras、Together AI、Chutes、SambaNova、阿里云国际站）移入新增的「海外难以直连（存档）」折叠区，主表与统计不再计入；社区传闻行移除 xAI 内容；v2.9（2026-11-01）新增 Trae宝（Trae 全自动智能体）限时一周免费条目——用户一手实测，发布当日全网无收录故标注「用户一手」档；v2.8（2026-11-01）新增「每日签到 · 领额度」板块（WorkBuddy 活跃奖励 / Trae 签到积分 / 百度搭子 / 豆包签到）；v2.7（2026-11-01）按用户一手实测修正 Qoder 双免费活动为进行中口径（官方页标注截止已过而实测可用，疑已顺延）；豆包签到行措辞去歧义；限时窗口不再展示已过期的截止日；v2.6（2026-10-31）前端精修——票券母题贯穿（刊头撕裂边、票根侧耳、金色票号）、分类导航 scrollspy、展开动效、lint 全绿；v2.5（2026-10-31）数据修正——ZCode「Global Build」每日 3 亿（每晚 19:00 领取、当晚 23:00–次日 09:00 可用）确认成条，旧 Weekend Build 条目重写，活动页过期信息清理；v2.4（2026-10-31）主题色改为琉璃绀×琥珀；v2.3（2026-10-31）票券刊头视觉重构 + 新增每日公众号情报检索；v2.2（2026-10-30）移动端适配与 PWA 化；v2.1（2026-10-30）审计修订；v2（2026-10-30）三口径核实、全表字段补全；v1（2026-10-29）初版 5 路调研。</p>
 </footer>
 
 </div>
@@ -735,23 +735,23 @@ function rowHTML(d){
 }
 const MODELS=[
  {p:'智谱AI',fam:'GLM 系列',cur:'GLM-5.3（旗舰，743B）/ GLM-5.3-Flash / GLM-5.2（1M 上下文）/ GLM-4.7-Flash / GLM-4.6V / GLM-Z1',next:''},
- {p:'阿里',fam:'通义千问 Qwen',cur:'Qwen3.8-Max / Qwen3.8（2.4T）/ Qwen3.5-plus / Qwen3-Coder / Qwen3.8-Flash',next:'Qwen 4（网传泄露，无官方确认）'},
+ {p:'阿里',fam:'通义千问 Qwen',cur:'Qwen3.8-Max（2.4T / 激活 95B，1M 上下文，权重已开源）/ Qwen3.8-Flash / Qwen3.8-27B / Qwen3.5-plus / Qwen3-Coder',next:'Qwen 4（2026 云栖大会官宣四大层级，训练中未上线；5–10 万亿参数为 Qwen 4.5/5 规划）'},
  {p:'深度求索',fam:'DeepSeek',cur:'DeepSeek-V4-Pro-0813（1.6T）/ DeepSeek-V4 / V4-Flash-0731（1M 上下文）/ R 系推理',next:'Cyber（网传网络安全模型：官网前端代码已现入口、社区流出灰度申请页，未官宣）'},
- {p:'月之暗面',fam:'Kimi',cur:'Kimi K3（2.8T，开源）/ K3.1 / K2',next:''},
- {p:'字节跳动',fam:'豆包 Doubao',cur:'Doubao-Seed-2.1-pro / Doubao-Seed-Code',next:''},
- {p:'腾讯',fam:'混元 Hy',cur:'Hy4（正式版，实测跻身全球第一梯队开源，版权重近期开放）/ Hy4-Preview（770B / 激活 49B / 1M 上下文）/ Hy3',next:''},
- {p:'科大讯飞',fam:'星火 Spark',cur:'Spark-X2.6 / Spark Lite',next:''},
- {p:'MiniMax',fam:'MiniMax',cur:'M3.1 Flash（428B / 1M 上下文，10-19 开源）/ M2.7',next:''},
- {p:'阶跃星辰',fam:'Step',cur:'Step-5-Preview（600B MoE）',next:''},
- {p:'商汤',fam:'日日新 SenseNova',cur:'SenseNova 6.8 Flash（正式版，11-02 发布）/ 6.8 Flash Lite Preview',next:''},
- {p:'上海AI实验室',fam:'书生 InternLM',cur:'Intern-S2（397B，9-13 开源）/ InternLM 200K 长上下文版',next:''},
- {p:'美团',fam:'LongCat',cur:'LongCat-2.5（1.6T 总参 / 激活 480 亿，原生多模态，全程国产算力训练，11-02 发布）',next:''},
- {p:'小米',fam:'MiMo',cur:'MiMo-V2.6-Pro（万亿参数全模态旗舰）/ MiMo-V2.6-Flash',next:''},
+ {p:'月之暗面',fam:'Kimi',cur:'Kimi K3.1 Pro（2.8T / 激活 104B，1M 上下文，11-04 起开放权重）/ K3（2.8T，已开源）/ K2',next:''},
+ {p:'字节跳动',fam:'豆包 Doubao',cur:'Doubao-Seed-2.1-pro（0915 版）/ 2.1 Turbo / Doubao-Seed-Code',next:''},
+ {p:'腾讯',fam:'混元 Hy',cur:'Hy4（正式版 11-04 发布，770B / 激活 49B / 1M 上下文，官方称首次跻身最强开源之列；权重预告近期开源、截至 11-10 未放出）/ Hy4-Preview（已开源）/ Hy3',next:'Hy4 Flash（官方预告近期发布，主打性价比）'},
+ {p:'科大讯飞',fam:'星火 Spark',cur:'Spark-X2.6（293B-A30B，1M 上下文，10-22 发布）/ X2.6-4B（开源端侧）/ Spark Lite',next:''},
+ {p:'MiniMax',fam:'MiniMax',cur:'M3.1 Flash（428B / 激活 23B，1M 上下文，10-19 发布、10-23 开源）/ M2.7',next:'M3.1 Pro（官方称规划中，时间未公布）'},
+ {p:'阶跃星辰',fam:'Step',cur:'Step-5-Preview（600B / 激活 27B，1M 上下文，9-20 发布、10-15 开源）',next:''},
+ {p:'商汤',fam:'日日新 SenseNova',cur:'SenseNova 6.8 Flash（正式版，11-02 发布）/ 6.8 Flash Lite Preview / Loop-9B-Preview（10-30 开源）',next:''},
+ {p:'上海AI实验室',fam:'书生 InternLM',cur:'Intern-S2（397B，9-13 正式版开源）/ InternLM 200K 长上下文版',next:''},
+ {p:'美团',fam:'LongCat',cur:'LongCat-2.5（1.6T 总参 / 激活 480 亿，原生多模态，全程国产算力训练，11-02 发布、11-09 MIT 开源）',next:''},
+ {p:'小米',fam:'MiMo',cur:'MiMo-V2.6-Pro（1.02T / 激活 420 亿，全模态旗舰）/ MiMo-V2.6-Flash（309B / 激活 150 亿），均 MIT 开源、1M 上下文',next:''},
  {p:'OpenAI',fam:'GPT',cur:'GPT-6.1 Sol / GPT-6.1 Terra / GPT-6 Astra（顶级）/ GPT-6 Sol / GPT-6 Luna / GPT-5.6 Sol·Terra·Luna / GPT-5.5（+Pro）',next:'GPT-6.2「Bell」（网传泄露：原传 11-01 发布已跳票，可信度低）'},
- {p:'Anthropic',fam:'Claude',cur:'Opus 5.5 / Opus 4.7（1M 上下文）/ Sonnet 系',next:'Opus 5.5 平价版（泄露流传）'},
- {p:'Google',fam:'Gemini',cur:'Gemini 4 Argon（旗舰，1M 共享上下文，9-30 发布）/ 4 Carbon / 4 Pro / 4 Flash / 3.8 Flash / 3.1 Pro',next:''},
- {p:'xAI',fam:'Grok',cur:'Grok 4.1',next:''},
- {p:'Meta',fam:'Llama',cur:'Llama 4 / Muse Glimmer-30B（开放权重）',next:''}
+ {p:'Anthropic',fam:'Claude',cur:'Fable 5.2 / Mythos 5.2（11-09 发布，同底座双护栏：Fable 全量开放，Mythos 仅审核机构）/ Opus 5.5（官方日常主力推荐）/ Opus 4.7（1M 上下文）/ Haiku 5.5 / Sonnet 系',next:'Opus 5.5 平价版（泄露流传）'},
+ {p:'Google',fam:'Gemini',cur:'Gemini 4 Argon（旗舰，1M 上下文，9-30 发布）/ 4 Carbon（10-28 发布，限量开放网络防御方）/ 3.8 Flash / 3.1 Pro',next:'Gemini 4 Pro / 4 Flash（仅传闻与 Arena 偷跑，官方未公布）'},
+ {p:'xAI',fam:'Grok',cur:'Grok 4.7（9-21 发布，编码与知识工作旗舰）/ Grok 4.6',next:''},
+ {p:'Meta',fam:'Llama / Muse',cur:'Muse Spark Open（816B / 激活 42B，1M 上下文，10-16 开放权重）/ Muse Glimmer-30B（Apache 2.0）/ Llama 4',next:''}
 ];
 function modelsRender(){
   const el=document.getElementById('mgrid');
@@ -791,7 +791,7 @@ function render(){
   CATS.forEach(c=>{
     const rows=sortRows(shown.filter(d=>d.c===c.k));
     if(!rows.length)return;
-    html+='<section class="group" data-cat="'+c.k+'" aria-labelledby="gh-'+c.k+'"><div class="group-head"><h2 id="gh-'+c.k+'">'+esc(c.t)+'</h2><p>'+esc(c.d)+'（'+rows.length+' 条）</p></div>'+ROW_HEAD+'<div class="rows">'+rows.map(rowHTML).join('')+'</div></section>';
+    html+='<section class="group" id="g-'+c.k+'" data-cat="'+c.k+'" aria-labelledby="gh-'+c.k+'"><div class="group-head"><h2 id="gh-'+c.k+'">'+esc(c.t)+'</h2><p>'+esc(c.d)+'（'+rows.length+' 条）</p></div>'+ROW_HEAD+'<div class="rows">'+rows.map(rowHTML).join('')+'</div></section>';
   });
   $('#groups').innerHTML=html||'<div class="empty"><b>没有匹配的渠道</b><br>换个关键词，或清除当前筛选。<br><button class="chip" id="clearFilters" type="button">清除全部筛选</button></div>';
   const af=[];
@@ -812,6 +812,12 @@ function render(){
   setupSpy();
   const cf=document.getElementById('clearFilters')||document.getElementById('clearFilters2');
   if(cf)cf.addEventListener('click',clearFilters);
+  updateJumpMargin();
+}
+function updateJumpMargin(){
+  const ctl=document.querySelector('.controls');
+  if(matchMedia('(min-width:900.01px)').matches)document.documentElement.style.setProperty('--jump-margin',(ctl.offsetHeight+14)+'px');
+  else document.documentElement.style.removeProperty('--jump-margin');
 }
 function setupSpy(){
   if(window.__spy)window.__spy.disconnect();
@@ -845,7 +851,7 @@ document.querySelectorAll('.chip').forEach(c=>{
 function tocLinks(){
   const head=[{k:'flash',t:'限时窗口',href:'#flash'}];
   if(NEWS&&Array.isArray(NEWS.items)&&NEWS.items.length)head.push({k:'news',t:'每日十大AI新闻',href:'#news'});
-  const cats=CATS.map(c=>({k:c.k,t:c.t,href:'#gh-'+c.k,n:DATA.filter(d=>d.c===c.k).length}));
+  const cats=CATS.map(c=>({k:c.k,t:c.t,href:'#g-'+c.k,n:DATA.filter(d=>d.c===c.k).length}));
   const tail=[{k:'models',t:'模型速查',href:'#models'},{k:'dead',t:'已停用历史区',href:'#dead'},{k:'overseas',t:'海外存档',href:'#overseas'}];
   return [...head,...cats,...tail];
 }
@@ -880,6 +886,7 @@ drawer.addEventListener('click',tocClick);
 masthead();flash();newsRender();render();deadRender();modelsRender();
 const ctl=document.querySelector('.controls');
 addEventListener('scroll',()=>{ctl.classList.toggle('scrolled',ctl.getBoundingClientRect().top<=0)},{passive:true});
+addEventListener('resize',updateJumpMargin);
 </script>
 </body>
 </html>
