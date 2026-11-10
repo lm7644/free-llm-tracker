@@ -8,10 +8,10 @@
 
 | 项 | 状态 | 验证时间与方式 |
 |---|---|---|
-| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200（v3.9 已推送，commit 5859098；Pages build=built） | 2026-11-06 push + builds API + live GET |
-| 内容为最新版 | ✅ v3.9 标记：6 条数据纠错 + 「最新单条核实」口径 + 根 `/feed.xml` 全量 92 条 | 2026-11-06 live 内容标记 + Chrome 真实渲染 |
+| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200（**v4.0 已推送，commit 2f28599**；线上实测含 v4.0 changelog / 新闻板块 / 38 条 ai 标记 / 目录 FAB） | 2026-11-10 push + live 内容标记 |
+| 内容为最新版 | ✅ v4.0 标记：AIHOT 接入 + 十大新闻 + 页面目录；线上 feed.xml 130 条、CSV 200 | 2026-11-10 live GET + 内容解析 |
 | RSS feed | ✅ 线上 `/feed.xml`、`/monitor/feed.xml` 均 200、各 92 条（逐条 pubDate=各自核实日期）；`/monitor/changes.xml` 200（7 条变更日志） | 2026-11-06 本地 + 线上 GET + XML 条目校验 |
-| 页面数据 | ✅ 本地 130 条 = 主表 108 + 海外存档 12 + 已停用 10（含 AIHOT 自动收录 38 条，全部「第三方」待复核，带 ai 标记）；CSV/feed 130 条同源生成；**尚未推送，线上仍为 v3.9 的 92 条** | 2026-11-10 node validate + build-assets + 浏览器渲染 |
+| 页面数据 | ✅ 130 条 = 主表 108 + 海外存档 12 + 已停用 10（含 AIHOT 自动收录 38 条，全部「第三方」待复核，带 ai 标记）；CSV/feed 130 条同源生成；**已推送上线（2f28599）** | 2026-11-10 node validate + build-assets + 浏览器渲染 + live 复核 |
 | AIHOT 同步引擎 | ✅ monitor/aihot-fetch.js：free-tokens.data（turbo-stream v2 解码，HTML 内嵌流兜底）+ 日报 API；分层去重（URL/产品级品牌+关键词/相似度/周期额度）；首跑 53 条→新增 38、跳过 15、下架 0；CI 已加步骤（重建前）与模板提交；两路全挂才非零退出 | 2026-11-10 dry-run 审查 + 实跑 + validate |
 | 每日十大AI新闻 | ✅ 模板 NEWS 占位 + newsRender()；日报 2026-11-10 原生 10 条（不足时 7 天精选补足逻辑已验证：11-09 日报 6 条补 4）；rank 01-10、标题链 AIHOT 日报、9 条原文链接、署名提示 | 2026-11-10 浏览器 DOM 实测 |
 | 页面目录导航 | ✅ 桌面 ≥1200px sticky 侧栏（188px 网格列）；移动端 FAB+抽屉（44px 触控、Escape/遮罩关闭）；scrollspy 高亮；跳转落点 84px scroll-margin；目标被筛选隐藏时自动 clearFilters；details 目标自动展开 | 2026-11-10 浏览器实测（隐藏页面对平滑滚动强制 instant 验证落点，见事故记录） |
