@@ -35,7 +35,8 @@
   }
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(69,73,168,.14)}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(69,73,168,.14);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
   background:var(--paper);color:var(--ink);
   font:400 17px/1.8 "Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
@@ -49,7 +50,7 @@ h1,h2,h3{text-wrap:balance}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.flash,.group{animation:rise .45s cubic-bezier(.2,.7,.3,1) both}
+.flash,.news,.group{animation:rise .45s cubic-bezier(.2,.7,.3,1) both}
 main>section:nth-child(2){animation-delay:.05s}
 main>section:nth-child(3){animation-delay:.09s}
 main>section:nth-child(4){animation-delay:.13s}
@@ -57,7 +58,8 @@ main>section:nth-child(5){animation-delay:.17s}
 main>section:nth-child(6){animation-delay:.21s}
 main>section:nth-child(7){animation-delay:.25s}
 main>section:nth-child(8){animation-delay:.29s}
-@media (prefers-reduced-motion:reduce){.flash,.group{animation:none}}
+@media (prefers-reduced-motion:reduce){.flash,.news,.group{animation:none}}
+.flash,.news,details.dead{scroll-margin-top:84px}
 
 /* ===== 报头：深墨绿刊头横幅 ===== */
 header.band{background:var(--band);color:#fff;position:relative;overflow:hidden}
@@ -109,6 +111,39 @@ header.band .wrap{position:relative}
 .flash-what{color:var(--ink-2);font-size:15px;flex:1;min-width:12em}
 .due{font-family:var(--mono);font-size:13px;color:var(--amber);background:var(--amber-wash);padding:1px 8px;border-radius:3px;white-space:nowrap}
 .due.hot{color:var(--red);background:var(--red-wash)}
+
+/* ===== 每日十大AI新闻 ===== */
+.news{margin-top:26px;border:1px solid var(--line-2);border-radius:8px;background:var(--card);box-shadow:0 1px 2px rgba(30,34,70,.04)}
+.news .group-head{padding:12px 16px 8px;margin-bottom:0}
+.news-list{list-style:none;padding:4px 16px 10px}
+.news-list li{display:flex;gap:12px;padding:10px 0;border-top:1px dashed var(--line);align-items:baseline}
+.news-list li:first-child{border-top:0}
+.news-rank{font-family:var(--mono);font-size:13px;color:var(--ink-3);flex:0 0 2ch;text-align:right}
+.news-list li:nth-child(-n+3) .news-rank{color:var(--amber);font-weight:700}
+.news-body{min-width:0;flex:1}
+.news-title{font-weight:600;font-size:15.5px;line-height:1.6}
+.news-title a{color:var(--ink);text-decoration:none}
+.news-title a:hover{color:var(--brand);text-decoration:underline}
+.news-sum{font-size:14px;color:var(--ink-2);line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-meta{font-size:12.5px;color:var(--ink-3);margin-top:2px}
+.news-meta a{color:inherit}
+.news-src{padding:0 16px 12px;font-size:13px;color:var(--ink-3)}
+
+/* ===== 页面目录：移动端浮动按钮 + 抽屉 ===== */
+.toc-fab{position:fixed;right:18px;bottom:22px;z-index:60;display:none;align-items:center;gap:7px;height:46px;padding:0 18px;border-radius:23px;background:var(--band);color:#fff;font-size:14.5px;font-weight:600;box-shadow:0 4px 14px rgba(30,34,70,.3)}
+.toc-fab svg{width:16px;height:16px}
+.toc-overlay{position:fixed;inset:0;z-index:70;background:rgba(30,34,70,.4);opacity:0;pointer-events:none;transition:opacity .2s}
+.toc-drawer{position:fixed;top:0;right:0;bottom:0;z-index:71;width:min(320px,84vw);background:var(--paper);box-shadow:-8px 0 24px rgba(30,34,70,.18);transform:translateX(100%);transition:transform .25s cubic-bezier(.2,.7,.3,1);display:flex;flex-direction:column;padding:14px 12px;overflow-y:auto}
+body.toc-open{overflow:hidden}
+body.toc-open .toc-overlay{opacity:1;pointer-events:auto}
+body.toc-open .toc-drawer{transform:none}
+.toc-drawer .toc-h{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink-3);padding:2px 10px 10px}
+.toc-drawer a{display:flex;align-items:baseline;gap:8px;padding:11px 10px;border-radius:6px;color:var(--ink);font-size:15px;text-decoration:none;border-left:2px solid transparent;min-height:44px}
+.toc-drawer a .n{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:auto}
+.toc-drawer a.active{background:var(--brand-wash);color:var(--brand-deep);border-left-color:var(--brand);font-weight:600}
+.toc-close{font-size:20px;line-height:1;padding:6px 10px;color:var(--ink-2)}
+@media (max-width:1199.98px){.toc-fab{display:inline-flex}}
+@media (prefers-reduced-motion:reduce){.toc-drawer,.toc-overlay{transition:none}}
 
 /* ===== 统计行 ===== */
 .stats{display:flex;flex-wrap:wrap;gap:2px 0;padding:16px 2px 2px;font-size:14px;color:var(--ink-2)}
@@ -222,7 +257,7 @@ details.dead summary .n{font-family:var(--mono);font-size:13px;color:var(--ink-3
 .dead-list{list-style:none;padding:0 18px 14px}
 .dead-list li{display:flex;flex-wrap:wrap;gap:4px 12px;padding:9px 0;border-top:1px solid var(--line);font-size:14.5px}
 .dead-list .was{color:var(--ink-2)}
-.dead-list .when{font-family:var(--mono);font-size:14px;color:var(--ink-3);margin-left:auto;white-space:nowrap}
+.dead-list .when{font-family:var(--mono);font-size:14px;color:var(--ink-3);margin-left:auto;white-space:normal;overflow-wrap:anywhere;max-width:100%}
 .dead-list .vd{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .dead-list .vd a{color:inherit;text-decoration:underline}
 
@@ -322,10 +357,16 @@ footer ul{padding-left:1.2em}
 
 <div class="wrap">
 
-<section class="flash" aria-labelledby="flashh">
+<section class="flash" id="flash" aria-labelledby="flashh">
   <div class="flash-head"><h2 id="flashh">限时窗口</h2><span>有截止日的活额度，错过就没了</span></div>
   <ul class="flash-list" id="flashlist"></ul>
   <button class="flash-more" id="flashmore" type="button" aria-expanded="false" aria-controls="flashlist"></button>
+</section>
+
+<section class="news" id="news" aria-labelledby="newsh" hidden>
+  <div class="group-head"><h2 id="newsh">每日十大AI新闻</h2><span id="newsdate"></span></div>
+  <ol class="news-list" id="newslist"></ol>
+  <p class="news-src" id="newssrc"></p>
 </section>
 
 <div class="controls">
@@ -357,7 +398,7 @@ footer ul{padding-left:1.2em}
 </div>
 
 <div class="columns">
-<aside class="toc" id="toc" aria-label="分类导航"></aside>
+<aside class="toc" id="toc" aria-label="页面目录"></aside>
 <main id="groups"></main>
 
 <section class="group" id="models" aria-labelledby="mh">
@@ -366,13 +407,13 @@ footer ul{padding-left:1.2em}
 </section>
 </div>
 
-<details class="dead">
+<details class="dead" id="dead">
   <summary>已停用历史区<span class="n" id="deadn"></span></summary>
   <p style="padding:0 18px;font-size:14px;color:var(--ink-2)">这些渠道的免费额度已结束或政策已变动，收录在此防止踩坑。旧清单常把这一区混在有效渠道里——本表把它们隔离。</p>
   <ul class="dead-list" id="deadlist"></ul>
 </details>
 
-<details class="dead">
+<details class="dead" id="overseas">
   <summary>海外难以直连（存档）<span class="n" id="ovseasn"></span></summary>
   <p style="padding:0 18px;font-size:14px;color:var(--ink-2)">这些渠道因域名在中国大陆被阻断、官方不对大陆提供服务、或准入需海外支付工具与身份，主表不再收录；资料存档备查，来源与核实日期仍然有效。</p>
   <ul class="dead-list" id="ovseaslist"></ul>
@@ -395,19 +436,26 @@ footer ul{padding-left:1.2em}
   </div>
   <p>「免费」分三种完全不同的性质，别混着看：<b>永久免费</b>（长期有效，通常限速）、<b>周期刷新</b>（每日/每月额度，用完等明天）、<b>一次性赠金</b>（用完即止，注意有效期）。限时活动的截止日以官方活动页为准。</p>
   <h2>核实方法</h2>
-  <p>全表最近核实日期见页首「数据截止」，每条另标各自的核实日期与可信度。核实顺序：官方定价页与文档优先，社区来源（Linux.do、NodeSeek、知乎、GitHub）交叉验证；无法核实的一律标注「未核实」而不是删除。每日巡查只产出变更线索，入表前需人工复核来源；免费额度随时可能调整，使用前请点开每条的来源链接复核。本表不收录需要逆向或违反服务条款的渠道作为推荐项（灰色区仅作风险记录）。</p>
+  <p>全表最近核实日期见页首「最新单条核实」，每条另标各自的核实日期与可信度。核实顺序：官方定价页与文档优先，社区来源（Linux.do、NodeSeek、知乎、GitHub）交叉验证；无法核实的一律标注「未核实」而不是删除。每日巡查只产出变更线索，入表前需人工复核来源；免费额度随时可能调整，使用前请点开每条的来源链接复核。本表不收录需要逆向或违反服务条款的渠道作为推荐项（灰色区仅作风险记录）。</p>
   <h2>情报源（持续跟踪羊毛信息的去处）</h2>
   <ul>
     <li><a href="https://linux.do/c/welfare/36" target="_blank" rel="noopener">Linux.do 福利羊毛板块</a> | <a href="https://www.nodeseek.com" target="_blank" rel="noopener">NodeSeek</a> | 知乎「大模型免费额度」专栏</li>
+    <li>数据来源：<a href="https://aihot.news/free-tokens" target="_blank" rel="noopener">AIHOT Token羊毛</a>（每日自动同步合并，收录条目标「第三方」待复核）| <a href="https://aihot.news" target="_blank" rel="noopener">AIHOT 日报</a>（「每日十大AI新闻」来源）</li>
     <li>同类项目：<a href="https://github.com/mnfst/awesome-free-llm-apis" target="_blank" rel="noopener">mnfst/awesome-free-llm-apis</a>（英文 API 清单）| <a href="https://github.com/panxunying/ai-coding-welfare" target="_blank" rel="noopener">panxunying/ai-coding-welfare</a>（编程中转站导航）| <a href="https://github.com/peter123023/awesome-free-llm-api" target="_blank" rel="noopener">peter123023/awesome-free-llm-api</a>（中文 API 导航）| <a href="https://models.dev" target="_blank" rel="noopener">models.dev</a></li>
-    <li>机器可读：<a href="llms.txt">llms.txt</a>（数据集说明）| <a href="feed.xml">feed.xml</a>（全量 92 条 RSS，逐条核实日期）| <a href="monitor/changes.xml">monitor/changes.xml</a>（官方页变更 RSS）| <a href="monitor/README.md">监控管道说明</a></li>
+    <li>机器可读：<a href="llms.txt">llms.txt</a>（数据集说明）| <a href="feed.xml">feed.xml</a>（全量渠道 RSS，逐条核实日期）| <a href="monitor/changes.xml">monitor/changes.xml</a>（官方页变更 RSS）| <a href="monitor/README.md">监控管道说明</a></li>
   </ul>
-    <p class="changelog">更新记录：v3.9（2026-11-06）数据层纠错：Perplexity 学生「2 年免费」→已于 2026-05-31 结束（现为首月免费 + Education Pro 半价）；WorkBuddy 500→100 积分/月；小浣熊上线礼 9000→最多 6000；LLM-Red-Team「全部下架」→ free-api 系列下架、组织仍有 4 个公开仓库；Google 学生 2TB→海外 AI Plus 400GB；HuggingFace 免费赠金已于 2026-10-07 取消并移入已停用。页首改为「最新单条核实日期」口径，每条按各自核实日期显示；新增根目录 feed.xml（全量 92 条，逐条含核实日期与来源）；v3.8（2026-11-05）混元卡更新：Hy4 正式版已发布（实测全球第一梯队开源，版权重近期开放）；v3.7（2026-11-05）模型速查全面修订（用户纠错驱动）：混元 Hy4-Preview（770B/1M）+Hy3、GPT 现行 6.1 Sol/Terra·6 Astra·6 Sol/Luna·5.6·5.5、Gemini 4 Argon/4 Carbon/3.8 Flash/3.1 Pro、小米 MiMo-V2.6-Pro/Flash、书生 Intern-S2（397B）、MiniMax M3.1 Flash（428B）、商汤 SenseNova 6.8 Flash 正式版；新增「SenseNova 6.8 Flash 限免」条目（小浣熊端限免至 12-01，花叔文章+商汤发布稿互证）；v3.6（2026-11-04）模型速查 DeepSeek 卡新增待出「Cyber」（网传网络安全模型：官网前端代码现入口+灰度申请页，未官宣）；账号监控 ghid 就绪 10/11（狗哥玩AI/平野先生玩AI/李叔AI 以大写 AI 名称反查命中——此前变体测试脚本漏 I 字符致误判，已修正）；v3.5（2026-11-04）新增「模型速查 · 现行与待出」板块（18 家厂商现行型号 + 有公开信号的待出新品：GPT-6.2「Bell」网传泄露 / Qwen 4 / Opus 5.5 平价版）；账号监控新整合码上AI记、花叔（ghid 就绪 7/11）；修复 aliyun logo 全透明（alicdn 官方图标替换）；v3.4（2026-11-04）复查修正：办公小浣熊/MonkeyCode/Accio Work/Agent2API 四条长期性质条目的状态位由限时窗口改回常规（不再挤占闪条与限时筛选，百炼返券恢复显示）；限时窗口容量 10→12；v3.3（2026-11-04）新增「千问办公 0.01 元月卡」条目（天猫旗舰店新用户专享，900 积分，兑换码 12-30 前激活；经济观察报+长江网实测多源核实）；v3.2（2026-11-04）签到板块扩容（办公小浣熊每日 300 积分、MonkeyCode 每日签到 + 500 亿共享池、Accio Work 每日 20 Credits、Agent2API 签到聚合工具）+ 新增 AutoClaw 周活动（智谱 Z.AI，本轮至 11-08）；TRAE 签到修正为官方口径（免费 100/日、付费 200/日，此前第三方 150/日口径有误）；Trae宝 窗口精确化（11-02 0 点至 11-08 24:00，赛博禅心报道与用户实测互证，可信度升「多方」）；Qoder Qwen3.8-Flash 转无限期免费（用户一手与第三方实测互证）；WorkBuddy 行追加第三方调用收紧风险提示；v3.1（2026-11-03）修复海外存档行残留在闪条与统计（限时活动 10→9，Google AI Pro 学生版不再出现在限时窗口）；新增「限时一周」闪条章型，Trae宝 等固定一周窗口不再标注为窗口不定期；v3.0（2026-11-03）修复移动端行卡网格（到期列长文本撑爆 auto 列导致名称列被挤成竖排——改为比例双列并允许换行）；按用户决策将 13 条大陆难以直连的渠道（Google AI Pro 学生版、Gemini CLI、OpenAI Codex CLI、Google Colab、Perplexity 学生计划、Notion 教育版、HuggingFace、Groq、Cerebras、Together AI、Chutes、SambaNova、阿里云国际站）移入新增的「海外难以直连（存档）」折叠区，主表与统计不再计入；社区传闻行移除 xAI 内容；v2.9（2026-11-01）新增 Trae宝（Trae 全自动智能体）限时一周免费条目——用户一手实测，发布当日全网无收录故标注「用户一手」档；v2.8（2026-11-01）新增「每日签到 · 领额度」板块（WorkBuddy 活跃奖励 / Trae 签到积分 / 百度搭子 / 豆包签到）；v2.7（2026-11-01）按用户一手实测修正 Qoder 双免费活动为进行中口径（官方页标注截止已过而实测可用，疑已顺延）；豆包签到行措辞去歧义；限时窗口不再展示已过期的截止日；v2.6（2026-10-31）前端精修——票券母题贯穿（刊头撕裂边、票根侧耳、金色票号）、分类导航 scrollspy、展开动效、lint 全绿；v2.5（2026-10-31）数据修正——ZCode「Global Build」每日 3 亿（每晚 19:00 领取、当晚 23:00–次日 09:00 可用）确认成条，旧 Weekend Build 条目重写，活动页过期信息清理；v2.4（2026-10-31）主题色改为琉璃绀×琥珀；v2.3（2026-10-31）票券刊头视觉重构 + 新增每日公众号情报检索；v2.2（2026-10-30）移动端适配与 PWA 化；v2.1（2026-10-30）审计修订；v2（2026-10-30）三口径核实、全表字段补全；v1（2026-10-29）初版 5 路调研。</p>
+    <p class="changelog">更新记录：v4.0（2026-11-10）接入 AIHOT 数据源：Token羊毛每日自动同步合并（URL 规范化 + 产品级品牌/关键词/周期额度分层去重，自动收录条目标「第三方」待人工复核，下架自动移入历史区）；新增「每日十大AI新闻」板块（AIHOT 日报，不足十条以近 7 天精选补足）；新增页面目录——桌面 ≥1200px sticky 侧栏 + 移动端「目录」悬浮钮抽屉，点击平滑跳转、滚动高亮，目标被筛选隐藏时自动清除筛选；修复抽屉打开时平滑滚动被 body overflow:hidden 吞掉；修复已停用区长文本在 521px 以上移动视口横向溢出；v3.9（2026-11-06）数据层纠错：Perplexity 学生「2 年免费」→已于 2026-05-31 结束（现为首月免费 + Education Pro 半价）；WorkBuddy 500→100 积分/月；小浣熊上线礼 9000→最多 6000；LLM-Red-Team「全部下架」→ free-api 系列下架、组织仍有 4 个公开仓库；Google 学生 2TB→海外 AI Plus 400GB；HuggingFace 免费赠金已于 2026-10-07 取消并移入已停用。页首改为「最新单条核实日期」口径，每条按各自核实日期显示；新增根目录 feed.xml（全量 92 条，逐条含核实日期与来源）；v3.8（2026-11-05）混元卡更新：Hy4 正式版已发布（实测全球第一梯队开源，版权重近期开放）；v3.7（2026-11-05）模型速查全面修订（用户纠错驱动）：混元 Hy4-Preview（770B/1M）+Hy3、GPT 现行 6.1 Sol/Terra·6 Astra·6 Sol/Luna·5.6·5.5、Gemini 4 Argon/4 Carbon/3.8 Flash/3.1 Pro、小米 MiMo-V2.6-Pro/Flash、书生 Intern-S2（397B）、MiniMax M3.1 Flash（428B）、商汤 SenseNova 6.8 Flash 正式版；新增「SenseNova 6.8 Flash 限免」条目（小浣熊端限免至 12-01，花叔文章+商汤发布稿互证）；v3.6（2026-11-04）模型速查 DeepSeek 卡新增待出「Cyber」（网传网络安全模型：官网前端代码现入口+灰度申请页，未官宣）；账号监控 ghid 就绪 10/11（狗哥玩AI/平野先生玩AI/李叔AI 以大写 AI 名称反查命中——此前变体测试脚本漏 I 字符致误判，已修正）；v3.5（2026-11-04）新增「模型速查 · 现行与待出」板块（18 家厂商现行型号 + 有公开信号的待出新品：GPT-6.2「Bell」网传泄露 / Qwen 4 / Opus 5.5 平价版）；账号监控新整合码上AI记、花叔（ghid 就绪 7/11）；修复 aliyun logo 全透明（alicdn 官方图标替换）；v3.4（2026-11-04）复查修正：办公小浣熊/MonkeyCode/Accio Work/Agent2API 四条长期性质条目的状态位由限时窗口改回常规（不再挤占闪条与限时筛选，百炼返券恢复显示）；限时窗口容量 10→12；v3.3（2026-11-04）新增「千问办公 0.01 元月卡」条目（天猫旗舰店新用户专享，900 积分，兑换码 12-30 前激活；经济观察报+长江网实测多源核实）；v3.2（2026-11-04）签到板块扩容（办公小浣熊每日 300 积分、MonkeyCode 每日签到 + 500 亿共享池、Accio Work 每日 20 Credits、Agent2API 签到聚合工具）+ 新增 AutoClaw 周活动（智谱 Z.AI，本轮至 11-08）；TRAE 签到修正为官方口径（免费 100/日、付费 200/日，此前第三方 150/日口径有误）；Trae宝 窗口精确化（11-02 0 点至 11-08 24:00，赛博禅心报道与用户实测互证，可信度升「多方」）；Qoder Qwen3.8-Flash 转无限期免费（用户一手与第三方实测互证）；WorkBuddy 行追加第三方调用收紧风险提示；v3.1（2026-11-03）修复海外存档行残留在闪条与统计（限时活动 10→9，Google AI Pro 学生版不再出现在限时窗口）；新增「限时一周」闪条章型，Trae宝 等固定一周窗口不再标注为窗口不定期；v3.0（2026-11-03）修复移动端行卡网格（到期列长文本撑爆 auto 列导致名称列被挤成竖排——改为比例双列并允许换行）；按用户决策将 13 条大陆难以直连的渠道（Google AI Pro 学生版、Gemini CLI、OpenAI Codex CLI、Google Colab、Perplexity 学生计划、Notion 教育版、HuggingFace、Groq、Cerebras、Together AI、Chutes、SambaNova、阿里云国际站）移入新增的「海外难以直连（存档）」折叠区，主表与统计不再计入；社区传闻行移除 xAI 内容；v2.9（2026-11-01）新增 Trae宝（Trae 全自动智能体）限时一周免费条目——用户一手实测，发布当日全网无收录故标注「用户一手」档；v2.8（2026-11-01）新增「每日签到 · 领额度」板块（WorkBuddy 活跃奖励 / Trae 签到积分 / 百度搭子 / 豆包签到）；v2.7（2026-11-01）按用户一手实测修正 Qoder 双免费活动为进行中口径（官方页标注截止已过而实测可用，疑已顺延）；豆包签到行措辞去歧义；限时窗口不再展示已过期的截止日；v2.6（2026-10-31）前端精修——票券母题贯穿（刊头撕裂边、票根侧耳、金色票号）、分类导航 scrollspy、展开动效、lint 全绿；v2.5（2026-10-31）数据修正——ZCode「Global Build」每日 3 亿（每晚 19:00 领取、当晚 23:00–次日 09:00 可用）确认成条，旧 Weekend Build 条目重写，活动页过期信息清理；v2.4（2026-10-31）主题色改为琉璃绀×琥珀；v2.3（2026-10-31）票券刊头视觉重构 + 新增每日公众号情报检索；v2.2（2026-10-30）移动端适配与 PWA 化；v2.1（2026-10-30）审计修订；v2（2026-10-30）三口径核实、全表字段补全；v1（2026-10-29）初版 5 路调研。</p>
 </footer>
 
 </div>
+<button class="toc-fab" id="tocfab" type="button" aria-expanded="false" aria-controls="tocdrawer">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>目录
+</button>
+<div class="toc-overlay" id="tocoverlay"></div>
+<nav class="toc-drawer" id="tocdrawer" aria-label="页面目录"></nav>
 <script>
 const LOGOS = /*__LOGOS__*/{};
+const NEWS = /*__NEWS_START__*/{"date":"2026-11-10","link":"https://aihot.news/daily/2026-11-10","items":[{"title":"Anthropic 发布 Claude Fable 5.2 与 Claude Mythos 5.2","summary":"Anthropic 发布 Claude Fable 5.2 和 Claude Mythos 5.2，两者为同一底层模型，Mythos 需通过 Cyber 或 Life Sciences Verification Program 申请访问。","source":"","url":"https://aihot.news/daily/2026-11-10","original":"","publishedAt":""},{"title":"Nvidia CEO 黄仁勋婚外情风波削弱其对严格 AI 芯片出口管制的游说","summary":"据 Bloomberg 报道，Nvidia CEO 黄仁勋在全员备忘录中承认与被美国情报机构认定为疑似中国情报人员线人的 Alice Huang（Huang Le）存在婚外关系，董事会已启动独立董事主导的调查。","source":"The Decoder：AI News（RSS）","url":"https://aihot.news/items/e17dl64mjiov57c0jtwn41bxd","original":"https://the-decoder.com/nvidia-espionage-scandal-weakens-huangs-lobby-against-tighter-ai-chip-export-controls/","publishedAt":""},{"title":"Meta 发布最小最高效模型 Muse Ember，主打智能体高频任务","summary":"Meta 发布 Muse Ember（muse-ember-1.0），定位最小最高效的复杂推理执行模型，面向工具调用、编码子任务、路由、抽取和长文档解析等智能体日常重复任务。","source":"Meta AI：Research Blog（网页）","url":"https://aihot.news/items/cox936nwax49rkiimi1oicgzu","original":"https://research.meta.ai/blog/muse-ember","publishedAt":""},{"title":"字节发布 Seedream 5.5 图像创作模型：支持 100 轮编辑与原生 RGBA 透明输出","summary":"字节 Seed 发布新一代图像创作模型 Seedream 5.5，带来三项升级：非编辑区域像素级保持、支持围绕同一作品多达 100 轮连续编辑；新增原生 RGBA 透明素材生成，直接输出带 Alpha 通道的图像，省去抠图；改善光照材质与皮肤纹理表现，并显著提升文字渲染能力。","source":"字节 Seed：Research Feed（网页内嵌数据）","url":"https://aihot.news/items/xsvt2hlwuovul9sdvazcw7cxk","original":"https://seed.bytedance.com/zh/blog/%E7%94%9F%E6%88%90%E6%9B%B4%E7%9C%9F%E5%AE%9E-%E7%99%BE%E8%BD%AE%E7%BC%96%E8%BE%91%E6%9B%B4%E7%A8%B3%E5%AE%9A-seedream-5-5-%E5%8F%91%E5%B8%83","publishedAt":""},{"title":"Anthropic 发布 Claude Fable 5.2 与 Claude Mythos 5.2","summary":"Anthropic 发布 Claude Fable 5.2 和 Claude Mythos 5.2，两者为同一底层模型，Mythos 需通过 Cyber 或 Life Sciences Verification Program 申请访问。","source":"Anthropic：Newsroom（网页）","url":"https://aihot.news/items/va9trgwaw3r4por6vdqbjxrhd","original":"https://www.anthropic.com/claude-fable-and-mythos-5-2","publishedAt":""},{"title":"Zyphra 发布开源 TTS 模型 ZONOS3-Mini，可在手机浏览器实时运行","summary":"Zyphra 发布 ZONOS3-Mini，一个 Apache 2.0 开源的零样本语音克隆 TTS 模型，采用稀疏 MoE 架构，总参数 8 亿、活跃参数 1 亿，在 Pixel 9 浏览器端 Time To First Audio 低于 570 ms，在 M3 MacBook Air 上低于 150 ms。","source":"Zyphra Research（网页）","url":"https://aihot.news/items/r5h0cwwdh1peqbg2rk6k9ljrh","original":"https://www.zyphra.com/our-work/zonos3-mini","publishedAt":""},{"title":"Claude Mythos 5.2 预测基因治疗载体 AAV 衣壳结构","summary":"Claude 官方视频介绍 Claude Mythos 5.2 预测了完整 AAV 衣壳结构，即用于递送基因治疗的蛋白质外壳。模型编写代码在相邻五链分组上运行开源折叠模型，再利用衣壳对称性拼合全部 60 条链；在 AAV2 上预测结果与实验结构误差约为一个原子宽度。","source":"Claude：YouTube（RSS）","url":"https://aihot.news/items/rxx1qxfjfuioem95lr868hhwq","original":"https://www.youtube.com/watch?v=FMbXUxn_nBw","publishedAt":""},{"title":"百度发布 ERNIE Evolve 自动研究系统，公开任务超最好纪录并落地 ERNIE-5.5-Flash 推理优化","summary":"百度文心团队发布自动研究系统 ERNIE Evolve，用双层循环组织研究方向选择与实验迭代，由 Director、Selector、Executor、Evaluator 和 Reviewer 分工推进研究。","source":"百度文心 ERNIE 官方博客","url":"https://aihot.news/items/h6vimc0xpjwbjfampr34ym5ol","original":"https://ernie.baidu.com/zh/research/posts/ernie-evolve/","publishedAt":""},{"title":"Google 扩展第八代 TPU 阵容，新增两款智能体专用系统","summary":"Google 宣布扩展第八代 TPU 产品线，新增 TPU 8i Max 和 TPU 8tx 两款系统，使一年内发布的第八代 TPU 系统总数达到四款。TPU 8i Max 面向超大上下文窗口和单机架最高算力密度，TPU 8tx 则针对安全与机密推理优化。Google 称这四款系统覆盖智能体生命周期的各个阶段，为开发者提供专用加速器。","source":"X：Google (@Google)","url":"https://aihot.news/items/phwieennfk1nppru29uek1b0y","original":"https://x.com/Google/status/2119788086490001906","publishedAt":""},{"title":"数字生命卡兹克上线免费 Token 福利聚合网站 Token羊毛","summary":"数字生命卡兹克上线免费聚合网站 Token羊毛（aihot.news/free-tokens），把各厂商公开的免费额度、签到积分、限时免费等活动汇总到一页，页面显示今日可领金额并按日、周、月分组，还设计了随领取次数升级亮度的卡片收集玩法。","source":"公众号：数字生命卡兹克","url":"https://aihot.news/items/e80fmjdp23n217sd6e7ky52om","original":"https://mp.weixin.qq.com/s/MyNWZlURmO0xIxQpMOQZWg","publishedAt":""}]}/*__NEWS_END__*/;
 /* 字段：n名称 p提供方 g徽标slug r地区(c cn/i intl) c分类 m代表模型 q免费内容 t额度性质 l限额 u使用方式 e到期 a准入 k风险备注 s状态(active/event/dead) v可信度 d核实日 L来源链接[标签,URL] */
 const CATS = [
   {k:'api',   t:'官方 API 免费层', d:'模型厂商直销的免费模型与赠金'},
@@ -523,7 +571,46 @@ const DATA = [
 {n:'CodeBuddy 500 Credits 体验版',p:'腾讯',g:'codebuddy',r:'c',c:'dead',m:'DeepSeek-V4 / 混元',q:'曾每月送 500 Credits',t:'已停',l:'—',u:'—',e:'2026-07-01 停用，转向三档订阅制',a:'—',k:'老用户已迁移至标准版（4000 积分/月）',s:'dead',v:'第三方',d:'2026-10-30',L:[['官网（定价见客户端）','https://www.codebuddy.cn']]},
 {n:'文心智能体平台（独立接入）',p:'百度',g:'aistudio',r:'c',c:'dead',m:'文心系列',q:'曾可零代码建智能体并独立接入 API',t:'已停',l:'—',u:'—',e:'2025-12-11 起独立接入停用，并入千帆',a:'—',k:'智能体开发请走千帆新入口',s:'dead',v:'第三方',d:'2026-10-29',L:[['迁移公告','https://cloud.baidu.com']]},
 {n:'HuggingFace Inference Providers 免费赠金',p:'HuggingFace',g:'huggingface',r:'i',c:'dead',m:'托管的开源模型',q:'曾为免费账号每月发放 $0.10 Inference Providers 赠金；2026-10-07 起取消，免费账号需自购 credit（PRO $9/月仍含 $2 月度 compute credit）',t:'已停',l:'已无免费额度；PRO $9/月含 $2/月',u:'—',e:'2026-10-07 起停止免费赠金',a:'—',k:'旧文「HF 每月 $0.10 免费赠金」已失效；官方定价文档尚未同步这段变更，以账户账单页为准',s:'dead',v:'多方',d:'2026-11-06',L:[['官方定价文档','https://huggingface.co/docs/inference-providers/pricing'],['变更记录（AgentDeals）','https://agentdeals.dev/groq-vs-hugging-face']]},
-{n:'Augment Code Community 层',p:'Augment',g:'',r:'i',c:'dead',m:'—',q:'曾有约 10-20 次请求/月的社区免费层',t:'已停',l:'—',u:'—',e:'2025-2026 改价中取消/不再公示',a:'—',k:'官网已无免费层入口',s:'dead',v:'未核实',d:'2026-10-29',L:[['定价页','https://www.augmentcode.com/pricing']]}
+{n:'Augment Code Community 层',p:'Augment',g:'',r:'i',c:'dead',m:'—',q:'曾有约 10-20 次请求/月的社区免费层',t:'已停',l:'—',u:'—',e:'2025-2026 改价中取消/不再公示',a:'—',k:'官网已无免费层入口',s:'dead',v:'未核实',d:'2026-10-29',L:[['定价页','https://www.augmentcode.com/pricing']]},
+/* ===== AIHOT 自动收录（第三方待复核，ai 字段为来源 dealId） ===== */
+{"n":"华为果办 OfficeAce 免费版每日登录送 100 积分","p":"华为云 OfficeAce","g":"","r":"c","c":"signin","m":"GLM-5.2","q":"个人体验版登录并使用果办 OfficeAce 客户端或微信小程序，每天赠送 100 积分，用于果办内的模型推理等用量。","t":"每日","l":"100 积分；当日有效","u":"果办平台预置模型，如 GLM-5.2。入口：https://activity.huaweicloud.com/officeace.html#section-3","e":"当日有效","a":"仅限客户端","k":"限制：客户端或微信小程序、限时活动。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每天 · 未有适用的积分单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://activity.huaweicloud.com/officeace.html#section-3"]],"ai":"officeace-daily-100"},
+{"n":"秒悟每天登录领 2000 积分","p":"秒悟 Meoo","g":"","r":"c","c":"signin","m":"","q":"每天首次登录赠送 2000 积分，有效 7 天。例如 DeepSeek V4.1 Flash 每千输入 Token 扣 2 积分、每千输出扣 8 积分；输入和输出共同消耗，实际可用量随模型和上下文而变。","t":"每日","l":"2000 积分；领取后 7 天","u":"秒悟提供的语言、图像等模型。入口：https://docs.meoo.com/pricing","e":"领取后 7 天","a":"仅限客户端","k":"AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每天 · 未有适用的积分单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://docs.meoo.com/pricing"]],"ai":"meoo-daily-2000"},
+{"n":"魔搭社区每天送 200 魔粒调模型 API","p":"魔搭社区","g":"","r":"c","c":"signin","m":"","q":"每日登录自动获 200 魔粒，绑定阿里云账号再加 50，短期魔粒尽量当天用完。调用 API-Inference 需绑定已实名的阿里云账号、完善个人信息并验证邮箱；轻量、主流、旗舰模型平均每次扣 0.5、1、2 魔粒。官方建议商用采用商业 API，高并发不保证。","t":"每日","l":"200 魔粒；短期魔粒当天用完","u":"API-Inference 上的所有模型，即模型页带蓝绿色闪电标记的开源模型；老模型会陆续下架。入口：https://www.modelscope.cn/posts/435591","e":"短期魔粒当天用完","a":"需实名","k":"限制：要绑阿里云账号、需验证邮箱。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每天 · 未有适用的魔粒单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-10","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://www.modelscope.cn/posts/435591"]],"ai":"modelscope-daily-moli"},
+{"n":"腾讯 ima 每日签到领 50 算力","p":"腾讯 ima","g":"","r":"c","c":"signin","m":"DeepSeek","q":"在 ima 客户端的「用量统计」进入「每日登录福利」签到。每周连续签满 7 天，另有随机算力奖励。","t":"每日","l":"50 算力；领取后 7 天有效","u":"ima Copilot 内置模型，如 DeepSeek 系列，具体可选项以客户端为准。入口：https://ima.qq.com/download","e":"领取后 7 天有效","a":"仅限客户端","k":"限制：客户端签到。AIHOT 自动收录（证据标注：客户端实测），待本站人工复核；每天 · 未有适用的算力单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["来源页","https://ima.qq.com/download"]],"ai":"ima-daily-50"},
+{"n":"AStudio 体验版每天登录领 100 积分","p":"科大讯飞 AStudio","g":"","r":"c","c":"signin","m":"Spark / DeepSeek / GLM / Kimi / MiniMax","q":"体验版每日登录客户端可免费领取 100 积分，用于 AStudio 内置模型的办公、代码与研究任务。需手机号登录；支持 Windows 10/11 64 位和 Apple 芯片 Mac，体验版权益为限时开放。模型与部分付费接口共用积分。","t":"每日","l":"100 积分；每次领取后 31 天内有效","u":"体验版可选的内置模型，官方列有 Spark、DeepSeek、GLM、Kimi、MiniMax 等系列；不含第三方独立服务。入口：https://agent.xfyun.cn/studio-guide/pricing","e":"每次领取后 31 天内有效","a":"仅限客户端","k":"限制：Mac 需苹果芯片。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每天 · 未有适用的积分单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://agent.xfyun.cn/studio-guide/pricing"]],"ai":"astudio-daily-100"},
+{"n":"fal FLUX 3 Max 每日免登录生成 1 个视频","p":"fal","g":"","r":"i","c":"signin","m":"FLUX 3 Max","q":"在 Sandbox 使用，无需注册或绑卡。顶部的免费总次数包含其他模型，不能全部用于 FLUX 3 Max；具体刷新时间以 Sandbox 为准。模型 API 按秒收费。","t":"每日","l":"1 次","u":"仅 fal Sandbox 的 FLUX 3 Max 文生视频与图生视频，两者共享 1 次免费额度，720p、每段最长 15 秒；不含 API 调用。入口：https://fal.ai/sandbox?models=db8o064regj1armnir30&op=video.text_to_video","e":"以厂商页面为准","a":"仅限客户端","k":"限制：免登录、文生视频、图生视频。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每天 · 按次数给，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://fal.ai/sandbox?models=db8o064regj1armnir30&op=video.text_to_video"]],"ai":"fal-flux-3-max-weekend-202611"},
+{"n":"MiniMax Code 每天签到领 400 积分","p":"MiniMax","g":"","r":"c","c":"signin","m":"","q":"打开 MiniMax Code，在设置的用量页找签到入口，完成每日签到领 400 积分；连续第 4、7 天的单日奖励为 1000，一周共 4000。积分仅用于 MiniMax Code，自到账起 30 天有效。","t":"每日","l":"400 积分；到账后 30 天","u":"MiniMax Code 里平台支持的所有文本和多模态模型。入口：https://agent.minimax.cn/docs/code/account/usage","e":"到账后 30 天","a":"仅限客户端","k":"AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每天 · 未有适用的积分单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://agent.minimax.cn/docs/code/account/usage"]],"ai":"minimax-code-checkin"},
+{"n":"Qoder 国际版 Qoduck 每天限免","p":"阿里云 Qoder","g":"","r":"c","c":"signin","m":"","q":"Qoder 国际版新老个人账号选择 Qoduck 即可每天免费调用，免费账号和 Credits 余额为 0 的账号均可参与，无需领取；最高思考强度也不扣 Credits。每日次数有限，付费订阅次数更多，用尽后可等次日恢复，继续使用则按 0.5× 消耗 Credits。仅限 Qoder 国际版主应用，国内版、IDE、JetBrains 插件及 CLI 不适用，不能当通用 API。模型身份、具体次数和结束日期未公布。","t":"每日","l":"免费；限时活动，结束日期未公布","u":"匿名模型 Qoduck（身份未公布）；仅 Qoder 国际版主应用，不含 Qoder IDE、JetBrains 插件及 CLI。入口：https://docs.qoder.com/zh/events/qoduck-free","e":"限时活动，结束日期未公布","a":"仅限客户端","k":"限制：仅个人账号、每日次数有限、用尽后扣积分。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每天免费次数有限，具体次数以官方为准","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://docs.qoder.com/zh/events/qoduck-free"]],"ai":"qoder-global-qoduck-free-202611"},
+{"n":"WPS 灵犀签到领 100 智点，第 7 天起每天 200","p":"WPS 灵犀","g":"","r":"c","c":"signin","m":"","q":"在灵犀专业版每日签到领 100 智点，连续签到第 7 天起每天领 200。赠送智点用于专家模式任务，可在「设置 → 智点详情」查看每笔到期日。","t":"每日","l":"100 智点；以领取时页面显示的到期时间为准","u":"灵犀专业版体验版的专家 Pro、Max 模式，由灵犀按任务选择内置模型。入口：https://www.lingxi.cn/docs#06-credits--%E6%99%BA%E7%82%B9%E8%AF%B4%E6%98%8E","e":"以领取时页面显示的到期时间为准","a":"仅限客户端","k":"AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每天 · 未有适用的智点单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://www.lingxi.cn/docs#06-credits--%E6%99%BA%E7%82%B9%E8%AF%B4%E6%98%8E"]],"ai":"wps-lingxi-daily-100"},
+{"n":"Rime 每月 50 美元语音模型额度","p":"Rime","g":"","r":"c","c":"signin","m":"Prism / Mist v3 / Coda v2 / Rime STT","q":"可用于 Prism 语音对话、Mist v3 和 Coda v2 语音合成及 Rime STT 识别；50 美元约可合成 1667 分钟 Mist v3 语音。免费额度用完后，须自行升级并绑卡才能付费继续。免费档不得上传来电录音、健康信息或他人个人数据，符合条款的输入输出可用于模型训练。","t":"每月","l":"≈¥334；每月刷新，不结转","u":"所有模型。入口：https://www.rime.ai/pricing","e":"每月刷新，不结转","a":"注册登录","k":"限制：无需绑卡、限商业用途、限评估和开发、年满 18 岁。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每月 · 50 美元，按模型榜汇率","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://www.rime.ai/pricing"]],"ai":"rime-monthly-50"},
+{"n":"Drex 每月 5 美元模型调用额度","p":"Nace AI","g":"","r":"i","c":"signin","m":"Drex Max v1.1 / Drex Max Finance / Drex 2.0","q":"首次月赠金在注册满一个月时到账，此后按注册日每月发 5 美元，下次发放时过期、不结转。需满足与新人赠金相同的 Google、满 30 天 GitHub 或验卡认证及邮箱、网络限额。与新人赠金共用账户余额，用于 Drex 决策、NDI 文档理解与 Drex Search。不开自动付费，用完即停；手动启用后超额会扣费。","t":"每月","l":"≈¥33；按注册日发放，下次发放时过期","u":"所有模型：Drex 决策系列（含 Max v1.1、Max Finance、2.0）、文档理解与 Drex Search，共用账户余额。入口：https://console.nace.ai/docs/drex/reference/pricing","e":"按注册日发放，下次发放时过期","a":"注册登录","k":"限制：注册满一个月、真人账号认证、可免绑卡、免费发放有限额。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每月 · 5 美元，按模型榜汇率","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://console.nace.ai/docs/drex/reference/pricing"]],"ai":"nace-monthly-5"},
+{"n":"蚂蚁百灵每月 1 日送 10 元抵扣券","p":"蚂蚁百灵","g":"","r":"c","c":"signin","m":"","q":"每月 1 日向已使用百灵新计费平台的计费账户发 10 元 Token 抵扣券，可抵扣模型 API；当月有效、不结转。月中完成升级不补发当月券，从下月 1 日开始发放。","t":"每月","l":"¥10；当月有效","u":"百灵开放平台上的所有模型，按各模型实际计费金额抵扣。入口：https://developer.ant-ling.com/zh-CN/docs/getting-started/changelog/billing-upgrade/","e":"当月有效","a":"注册登录","k":"限制：新计费平台、月中升级不补发。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每月 · 面值","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://developer.ant-ling.com/zh-CN/docs/getting-started/changelog/billing-upgrade/"]],"ai":"ling-monthly-10"},
+{"n":"EdgeOne Makers 每月 50 万 Token","p":"腾讯 EdgeOne","g":"","r":"c","c":"signin","m":"DeepSeek V4.1 Flash / Kimi K2.6","q":"Makers 免费版每个账号每月共享 50 万 Token，可通过兼容 OpenAI／Anthropic 的 API 调用内置模型，适合演示、教学和技术验证。官方要求内置模型勿用于生产环境；自带厂商密钥的调用按厂商账户另计费。额度商业化后可能调整。","t":"每月","l":"≈¥0.3","u":"内置 DeepSeek V4 Pro／V4 Flash／V4.1 Flash、Kimi K2.6、MiniMax M3／M2.7、混元 Hy3／Hy3 Preview、朱雀；自带厂商密钥的模型不使用此额度。入口：https://pages.edgeone.ai/zh/document/limits-and-quotas","e":"以厂商页面为准","a":"注册登录","k":"限制：仅限技术验证、账号共享额度、自接密钥另收费。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每月 · 50 万 Token，按 DeepSeek V4.1 Flash 官方价","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://pages.edgeone.ai/zh/document/limits-and-quotas"]],"ai":"edgeone-makers-monthly"},
+{"n":"书生·端砚测试期每月送免费墨点","p":"书生·端砚","g":"","r":"c","c":"signin","m":"DeepSeek V4.1 Flash 1017 / GLM-5.3 / Qwen3.8-27B","q":"打开「科研模型」，注册登录后查看墨点余额并创建 API Key。测试期每月赠送额度，具体数量以账户为准；多个 API Key 共用余额。","t":"每月","l":"免费；墨点按月清空，时间以账户为准","u":"Token Plan 所有模型，如 DeepSeek-V4.1-Flash-1017、GLM-5.3、Qwen3.8-27B；Agents-A1、Atria-Dawn、Sage-A1.5、书生-S2 当前免扣墨点。入口：https://discovery.intern-ai.org.cn/token-plan/home","e":"墨点按月清空，时间以账户为准","a":"注册登录","k":"限制：测试期福利、额度以账户为准。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；测试期每月免费墨点，数量以账户为准","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://discovery.intern-ai.org.cn/token-plan/home"]],"ai":"intern-inkstone-monthly-beta-202609"},
+{"n":"腾讯云 ADP 体验版每月送 15,000 PU","p":"腾讯云 ADP","g":"","r":"c","c":"signin","m":"","q":"腾讯云实名主账号首次开通 ADP 后，按引导领取 0 元体验版。平台内模型推理与工具等用量共用这份 PU。","t":"每月","l":"1.5 万 PU；每月重置，未用完不累计","u":"ADP 体验版的 Auto 模型，不含自定义模型与专属算力。入口：https://cloud.tencent.com/document/product/1759/139268","e":"每月重置，未用完不累计","a":"需实名 + 仅限客户端","k":"限制：腾讯云主账号。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每月 · 未有适用的PU单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://cloud.tencent.com/document/product/1759/139268"]],"ai":"tencent-adp-monthly-15000-pu"},
+{"n":"ElevenLabs 免费档每月 1 万积分","p":"ElevenLabs","g":"","r":"i","c":"signin","m":"","q":"免费注册后每个订阅周期获得 10,000 积分，支持文字转语音、转写、音效和音乐等免费档功能，可用 Eleven v4。无需绑卡，积分不结转；生成内容不可商用，公开发布须按官方要求署名；视频生成须付费。","t":"每月","l":"1 万 积分；每个订阅周期重置，不结转","u":"Eleven v4、v4 Turbo、v3 等免费档语音模型，以及转写、音效和音乐功能；不含视频生成、付费档专属声音克隆或商业授权。入口：https://elevenlabs.io/pricing","e":"每个订阅周期重置，不结转","a":"注册登录","k":"限制：不可商用、公开发布须署名、不含视频生成。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每月 · 未有适用的积分单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://elevenlabs.io/pricing"]],"ai":"elevenlabs-free-monthly"},
+{"n":"WorkBuddy 体验版每月 500 积分","p":"腾讯 WorkBuddy","g":"","r":"c","c":"signin","m":"","q":"WorkBuddy 免费体验版每月 500 基础积分，与 CodeBuddy 同账号共享；加入 Buddy One 并关联产品后，也可在腾讯文档、ima 和腾讯网盘使用。当前套餐周期结束时失效、不结转；开通付费会员后不再另发体验版的 500 积分。","t":"每月","l":"500 积分；套餐周期结束时失效，不结转","u":"WorkBuddy 和 CodeBuddy 内置模型；加入 Buddy One 后也可用于已关联的腾讯文档、ima、腾讯网盘 AI 功能。入口：https://www.workbuddy.cn/docs/workbuddy/Pricing","e":"套餐周期结束时失效，不结转","a":"仅限客户端","k":"AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每月 · 未有适用的积分单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://www.workbuddy.cn/docs/workbuddy/Pricing"]],"ai":"workbuddy-monthly-500"},
+{"n":"Zed 在读大学生每月 10 美元 AI 额度，持续一年","p":"Zed","g":"","r":"i","c":"student","m":"Claude Sonnet 5.5 / GPT-6.1 Sol","q":"全球认可大学的在读学生，年满 18 岁，用注册超过 30 天的 GitHub 账号登录并验证当前学校邮箱，可免费用一年学生计划。每月 10 美元仅供 Zed 内 AI 使用，用完即停；不是一次到账 120 美元。一年后自动降为免费版。","t":"学生","l":"≈¥67；每月到账，持续 12 个月","u":"Zed 托管模型中学生档可用的部分，如 Claude Sonnet 5.5、GPT-6.1 Sol；不含 Claude Fable、Claude Opus、GPT-6 Astra、GPT-5.5 pro 和 GPT-5.4 pro；不是通用 API 余额。入口：https://zed.dev/education","e":"每月到账，持续 12 个月","a":"仅限客户端 + 学生认证","k":"限制：学校邮箱验证、GitHub 30 天+。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；每月 · 10 美元，按模型榜汇率","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://zed.dev/education"]],"ai":"zed-student-year"},
+{"n":"超算互联网新用户领 1 亿 Token","p":"超算互联网","g":"","r":"c","c":"event","m":"GLM-5.3 Flash","q":"活动期间首次注册的新用户，在 SCNet 客户端「新人专享」入口领取，每个新账号限领一次。赠送额度优先消耗，用完后自动扣减现金余额。","t":"一次性","l":"≈¥60；到账后 30 天","u":"首期默认 GLM-5.3-Flash；实际发放型号可能调整，以到账为准。入口：https://www.scnet.cn/home/subject/double11/index.html","e":"至 2026-12-31（以厂商页面为准）","a":"需实名","k":"限制：客户端领取、每日限量、用完扣现金余额。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；1 亿 Token，按 GLM-5.3 Flash 官方价","s":"active","v":"第三方","d":"2026-11-10","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://www.scnet.cn/home/subject/double11/index.html"]],"ai":"scnet-double11-new-100m-202611"},
+{"n":"Drex 新人 5 美元模型调用额度","p":"Nace AI","g":"","r":"i","c":"event","m":"Drex Max v1.1 / Drex Max Finance / Drex 2.0","q":"用 Google 或注册满 30 天的 GitHub 账号认证，可免绑卡领 5 美元；也可验卡，验证不扣费。可调用 Drex 决策、NDI 文档理解与 Drex Search；按 Drex 2.0 输入价约可用 1.67 亿 Token。不支持临时邮箱，同网普通邮箱及同企业域名每天最多 3 个账号获赠金。不开自动付费，余额不足即停；手动启用后超额会扣费。","t":"一次性","l":"≈¥33；注册后 3 个月有效，每人一次","u":"所有模型：Drex 决策系列（含 Max v1.1、Max Finance、2.0）、文档理解与 Drex Search，共用账户余额。入口：https://console.nace.ai/docs/drex/reference/pricing","e":"注册后 3 个月有效，每人一次","a":"注册登录","k":"限制：新人专享、真人账号认证、可免绑卡、免费发放有限额。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；5 美元，按模型榜汇率","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://console.nace.ai/docs/drex/reference/pricing"]],"ai":"nace-signup-5"},
+{"n":"Zed 14 天试用领 5 美元模型额度","p":"Zed","g":"","r":"i","c":"event","m":"GPT-6 Luna","q":"开启 Zed Pro 试用后获得 5 美元 GPT-6 Luna 用量，试用 14 天；无需信用卡，到期自动转免费版。","t":"一次性","l":"≈¥33；14 天","u":"GPT-6 Luna；试用期不含其他托管模型。入口：https://zed.dev/docs/account/plans-and-pricing","e":"14 天","a":"仅限客户端","k":"AIHOT 自动收录（证据标注：官方页面），待本站人工复核；5 美元，按模型榜汇率","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://zed.dev/docs/account/plans-and-pricing"]],"ai":"zed-pro-trial"},
+{"n":"百度千帆新用户送 20 元代金券","p":"百度千帆","g":"","r":"c","c":"event","m":"","q":"首次注册百度智能云千帆平台的新用户，完成实名认证后送 20 元代金券，可在全平台无门槛使用，有效期 1 个月；本轮活动领取截至 11 月 30 日。","t":"一次性","l":"¥20；发放后 1 个月","u":"千帆平台上的所有模型，官方写“全平台无门槛使用”。入口：https://cloud.baidu.com/campaign/event/bigevent/index.html","e":"至 2026-11-30（以厂商页面为准）","a":"需实名","k":"AIHOT 自动收录（证据标注：官方页面），待本站人工复核；面值","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://cloud.baidu.com/campaign/event/bigevent/index.html"]],"ai":"qianfan-new-20"},
+{"n":"蚂蚁百灵新用户或升级账户送 20 元","p":"蚂蚁百灵","g":"","r":"c","c":"event","m":"","q":"新用户注册后立即获得 20 元 Token 消费券；历史计费账户完成升级后也可获得一次 20 元券，可能有发放延迟，到账后 60 天有效，不可提现或转让。新人券的期限和范围官方没单独写，以控制台为准。","t":"一次性","l":"¥20；升级券到账后 60 天","u":"升级券可用于百灵全部模型；新人券官方没单独写范围，以控制台为准。入口：https://developer.ant-ling.com/zh-CN/docs/getting-started/changelog/billing-upgrade/","e":"升级券到账后 60 天","a":"注册登录","k":"AIHOT 自动收录（证据标注：官方页面），待本站人工复核；面值","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://developer.ant-ling.com/zh-CN/docs/getting-started/changelog/billing-upgrade/"]],"ai":"ling-new-20"},
+{"n":"硅基流动实名认证送 16 元代金券","p":"硅基流动","g":"","r":"c","c":"event","m":"","q":"在硅基流动完成实名认证后，手动领一张 16 元通用代金券，老用户也能领；可用于平台上的模型 API。","t":"一次性","l":"¥16；领取后 180 天","u":"平台上的所有模型，含 Pro 模型和高速模型；API、批量推理、微调都能用。入口：https://www.siliconflow.cn/news/od7wj9rr23p95uhihmhrombp","e":"至 2026-12-31（以厂商页面为准）","a":"需实名","k":"AIHOT 自动收录（证据标注：官方页面），待本站人工复核；面值","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://www.siliconflow.cn/news/od7wj9rr23p95uhihmhrombp"]],"ai":"siliconflow-verify-16"},
+{"n":"Qoder 新人 300 Credits 加两周 Pro","p":"阿里云 Qoder","g":"","r":"c","c":"event","m":"","q":"下载 Qoder 国内版登录，送两周 Pro 试用和 300 Credits；只能在 Qoder 的客户端、插件、QoderWork 和命令行里用，不能当 API。","t":"一次性","l":"≈¥12","u":"Qoder CN 里的所有模型；高级模型要在 14 天 Pro 试用期内用。入口：https://docs.qoder.cn/product-overview/billing-description","e":"以厂商页面为准","a":"仅限客户端","k":"AIHOT 自动收录（证据标注：官方页面），待本站人工复核；300 Credits，按资源包 40 元 1000 Credits","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://docs.qoder.cn/product-overview/billing-description"]],"ai":"qoder-new-credits"},
+{"n":"超算互联网新用户领 1000 万 Token","p":"超算互联网","g":"","r":"c","c":"event","m":"GLM-5.3 Flash","q":"活动期间首次注册的新用户可领取，领取后 30 天有效，每人限领一次，限量先到先得。当前发放 GLM-5.3-Flash，型号可能调整，以实际到账为准；赠送额度用完后自动扣现金余额。","t":"一次性","l":"≈¥6；领取后 30 天","u":"当前为 GLM-5.3-Flash；实际发放型号可能调整，以到账为准。入口：https://www.scnet.cn/home/subject/maas/index.html","e":"至 2026-12-31（以厂商页面为准）","a":"需实名","k":"限制：限量先到先得、用完扣现金余额、型号可能调整。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；1000 万 Token，按 GLM-5.3 Flash 官方价","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://www.scnet.cn/home/subject/maas/index.html"]],"ai":"scnet-new-10m-202611"},
+{"n":"DeepSeek Harness 登录送 6 元","p":"DeepSeek","g":"","r":"c","c":"event","m":"DeepSeek V4.1 Flash 1017 / DeepSeek V4 Pro 0813","q":"下载 DeepSeek 桌面版（Harness），用 DeepSeek 账号登录领 6 元赠金；赠金进开放平台余额，调 API 时先扣它。限量，以客户端显示为准。","t":"一次性","l":"¥6","u":"DeepSeek 开放平台的所有模型，即 deepseek-flash 和 deepseek-v4-pro。入口：https://deepseek.com/zh/harness/","e":"以厂商页面为准","a":"注册登录","k":"限制：+86 手机号、限量。AIHOT 自动收录（证据标注：客户端实测），待本站人工复核；面值","s":"active","v":"第三方","d":"2026-11-08","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["来源页","https://deepseek.com/zh/harness/"]],"ai":"deepseek-harness-credit-2610"},
+{"n":"TokenHub 新人语言与多模态模型送 100 万 Token","p":"腾讯云 TokenHub","g":"","r":"c","c":"event","m":"DeepSeek V4 Pro 0813 / DeepSeek V4.1 Flash 1017 / Hy 3","q":"开通 TokenHub 后可在模型广场选择领取，支持的模型首次调用也可自动领。语言模型和多模态理解模型标注 100 万 Token、领取后 1 年有效，每个主账号每个模型限领一次。官方又写同一账号下的模型共享额度，是否独立以控制台显示为准。","t":"一次性","l":"≈¥2.4；领取后 1 年","u":"语言模型和多模态理解模型标注 100 万 Token；官方对是否共享的表述不一致，以控制台为准；视觉生成另有额度。入口：https://cloud.tencent.com/document/product/1823/130053","e":"至 2026-12-31（以厂商页面为准）","a":"需实名","k":"限制：额度以控制台为准。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；100 万 Token，按 DeepSeek V4 Pro 0813 官方价","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://cloud.tencent.com/document/product/1823/130053"]],"ai":"tokenhub-new-1m"},
+{"n":"华为码道受邀注册额外领 1000 积分","p":"华为云码道","g":"","r":"c","c":"event","m":"Kimi K3.1 Pro / GLM-5.3-Flash / DeepSeek V4.1 Flash","q":"首次使用码道的国内新用户，通过好友的邀请链接注册并登录，可额外得 1000 积分；这里只放官方规则，邀请链接要向好友要。新用户基础的 4000 积分另算。邀请人每次有效邀请也得 1000 积分，累计上限 5 万；奖励到账起 1 个月内有效。旧 Tokens 套餐要先免费切换到积分套餐。","t":"一次性","l":"1000 积分；到账起 1 个月","u":"码道内置模型，包括 Kimi K3.1 Pro、GLM-5.3-Flash、DeepSeek V4.1 Flash；仅在码道各端使用，不是通用 API 余额。入口：https://support.huaweicloud.com/offers-codeartsagent/codeartsagent_offers_0002.html","e":"至 2026-11-15（以厂商页面为准）","a":"仅限客户端","k":"限制：需好友邀请、首次使用码道、积分制套餐。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；未有适用的积分单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://support.huaweicloud.com/offers-codeartsagent/codeartsagent_offers_0002.html"]],"ai":"codearts-invite-1000-202610"},
+{"n":"秒悟新用户首月 5000 积分","p":"秒悟 Meoo","g":"","r":"c","c":"event","m":"","q":"免费版新用户首月获得 5000 积分，可在秒悟使用模型生成应用。例如 DeepSeek V4.1 Flash 每千输入 Token 扣 2 积分、每千输出扣 8 积分；输入和输出共同消耗。","t":"一次性","l":"5000 积分；首月有效","u":"秒悟提供的语言、图像等模型。入口：https://docs.meoo.com/pricing","e":"首月有效","a":"仅限客户端","k":"AIHOT 自动收录（证据标注：官方页面），待本站人工复核；未有适用的积分单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://docs.meoo.com/pricing"]],"ai":"meoo-new-5000"},
+{"n":"微信小程序送 10 亿 Token 与 10 万张生图","p":"腾讯云开发","g":"","r":"c","c":"event","m":"DeepSeek V4.1 Flash 1017 / HY-Image-3.0-Plus-4090-Tob-v1.0 / HY-Image-v3.0-I2I-ToB-v1.0.1","q":"需微信小程序账号，在公众平台报名成长计划，每账号一次。仅小程序、云开发服务端和控制台可消耗赠送额度，不能接通用 AI 工具。Token 用完转扣云开发资源点套餐，非资源点套餐直接失败；生图用完停止，现有生图模型 12 月 1 日 0 点下线，替代模型以官方通知为准。未有环境者另赠 6 个月个人版环境。","t":"一次性","l":"10 亿 Token；资源包自申请成功起 6 个月有效","u":"hy4、hy4-preview（12 月 7 日 0 点下线）、hy3、deepseek-v4.1-flash、deepseek-v4.1-flash-1017；生图用 HY-Image-3.0-Plus-4090-Tob-v1.0、HY-Image-v3.0-I2I-ToB-v1.0.1（12 月 1 日 0 点下线）。入口：https://docs.cloudbase.net/ai/ai-inspire-plan","e":"至 2026-12-31（以厂商页面为准）","a":"需实名 + 仅限客户端","k":"限制：需微信小程序账号、仅限云开发内使用、Token 用完扣套餐、文生图、图生图。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；只能在产品里用，不按 API 官方价折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://docs.cloudbase.net/ai/ai-inspire-plan"]],"ai":"cloudbase-wechat-ai-growth-2026h2"},
+{"n":"智谱 AutoClaw 国内版双十一登录领 5000 万 Tokens","p":"智谱 AutoClaw","g":"","r":"c","c":"event","m":"GLM-5.3 / GLM-5.3-Flash / GLM-5-Turbo / GLM-5V-Turbo","q":"11 月 9 日至 11 月 15 日登录 AutoClaw 国内版，每个账号可领一次 5000 万 Tokens，奖励于 11 月 15 日 23:59（北京时间）统一失效。仅在 AutoClaw 内使用，不是通用 API 额度；自接模型 API 另行计费。","t":"一次性","l":"5000 万 Token","u":"AutoClaw 所有内置 GLM 模型，如 GLM-5.3、GLM-5.3-Flash、GLM-5-Turbo、GLM-5V-Turbo 及 Auto 模式；自接 API 另计费。入口：https://autoclaw.zhipuai.cn/blog/news/M11W2/","e":"至 2026-11-15（以厂商页面为准）","a":"需实名 + 仅限客户端","k":"限制：国内版账号、每账号一次。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；只能在产品里用，不按 API 官方价折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://autoclaw.zhipuai.cn/blog/news/M11W2/"]],"ai":"autoclaw-50m-2611w2"},
+{"n":"AStudio 新用户下载登录领 1000 积分","p":"科大讯飞 AStudio","g":"","r":"c","c":"event","m":"Spark / DeepSeek / GLM / Kimi / MiniMax","q":"新用户下载并登录 AStudio 客户端可领取 1000 积分，无需购买会员，用于 AStudio 内置模型的办公、代码与研究任务。需手机号登录；支持 Windows 10/11 64 位和 Apple 芯片 Mac。模型与部分付费接口共用积分。","t":"一次性","l":"1000 积分；领取后 3 个月有效","u":"体验版可选的内置模型，官方列有 Spark、DeepSeek、GLM、Kimi、MiniMax 等系列；不含第三方独立服务。入口：https://agent.xfyun.cn/studio-guide/pricing","e":"领取后 3 个月有效","a":"仅限客户端","k":"限制：Mac 需苹果芯片。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；未有适用的积分单独售价，不折钱","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://agent.xfyun.cn/studio-guide/pricing"]],"ai":"astudio-new-1000"},
+{"n":"蚂蚁百灵 Ling-3.2-flash 限时免费调用","p":"蚂蚁百灵","g":"","r":"c","c":"event","m":"Ling-3.2-flash","q":"Ling-3.2-flash 于 11 月 5 日上线，前两周可通过百灵 API 免费调用，支持文本、图片和视频输入。首次使用 API 须绑定支付宝并开通模型服务；活动结束后恢复收费，价格以官网为准。","t":"限时","l":"免费","u":"仅 Ling-3.2-flash，其他百灵模型按各自规则计费。入口：https://developer.ant-ling.com/zh-CN/docs/models/price/","e":"至 2026-11-18（以厂商页面为准）","a":"注册登录","k":"限制：需绑定支付宝、免费期后收费。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；上线后前两周免费调用","s":"event","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://developer.ant-ling.com/zh-CN/docs/models/price/"]],"ai":"ling-32-flash-free-202611"},
+{"n":"OpenCode 限时免费用 MiniMax、LongCat、DeepSeek 等模型","p":"OpenCode","g":"","r":"i","c":"event","m":"DeepSeek V4.1 Flash / GLM-5.3 Flash / MiniMax-M3.1-Flash / MiMo-V2.6-Flash / Inkling 2 Small / Iceman / LongCat 2.5 Free","q":"免费模型仅限 OpenCode 内使用，无需账号。LongCat 2.5 每天限 100 次，托管于中国；与 MiniMax M3.1 Flash、DeepSeek 和 GLM 一样，输入不保留、不用于训练。其他模型未公布统一额度或截止。Iceman 数据保留并用于改进模型；Inkling 2 Small 数据可能用于训练，且不向欧盟、冰岛、列支敦士登、挪威、古巴、伊朗、朝鲜、俄罗斯、乌克兰和委内瑞拉开放。Beam 不向中国大陆及港澳等地区开放。","t":"限时","l":"免费；LongCat 2.5 自 11 月 9 日起限免两周","u":"中国大陆可用的 MiniMax M3.1 Flash Free、LongCat 2.5 Free、DeepSeek V4.1 Flash Free、GLM-5.3-Flash Free、MiMo-V2.6-Flash Free、Inkling 2 Small Free、Iceman Free 等指定免费模型；不含 Beam；仅限 OpenCode 内使用。入口：https://opencode.ai/docs/console/models/","e":"LongCat 2.5 自 11 月 9 日起限免两周","a":"仅限客户端","k":"限制：LongCat 日限百次、部分数据用于训练、Beam 限海外。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；指定免费模型；LongCat 2.5 每天 100 次","s":"event","v":"第三方","d":"2026-11-10","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://opencode.ai/docs/console/models/"]],"ai":"opencode-free-models-202610"},
+{"n":"StepAudio 3 四款预览模型限时免费调用","p":"阶跃星辰","g":"","r":"c","c":"event","m":"","q":"StepAudio 3 Realtime、Chat、Gen、Music 四款 preview 模型限时免费，个人账号需先完成实名认证。官方限免至北京时间 11 月 17 日 11:59:59，12 点起新增正式付费版，预览版下线。TTS、独立 ASR、音色复刻和音色设计仍收费。","t":"限时","l":"免费","u":"stepaudio-3-realtime-preview、stepaudio-3-chat-preview、stepaudio-3-gen-preview、stepaudio-3-music-preview；不含 TTS、独立 ASR、音色复刻与音色设计。入口：https://platform.stepfun.com/docs/zh/guides/pricing/details","e":"至 2026-11-17（以厂商页面为准）","a":"需实名","k":"限制：TTS、ASR 收费、音色服务另收费。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；限时免费调用","s":"event","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://platform.stepfun.com/docs/zh/guides/pricing/details"]],"ai":"stepfun-stepaudio3-free-202611"},
+{"n":"WorkBuddy／CodeBuddy Hy4 限时免费额度","p":"腾讯 WorkBuddy","g":"","r":"c","c":"event","m":"Hy4","q":"活动期间在 WorkBuddy 或 CodeBuddy 中选择 Hy4，可用有限免费额度体验代码、文档与视觉理解任务。具体额度及用尽后的积分消耗以客户端提示为准。","t":"限时","l":"免费","u":"WorkBuddy／CodeBuddy 内的 Hy4；其他模型及腾讯云 TokenHub API 按各自规则计费。入口：https://www.tencent.com/zh-cn/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/","e":"至 2026-11-15（以厂商页面为准）","a":"仅限客户端","k":"限制：免费额度有限、超额留意积分。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；Hy4 限时免费额度，具体用量以客户端为准","s":"event","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://www.tencent.com/zh-cn/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"]],"ai":"workbuddy-hy4-free-202611"},
+{"n":"SoMark OXR 免费解析文档 API","p":"SoMark","g":"","r":"c","c":"api","m":"OXR","q":"无需注册或申请密钥，可用 OXR 免费 API 将 PDF 和文档图片解析为 Markdown 或 JSON。请求需排队，官方不保证稳定性，不建议生产使用；免费服务会持续到运营方无法承担为止，具体次数未公布。国内用 free-oxr.somark.cn。","t":"永久","l":"免费；持续时间以官方为准","u":"仅 OXR 文档解析模型，不含 SoMark 其他服务。入口：https://somark.cn/oxr","e":"持续时间以官方为准","a":"注册登录","k":"限制：无需注册、请求排队、不建议生产使用。AIHOT 自动收录（证据标注：官方页面），待本站人工复核；免费文档解析，次数以官方为准","s":"active","v":"第三方","d":"2026-11-09","L":[["AIHOT Token羊毛","https://aihot.news/free-tokens"],["厂商页面（经 AIHOT 核实）","https://somark.cn/oxr"]],"ai":"somark-oxr-free-api"},
 ];
 /* ================= 渲染 ================= */
 const KINDTAG={'永久':['t-perm','永久免费'],'每日':['t-day','每日刷新'],'每周':['t-day','每周刷新'],'每月':['t-day','每月刷新'],'一次性':['t-once','一次性'],'限时':['t-event','限时活动'],'学生':['t-stu','学生专属'],'信息':['t-info','信息'],'已停':['t-info','已停']};
@@ -675,6 +762,20 @@ function modelsRender(){
     '</div>'
   ).join('');
 }
+function newsRender(){
+  const sec=document.getElementById('news');
+  if(!sec)return;
+  if(!NEWS||!Array.isArray(NEWS.items)||!NEWS.items.length){sec.hidden=true;return;}
+  sec.hidden=false;
+  document.getElementById('newsdate').textContent=NEWS.date+' · 北京时间 · 每日自动更新';
+  document.getElementById('newslist').innerHTML=NEWS.items.map((it,i)=>
+    '<li><span class="news-rank">'+String(i+1).padStart(2,'0')+'</span><div class="news-body">'+
+    '<div class="news-title"><a href="'+esc(it.url)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a></div>'+
+    (it.summary?'<p class="news-sum">'+esc(it.summary)+'</p>':'')+
+    '<div class="news-meta">'+esc(it.source||'AIHOT')+(it.original?' · <a href="'+esc(it.original)+'" target="_blank" rel="noopener">原文 ↗</a>':'')+'</div>'+
+    '</div></li>').join('');
+  document.getElementById('newssrc').innerHTML='来源：<a href="'+esc(NEWS.link||'https://aihot.news')+'" target="_blank" rel="noopener">AIHOT 日报</a> · 标题与摘要经 AIHOT 精选改写，重要内容请回原文核对';
+}
 function sortRows(rows){
   const cp=rows.slice();
   if(F.sort==='fresh')return cp.sort((a,b)=>String(b.d).localeCompare(String(a.d)));
@@ -708,13 +809,17 @@ function render(){
       b.setAttribute('aria-expanded',open?'false':'true');
     });
   });
-  if(window.__spy){window.__spy.disconnect();}
-  window.__spy=new IntersectionObserver(es=>{
-    es.forEach(e=>{ if(e.isIntersecting){ document.querySelectorAll('#toc a').forEach(a=>a.classList.toggle('active',a.dataset.k===e.target.dataset.cat)); } });
-  },{rootMargin:'-84px 0px -62% 0px'});
-  document.querySelectorAll('#groups > section').forEach(s=>{ if(window.__spy) window.__spy.observe(s); });
+  setupSpy();
   const cf=document.getElementById('clearFilters')||document.getElementById('clearFilters2');
   if(cf)cf.addEventListener('click',clearFilters);
+}
+function setupSpy(){
+  if(window.__spy)window.__spy.disconnect();
+  window.__spy=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ const k=e.target.dataset.cat||e.target.id; document.querySelectorAll('#toc a,#tocdrawer a').forEach(a=>a.classList.toggle('active',a.dataset.k===k)); } });
+  },{rootMargin:'-84px 0px -62% 0px'});
+  document.querySelectorAll('#groups > section').forEach(s=>window.__spy.observe(s));
+  ['flash','news','models','dead','overseas'].forEach(id=>{const el=document.getElementById(id);if(el&&!el.hidden)window.__spy.observe(el);});
 }
 function clearFilters(){
   F={q:'',region:'all',kind:'all',sort:F.sort};$('#q').value='';
@@ -736,8 +841,43 @@ document.querySelectorAll('.chip').forEach(c=>{
     render();
   });
 });
-masthead();flash();render();deadRender();modelsRender();
-$('#toc').innerHTML=CATS.map(c=>{const n=DATA.filter(d=>d.c===c.k).length;return '<a href="#gh-'+c.k+'" data-k="'+c.k+'">'+c.t+'<span class="n">'+n+'</span></a>'}).join('');
+/* ===== 页面目录：桌面侧边栏 + 移动端抽屉，平滑跳转 ===== */
+function tocLinks(){
+  const head=[{k:'flash',t:'限时窗口',href:'#flash'}];
+  if(NEWS&&Array.isArray(NEWS.items)&&NEWS.items.length)head.push({k:'news',t:'每日十大AI新闻',href:'#news'});
+  const cats=CATS.map(c=>({k:c.k,t:c.t,href:'#gh-'+c.k,n:DATA.filter(d=>d.c===c.k).length}));
+  const tail=[{k:'models',t:'模型速查',href:'#models'},{k:'dead',t:'已停用历史区',href:'#dead'},{k:'overseas',t:'海外存档',href:'#overseas'}];
+  return [...head,...cats,...tail];
+}
+function tocHTML(){return tocLinks().map(x=>'<a href="'+x.href+'" data-k="'+x.k+'">'+esc(x.t)+(x.n!==undefined?'<span class="n">'+x.n+'</span>':'')+'</a>').join('');}
+const drawer=document.getElementById('tocdrawer');
+document.getElementById('toc').innerHTML='<div class="toc-h">页面目录</div>'+tocHTML();
+drawer.innerHTML='<div class="toc-h"><span>页面目录</span><button class="toc-close" id="tocclose" type="button" aria-label="关闭目录">×</button></div>'+tocHTML();
+function setDrawer(open){
+  document.body.classList.toggle('toc-open',open);
+  document.getElementById('tocfab').setAttribute('aria-expanded',open?'true':'false');
+}
+document.getElementById('tocfab').addEventListener('click',()=>setDrawer(!document.body.classList.contains('toc-open')));
+document.getElementById('tocoverlay').addEventListener('click',()=>setDrawer(false));
+document.getElementById('tocclose').addEventListener('click',()=>setDrawer(false));
+addEventListener('keydown',e=>{if(e.key==='Escape')setDrawer(false)});
+function tocClick(e){
+  const a=e.target.closest('a[data-k]');
+  if(!a)return;
+  const id=a.getAttribute('href').slice(1);
+  let target=document.getElementById(id);
+  if(!target&&CATS.some(c=>c.k===a.dataset.k)){clearFilters();target=document.getElementById(id);}
+  if(target){
+    e.preventDefault();
+    setDrawer(false); // 先解除 body overflow:hidden，否则平滑滚动被吞掉
+    if(target.tagName==='DETAILS')target.open=true;
+    target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    history.replaceState(null,'','#'+id);
+  } else setDrawer(false);
+}
+document.getElementById('toc').addEventListener('click',tocClick);
+drawer.addEventListener('click',tocClick);
+masthead();flash();newsRender();render();deadRender();modelsRender();
 const ctl=document.querySelector('.controls');
 addEventListener('scroll',()=>{ctl.classList.toggle('scrolled',ctl.getBoundingClientRect().top<=0)},{passive:true});
 </script>

@@ -39,6 +39,19 @@ DATA.forEach((d, i) => {
   for (const k of ['n', 'q', 't', 'd']) if (String(d[k]).includes('undefined')) fail('第 ' + (i + 1) + ' 条字段含 undefined');
 });
 
+const ns = code.indexOf('/*__NEWS_START__*/');
+const ne = code.indexOf('/*__NEWS_END__*/');
+if (ns < 0 || ne < 0 || ne < ns) fail('找不到 NEWS 标记');
+let NEWS = null;
+try { NEWS = JSON.parse(code.slice(ns + 18, ne)); } catch (err) { fail('NEWS 解析失败: ' + err.message); }
+if (NEWS !== null) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(NEWS.date)) fail('NEWS 日期非法: ' + NEWS.date);
+  if (!Array.isArray(NEWS.items) || NEWS.items.length < 1 || NEWS.items.length > 10) fail('NEWS 条数异常: ' + (NEWS.items && NEWS.items.length));
+  NEWS.items.forEach((it, i) => {
+    if (!it.title || !it.url || !/^https?:\/\//.test(it.url)) fail('NEWS 第 ' + (i + 1) + ' 条缺标题或链接');
+  });
+}
+
 const today = new Date();
 today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
 const todayISO = today.toISOString().slice(0, 10);

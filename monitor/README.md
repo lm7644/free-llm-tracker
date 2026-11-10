@@ -4,9 +4,18 @@
 
 ## 它做什么
 
-每天抓取 `sources.json` 里的 13 个官方页面（定价页/活动页/规则页），与 `store/` 里的快照做**行级 diff**；有真实变更（增删行 > 0）时写入 `reports/日期.md` 并更新 `changes.xml`（变更 RSS，保留最近 60 条）；每次运行在 `heartbeat.log` 追加一行结果。空白/动态噪声（推荐位、访问计数等）由规范化处理吸收，不产生假报告。页面全量渠道 RSS（92 条）由 `build-assets.js` 从 `app_template.html` 的 DATA 生成，写入根目录 `feed.xml` 与 `monitor/feed.xml`。
+每天抓取 `sources.json` 里的 13 个官方页面（定价页/活动页/规则页），与 `store/` 里的快照做**行级 diff**；有真实变更（增删行 > 0）时写入 `reports/日期.md` 并更新 `changes.xml`（变更 RSS，保留最近 60 条）；每次运行在 `heartbeat.log` 追加一行结果。空白/动态噪声（推荐位、访问计数等）由规范化处理吸收，不产生假报告。页面全量渠道 RSS 由 `build-assets.js` 从 `app_template.html` 的 DATA 生成，写入根目录 `feed.xml` 与 `monitor/feed.xml`。
 
-CI 只在 GitHub Actions 运行 `run-monitor`、Tavily、博查三个引擎；搜狗与极致了为本地/可选。单源抓取失败仅告警，**过半源失败时脚本以非零退出码结束**，工作流会失败并自动开 issue。
+CI 在 GitHub Actions 运行 `run-monitor`、Tavily、博查、**AIHOT 同步**四个引擎；搜狗与极致了为本地/可选。单源抓取失败仅告警，**过半源失败时脚本以非零退出码结束**，工作流会失败并自动开 issue。
+
+## AIHOT 同步引擎（aihot-fetch.js，2026-11-10 接入）
+
+匿名只读接口，无需 key；UA 按官方要求 `aihot-api/2.0.0`，单 IP ≤60 次/分钟（本脚本每次运行约 3 个请求）。`node monitor/aihot-fetch.js` 手动运行，`--dry-run` 只预览不写入。
+
+- **Token羊毛合并**：抓 `https://aihot.news/free-tokens.data`（React Router single-fetch，turbo-stream v2 扁平数组，内置零依赖解码器；失败回退解析页面 HTML 内嵌流载荷）。去重分层：①`ai` 标记命中 → 刷新此前自动条目；②URL 规范化（去 tracking 参数/ hash / www）相同 → 跳过；③**产品级**品牌 + 关键词（强关键词直跳，弱关键词需周期词佐证）；④品牌去词后文案 bigram 相似 ≥0.35；⑤品牌 + 周期 + 额度数字。厂商级品牌（腾讯/阿里/百度/华为/商汤）单独命中不足以去重——同厂不同产品曾因此误判。新条目固定 `v:'第三方'`、带 `ai:<dealId>` 标记与 AIHOT 来源链接，**人工复核前不得升级可信度**；AIHOT 下架的自动条目自动移入已停用区。人工维护的条目永不被自动改写。
+- **每日十大AI新闻**：`/api/v1/dailies/latest` 取日报（lead→highlights→sections→flashes 顺序去重），不足 10 条用 `/api/v1/items?window=7d` 精选补足（窗口内优先），写入模板 `/*__NEWS_START__*/…/*__NEWS_END__*/` 占位。
+- **审计**：每次运行写 `reports/日期-aihot.md`（新增/刷新/去重跳过/下架/新闻/警告），跳过明细供人工复查误判。两路抓取全挂才非零退出（CI 告警），单路失败只记警告。
+- **使用条款边界**：AIHOT 允许个人/公益非商业使用与内部使用（须署名）；商业产品、公开镜像、批量公开 redistribution 需书面授权（agent@virxact.com）。本仓库为非商业开源台账，页面页脚与新闻板块均已署名标注来源。
 
 ## 文件说明
 
@@ -18,6 +27,9 @@ CI 只在 GitHub Actions 运行 `run-monitor`、Tavily、博查三个引擎；�
 | `reports/*.md` | 变更报告（按日期，仅在有真实变更时生成） |
 | `changes.xml` | 官方页变更 RSS（最近 60 条变更，可拖进任何 RSS 阅读器） |
 | `build-assets.js` | 从 DATA 生成全量 `feed.xml`（根目录 + monitor）与 `免费渠道种子表.csv` |
+| `aihot-fetch.js` | AIHOT 同步：Token羊毛去重合并进 DATA + 日报生成十大新闻（零依赖 Node，CI 每日运行） |
+| `reports/日期-aihot.md` | AIHOT 同步审计报告（新增/刷新/跳过/下架明细） |
+| `validate-build.js` | 构建校验：脚本语法、DATA 必填字段与日期、NEWS 结构、双文件一致性 |
 | `heartbeat.log` | 每次运行一行心跳（时间、ok/fail/baseline/changed） |
 
 ## 微信公众号检索：三层阶梯（2026-10-31 实测定稿）

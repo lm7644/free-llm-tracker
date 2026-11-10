@@ -38,6 +38,10 @@ jobs:
           BOCHA_KEY: ${{ secrets.BOCHA_KEY }}
         run: monitor/bocha-search.ps1 -WsRoot $env:GITHUB_WORKSPACE
 
+      - name: Sync AIHOT (free-tokens merge + daily news)
+        shell: pwsh
+        run: node monitor/aihot-fetch.js
+
       - name: Rebuild app HTML from template + logos
         shell: pwsh
         run: |
@@ -60,7 +64,7 @@ jobs:
         run: |
           git config user.name 'freellm-bot'
           git config user.email 'actions@users.noreply.github.com'
-          git add monitor/reports monitor/changes.xml feed.xml monitor/feed.xml index.html '大模型免费渠道全景表.html' '免费渠道种子表.csv'
+          git add app_template.html monitor/reports monitor/changes.xml feed.xml monitor/feed.xml index.html '大模型免费渠道全景表.html' '免费渠道种子表.csv'
           if (git diff --cached --quiet) { Write-Host 'no changes'; exit 0 }
           git commit -m 'daily patrol: refresh data, reports and feed'
           git push

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>大模型免费渠道全景表（全量 92 条，逐条核实日期）</title>
+    <title>大模型免费渠道全景表（全量 130 条，逐条核实日期）</title>
     <link>https://lm7644.github.io/free-llm-tracker/</link>
     <atom:link href="https://lm7644.github.io/free-llm-tracker/feed.xml" rel="self" type="application/rss+xml"/>
     <description>每条渠道含免费内容、限额、到期、来源链接与各自核实日期；口径为「单条核实日期」，不用单日覆盖全表。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 06 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
     <item>
       <title>智谱开放平台 bigmodel</title>
       <link>https://lm7644.github.io/free-llm-tracker/</link>
@@ -1510,6 +1510,652 @@ carrot：https://github.com/xx025/carrot]]></description>
 核实日期：2026-10-29（可信度：未核实）
 来源：
 定价页：https://www.augmentcode.com/pricing]]></description>
+    </item>
+    <item>
+      <title>华为果办 OfficeAce 免费版每日登录送 100 积分</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/华为果办 OfficeAce 免费版每日登录送 100 积分</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：个人体验版登录并使用果办 OfficeAce 客户端或微信小程序，每天赠送 100 积分，用于果办内的模型推理等用量。
+限额：100 积分；当日有效
+使用方式：果办平台预置模型，如 GLM-5.2。入口：https://activity.huaweicloud.com/officeace.html#section-3
+到期：当日有效
+门槛：仅限客户端
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://activity.huaweicloud.com/officeace.html#section-3]]></description>
+    </item>
+    <item>
+      <title>秒悟每天登录领 2000 积分</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/秒悟每天登录领 2000 积分</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：每天首次登录赠送 2000 积分，有效 7 天。例如 DeepSeek V4.1 Flash 每千输入 Token 扣 2 积分、每千输出扣 8 积分；输入和输出共同消耗，实际可用量随模型和上下文而变。
+限额：2000 积分；领取后 7 天
+使用方式：秒悟提供的语言、图像等模型。入口：https://docs.meoo.com/pricing
+到期：领取后 7 天
+门槛：仅限客户端
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://docs.meoo.com/pricing]]></description>
+    </item>
+    <item>
+      <title>魔搭社区每天送 200 魔粒调模型 API</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/魔搭社区每天送 200 魔粒调模型 API</guid>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：每日登录自动获 200 魔粒，绑定阿里云账号再加 50，短期魔粒尽量当天用完。调用 API-Inference 需绑定已实名的阿里云账号、完善个人信息并验证邮箱；轻量、主流、旗舰模型平均每次扣 0.5、1、2 魔粒。官方建议商用采用商业 API，高并发不保证。
+限额：200 魔粒；短期魔粒当天用完
+使用方式：API-Inference 上的所有模型，即模型页带蓝绿色闪电标记的开源模型；老模型会陆续下架。入口：https://www.modelscope.cn/posts/435591
+到期：短期魔粒当天用完
+门槛：需实名
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-10（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://www.modelscope.cn/posts/435591]]></description>
+    </item>
+    <item>
+      <title>腾讯 ima 每日签到领 50 算力</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/腾讯 ima 每日签到领 50 算力</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：在 ima 客户端的「用量统计」进入「每日登录福利」签到。每周连续签满 7 天，另有随机算力奖励。
+限额：50 算力；领取后 7 天有效
+使用方式：ima Copilot 内置模型，如 DeepSeek 系列，具体可选项以客户端为准。入口：https://ima.qq.com/download
+到期：领取后 7 天有效
+门槛：仅限客户端
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+来源页：https://ima.qq.com/download]]></description>
+    </item>
+    <item>
+      <title>AStudio 体验版每天登录领 100 积分</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/AStudio 体验版每天登录领 100 积分</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：体验版每日登录客户端可免费领取 100 积分，用于 AStudio 内置模型的办公、代码与研究任务。需手机号登录；支持 Windows 10/11 64 位和 Apple 芯片 Mac，体验版权益为限时开放。模型与部分付费接口共用积分。
+限额：100 积分；每次领取后 31 天内有效
+使用方式：体验版可选的内置模型，官方列有 Spark、DeepSeek、GLM、Kimi、MiniMax 等系列；不含第三方独立服务。入口：https://agent.xfyun.cn/studio-guide/pricing
+到期：每次领取后 31 天内有效
+门槛：仅限客户端
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://agent.xfyun.cn/studio-guide/pricing]]></description>
+    </item>
+    <item>
+      <title>fal FLUX 3 Max 每日免登录生成 1 个视频</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/fal FLUX 3 Max 每日免登录生成 1 个视频</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：在 Sandbox 使用，无需注册或绑卡。顶部的免费总次数包含其他模型，不能全部用于 FLUX 3 Max；具体刷新时间以 Sandbox 为准。模型 API 按秒收费。
+限额：1 次
+使用方式：仅 fal Sandbox 的 FLUX 3 Max 文生视频与图生视频，两者共享 1 次免费额度，720p、每段最长 15 秒；不含 API 调用。入口：https://fal.ai/sandbox?models=db8o064regj1armnir30&op=video.text_to_video
+到期：以厂商页面为准
+门槛：仅限客户端
+分类：每日签到 · 领额度 / 地区：海外
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://fal.ai/sandbox?models=db8o064regj1armnir30&op=video.text_to_video]]></description>
+    </item>
+    <item>
+      <title>MiniMax Code 每天签到领 400 积分</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/MiniMax Code 每天签到领 400 积分</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：打开 MiniMax Code，在设置的用量页找签到入口，完成每日签到领 400 积分；连续第 4、7 天的单日奖励为 1000，一周共 4000。积分仅用于 MiniMax Code，自到账起 30 天有效。
+限额：400 积分；到账后 30 天
+使用方式：MiniMax Code 里平台支持的所有文本和多模态模型。入口：https://agent.minimax.cn/docs/code/account/usage
+到期：到账后 30 天
+门槛：仅限客户端
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://agent.minimax.cn/docs/code/account/usage]]></description>
+    </item>
+    <item>
+      <title>Qoder 国际版 Qoduck 每天限免</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/Qoder 国际版 Qoduck 每天限免</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：Qoder 国际版新老个人账号选择 Qoduck 即可每天免费调用，免费账号和 Credits 余额为 0 的账号均可参与，无需领取；最高思考强度也不扣 Credits。每日次数有限，付费订阅次数更多，用尽后可等次日恢复，继续使用则按 0.5× 消耗 Credits。仅限 Qoder 国际版主应用，国内版、IDE、JetBrains 插件及 CLI 不适用，不能当通用 API。模型身份、具体次数和结束日期未公布。
+限额：免费；限时活动，结束日期未公布
+使用方式：匿名模型 Qoduck（身份未公布）；仅 Qoder 国际版主应用，不含 Qoder IDE、JetBrains 插件及 CLI。入口：https://docs.qoder.com/zh/events/qoduck-free
+到期：限时活动，结束日期未公布
+门槛：仅限客户端
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://docs.qoder.com/zh/events/qoduck-free]]></description>
+    </item>
+    <item>
+      <title>WPS 灵犀签到领 100 智点，第 7 天起每天 200</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/WPS 灵犀签到领 100 智点，第 7 天起每天 200</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：在灵犀专业版每日签到领 100 智点，连续签到第 7 天起每天领 200。赠送智点用于专家模式任务，可在「设置 → 智点详情」查看每笔到期日。
+限额：100 智点；以领取时页面显示的到期时间为准
+使用方式：灵犀专业版体验版的专家 Pro、Max 模式，由灵犀按任务选择内置模型。入口：https://www.lingxi.cn/docs#06-credits--%E6%99%BA%E7%82%B9%E8%AF%B4%E6%98%8E
+到期：以领取时页面显示的到期时间为准
+门槛：仅限客户端
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://www.lingxi.cn/docs#06-credits--%E6%99%BA%E7%82%B9%E8%AF%B4%E6%98%8E]]></description>
+    </item>
+    <item>
+      <title>Rime 每月 50 美元语音模型额度</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/Rime 每月 50 美元语音模型额度</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：可用于 Prism 语音对话、Mist v3 和 Coda v2 语音合成及 Rime STT 识别；50 美元约可合成 1667 分钟 Mist v3 语音。免费额度用完后，须自行升级并绑卡才能付费继续。免费档不得上传来电录音、健康信息或他人个人数据，符合条款的输入输出可用于模型训练。
+限额：≈¥334；每月刷新，不结转
+使用方式：所有模型。入口：https://www.rime.ai/pricing
+到期：每月刷新，不结转
+门槛：注册登录
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://www.rime.ai/pricing]]></description>
+    </item>
+    <item>
+      <title>Drex 每月 5 美元模型调用额度</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/Drex 每月 5 美元模型调用额度</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：首次月赠金在注册满一个月时到账，此后按注册日每月发 5 美元，下次发放时过期、不结转。需满足与新人赠金相同的 Google、满 30 天 GitHub 或验卡认证及邮箱、网络限额。与新人赠金共用账户余额，用于 Drex 决策、NDI 文档理解与 Drex Search。不开自动付费，用完即停；手动启用后超额会扣费。
+限额：≈¥33；按注册日发放，下次发放时过期
+使用方式：所有模型：Drex 决策系列（含 Max v1.1、Max Finance、2.0）、文档理解与 Drex Search，共用账户余额。入口：https://console.nace.ai/docs/drex/reference/pricing
+到期：按注册日发放，下次发放时过期
+门槛：注册登录
+分类：每日签到 · 领额度 / 地区：海外
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://console.nace.ai/docs/drex/reference/pricing]]></description>
+    </item>
+    <item>
+      <title>蚂蚁百灵每月 1 日送 10 元抵扣券</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/蚂蚁百灵每月 1 日送 10 元抵扣券</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：每月 1 日向已使用百灵新计费平台的计费账户发 10 元 Token 抵扣券，可抵扣模型 API；当月有效、不结转。月中完成升级不补发当月券，从下月 1 日开始发放。
+限额：¥10；当月有效
+使用方式：百灵开放平台上的所有模型，按各模型实际计费金额抵扣。入口：https://developer.ant-ling.com/zh-CN/docs/getting-started/changelog/billing-upgrade/
+到期：当月有效
+门槛：注册登录
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://developer.ant-ling.com/zh-CN/docs/getting-started/changelog/billing-upgrade/]]></description>
+    </item>
+    <item>
+      <title>EdgeOne Makers 每月 50 万 Token</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/EdgeOne Makers 每月 50 万 Token</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：Makers 免费版每个账号每月共享 50 万 Token，可通过兼容 OpenAI／Anthropic 的 API 调用内置模型，适合演示、教学和技术验证。官方要求内置模型勿用于生产环境；自带厂商密钥的调用按厂商账户另计费。额度商业化后可能调整。
+限额：≈¥0.3
+使用方式：内置 DeepSeek V4 Pro／V4 Flash／V4.1 Flash、Kimi K2.6、MiniMax M3／M2.7、混元 Hy3／Hy3 Preview、朱雀；自带厂商密钥的模型不使用此额度。入口：https://pages.edgeone.ai/zh/document/limits-and-quotas
+到期：以厂商页面为准
+门槛：注册登录
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://pages.edgeone.ai/zh/document/limits-and-quotas]]></description>
+    </item>
+    <item>
+      <title>书生·端砚测试期每月送免费墨点</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/书生·端砚测试期每月送免费墨点</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：打开「科研模型」，注册登录后查看墨点余额并创建 API Key。测试期每月赠送额度，具体数量以账户为准；多个 API Key 共用余额。
+限额：免费；墨点按月清空，时间以账户为准
+使用方式：Token Plan 所有模型，如 DeepSeek-V4.1-Flash-1017、GLM-5.3、Qwen3.8-27B；Agents-A1、Atria-Dawn、Sage-A1.5、书生-S2 当前免扣墨点。入口：https://discovery.intern-ai.org.cn/token-plan/home
+到期：墨点按月清空，时间以账户为准
+门槛：注册登录
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://discovery.intern-ai.org.cn/token-plan/home]]></description>
+    </item>
+    <item>
+      <title>腾讯云 ADP 体验版每月送 15,000 PU</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/腾讯云 ADP 体验版每月送 15,000 PU</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：腾讯云实名主账号首次开通 ADP 后，按引导领取 0 元体验版。平台内模型推理与工具等用量共用这份 PU。
+限额：1.5 万 PU；每月重置，未用完不累计
+使用方式：ADP 体验版的 Auto 模型，不含自定义模型与专属算力。入口：https://cloud.tencent.com/document/product/1759/139268
+到期：每月重置，未用完不累计
+门槛：需实名 + 仅限客户端
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://cloud.tencent.com/document/product/1759/139268]]></description>
+    </item>
+    <item>
+      <title>ElevenLabs 免费档每月 1 万积分</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/ElevenLabs 免费档每月 1 万积分</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：免费注册后每个订阅周期获得 10,000 积分，支持文字转语音、转写、音效和音乐等免费档功能，可用 Eleven v4。无需绑卡，积分不结转；生成内容不可商用，公开发布须按官方要求署名；视频生成须付费。
+限额：1 万 积分；每个订阅周期重置，不结转
+使用方式：Eleven v4、v4 Turbo、v3 等免费档语音模型，以及转写、音效和音乐功能；不含视频生成、付费档专属声音克隆或商业授权。入口：https://elevenlabs.io/pricing
+到期：每个订阅周期重置，不结转
+门槛：注册登录
+分类：每日签到 · 领额度 / 地区：海外
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://elevenlabs.io/pricing]]></description>
+    </item>
+    <item>
+      <title>WorkBuddy 体验版每月 500 积分</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/WorkBuddy 体验版每月 500 积分</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>每日签到 · 领额度</category>
+      <description><![CDATA[免费内容：WorkBuddy 免费体验版每月 500 基础积分，与 CodeBuddy 同账号共享；加入 Buddy One 并关联产品后，也可在腾讯文档、ima 和腾讯网盘使用。当前套餐周期结束时失效、不结转；开通付费会员后不再另发体验版的 500 积分。
+限额：500 积分；套餐周期结束时失效，不结转
+使用方式：WorkBuddy 和 CodeBuddy 内置模型；加入 Buddy One 后也可用于已关联的腾讯文档、ima、腾讯网盘 AI 功能。入口：https://www.workbuddy.cn/docs/workbuddy/Pricing
+到期：套餐周期结束时失效，不结转
+门槛：仅限客户端
+分类：每日签到 · 领额度 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://www.workbuddy.cn/docs/workbuddy/Pricing]]></description>
+    </item>
+    <item>
+      <title>Zed 在读大学生每月 10 美元 AI 额度，持续一年</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/Zed 在读大学生每月 10 美元 AI 额度，持续一年</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>学生 / 教育福利</category>
+      <description><![CDATA[免费内容：全球认可大学的在读学生，年满 18 岁，用注册超过 30 天的 GitHub 账号登录并验证当前学校邮箱，可免费用一年学生计划。每月 10 美元仅供 Zed 内 AI 使用，用完即停；不是一次到账 120 美元。一年后自动降为免费版。
+限额：≈¥67；每月到账，持续 12 个月
+使用方式：Zed 托管模型中学生档可用的部分，如 Claude Sonnet 5.5、GPT-6.1 Sol；不含 Claude Fable、Claude Opus、GPT-6 Astra、GPT-5.5 pro 和 GPT-5.4 pro；不是通用 API 余额。入口：https://zed.dev/education
+到期：每月到账，持续 12 个月
+门槛：仅限客户端 + 学生认证
+分类：学生 / 教育福利 / 地区：海外
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://zed.dev/education]]></description>
+    </item>
+    <item>
+      <title>超算互联网新用户领 1 亿 Token</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/超算互联网新用户领 1 亿 Token</guid>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：活动期间首次注册的新用户，在 SCNet 客户端「新人专享」入口领取，每个新账号限领一次。赠送额度优先消耗，用完后自动扣减现金余额。
+限额：≈¥60；到账后 30 天
+使用方式：首期默认 GLM-5.3-Flash；实际发放型号可能调整，以到账为准。入口：https://www.scnet.cn/home/subject/double11/index.html
+到期：至 2026-12-31（以厂商页面为准）
+门槛：需实名
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-10（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://www.scnet.cn/home/subject/double11/index.html]]></description>
+    </item>
+    <item>
+      <title>Drex 新人 5 美元模型调用额度</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/Drex 新人 5 美元模型调用额度</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：用 Google 或注册满 30 天的 GitHub 账号认证，可免绑卡领 5 美元；也可验卡，验证不扣费。可调用 Drex 决策、NDI 文档理解与 Drex Search；按 Drex 2.0 输入价约可用 1.67 亿 Token。不支持临时邮箱，同网普通邮箱及同企业域名每天最多 3 个账号获赠金。不开自动付费，余额不足即停；手动启用后超额会扣费。
+限额：≈¥33；注册后 3 个月有效，每人一次
+使用方式：所有模型：Drex 决策系列（含 Max v1.1、Max Finance、2.0）、文档理解与 Drex Search，共用账户余额。入口：https://console.nace.ai/docs/drex/reference/pricing
+到期：注册后 3 个月有效，每人一次
+门槛：注册登录
+分类：限时活动 / 羊毛 / 地区：海外
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://console.nace.ai/docs/drex/reference/pricing]]></description>
+    </item>
+    <item>
+      <title>Zed 14 天试用领 5 美元模型额度</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/Zed 14 天试用领 5 美元模型额度</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：开启 Zed Pro 试用后获得 5 美元 GPT-6 Luna 用量，试用 14 天；无需信用卡，到期自动转免费版。
+限额：≈¥33；14 天
+使用方式：GPT-6 Luna；试用期不含其他托管模型。入口：https://zed.dev/docs/account/plans-and-pricing
+到期：14 天
+门槛：仅限客户端
+分类：限时活动 / 羊毛 / 地区：海外
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://zed.dev/docs/account/plans-and-pricing]]></description>
+    </item>
+    <item>
+      <title>百度千帆新用户送 20 元代金券</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/百度千帆新用户送 20 元代金券</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：首次注册百度智能云千帆平台的新用户，完成实名认证后送 20 元代金券，可在全平台无门槛使用，有效期 1 个月；本轮活动领取截至 11 月 30 日。
+限额：¥20；发放后 1 个月
+使用方式：千帆平台上的所有模型，官方写“全平台无门槛使用”。入口：https://cloud.baidu.com/campaign/event/bigevent/index.html
+到期：至 2026-11-30（以厂商页面为准）
+门槛：需实名
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://cloud.baidu.com/campaign/event/bigevent/index.html]]></description>
+    </item>
+    <item>
+      <title>蚂蚁百灵新用户或升级账户送 20 元</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/蚂蚁百灵新用户或升级账户送 20 元</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：新用户注册后立即获得 20 元 Token 消费券；历史计费账户完成升级后也可获得一次 20 元券，可能有发放延迟，到账后 60 天有效，不可提现或转让。新人券的期限和范围官方没单独写，以控制台为准。
+限额：¥20；升级券到账后 60 天
+使用方式：升级券可用于百灵全部模型；新人券官方没单独写范围，以控制台为准。入口：https://developer.ant-ling.com/zh-CN/docs/getting-started/changelog/billing-upgrade/
+到期：升级券到账后 60 天
+门槛：注册登录
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://developer.ant-ling.com/zh-CN/docs/getting-started/changelog/billing-upgrade/]]></description>
+    </item>
+    <item>
+      <title>硅基流动实名认证送 16 元代金券</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/硅基流动实名认证送 16 元代金券</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：在硅基流动完成实名认证后，手动领一张 16 元通用代金券，老用户也能领；可用于平台上的模型 API。
+限额：¥16；领取后 180 天
+使用方式：平台上的所有模型，含 Pro 模型和高速模型；API、批量推理、微调都能用。入口：https://www.siliconflow.cn/news/od7wj9rr23p95uhihmhrombp
+到期：至 2026-12-31（以厂商页面为准）
+门槛：需实名
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://www.siliconflow.cn/news/od7wj9rr23p95uhihmhrombp]]></description>
+    </item>
+    <item>
+      <title>Qoder 新人 300 Credits 加两周 Pro</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/Qoder 新人 300 Credits 加两周 Pro</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：下载 Qoder 国内版登录，送两周 Pro 试用和 300 Credits；只能在 Qoder 的客户端、插件、QoderWork 和命令行里用，不能当 API。
+限额：≈¥12
+使用方式：Qoder CN 里的所有模型；高级模型要在 14 天 Pro 试用期内用。入口：https://docs.qoder.cn/product-overview/billing-description
+到期：以厂商页面为准
+门槛：仅限客户端
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://docs.qoder.cn/product-overview/billing-description]]></description>
+    </item>
+    <item>
+      <title>超算互联网新用户领 1000 万 Token</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/超算互联网新用户领 1000 万 Token</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：活动期间首次注册的新用户可领取，领取后 30 天有效，每人限领一次，限量先到先得。当前发放 GLM-5.3-Flash，型号可能调整，以实际到账为准；赠送额度用完后自动扣现金余额。
+限额：≈¥6；领取后 30 天
+使用方式：当前为 GLM-5.3-Flash；实际发放型号可能调整，以到账为准。入口：https://www.scnet.cn/home/subject/maas/index.html
+到期：至 2026-12-31（以厂商页面为准）
+门槛：需实名
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://www.scnet.cn/home/subject/maas/index.html]]></description>
+    </item>
+    <item>
+      <title>DeepSeek Harness 登录送 6 元</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/DeepSeek Harness 登录送 6 元</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：下载 DeepSeek 桌面版（Harness），用 DeepSeek 账号登录领 6 元赠金；赠金进开放平台余额，调 API 时先扣它。限量，以客户端显示为准。
+限额：¥6
+使用方式：DeepSeek 开放平台的所有模型，即 deepseek-flash 和 deepseek-v4-pro。入口：https://deepseek.com/zh/harness/
+到期：以厂商页面为准
+门槛：注册登录
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-08（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+来源页：https://deepseek.com/zh/harness/]]></description>
+    </item>
+    <item>
+      <title>TokenHub 新人语言与多模态模型送 100 万 Token</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/TokenHub 新人语言与多模态模型送 100 万 Token</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：开通 TokenHub 后可在模型广场选择领取，支持的模型首次调用也可自动领。语言模型和多模态理解模型标注 100 万 Token、领取后 1 年有效，每个主账号每个模型限领一次。官方又写同一账号下的模型共享额度，是否独立以控制台显示为准。
+限额：≈¥2.4；领取后 1 年
+使用方式：语言模型和多模态理解模型标注 100 万 Token；官方对是否共享的表述不一致，以控制台为准；视觉生成另有额度。入口：https://cloud.tencent.com/document/product/1823/130053
+到期：至 2026-12-31（以厂商页面为准）
+门槛：需实名
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://cloud.tencent.com/document/product/1823/130053]]></description>
+    </item>
+    <item>
+      <title>华为码道受邀注册额外领 1000 积分</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/华为码道受邀注册额外领 1000 积分</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：首次使用码道的国内新用户，通过好友的邀请链接注册并登录，可额外得 1000 积分；这里只放官方规则，邀请链接要向好友要。新用户基础的 4000 积分另算。邀请人每次有效邀请也得 1000 积分，累计上限 5 万；奖励到账起 1 个月内有效。旧 Tokens 套餐要先免费切换到积分套餐。
+限额：1000 积分；到账起 1 个月
+使用方式：码道内置模型，包括 Kimi K3.1 Pro、GLM-5.3-Flash、DeepSeek V4.1 Flash；仅在码道各端使用，不是通用 API 余额。入口：https://support.huaweicloud.com/offers-codeartsagent/codeartsagent_offers_0002.html
+到期：至 2026-11-15（以厂商页面为准）
+门槛：仅限客户端
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://support.huaweicloud.com/offers-codeartsagent/codeartsagent_offers_0002.html]]></description>
+    </item>
+    <item>
+      <title>秒悟新用户首月 5000 积分</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/秒悟新用户首月 5000 积分</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：免费版新用户首月获得 5000 积分，可在秒悟使用模型生成应用。例如 DeepSeek V4.1 Flash 每千输入 Token 扣 2 积分、每千输出扣 8 积分；输入和输出共同消耗。
+限额：5000 积分；首月有效
+使用方式：秒悟提供的语言、图像等模型。入口：https://docs.meoo.com/pricing
+到期：首月有效
+门槛：仅限客户端
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://docs.meoo.com/pricing]]></description>
+    </item>
+    <item>
+      <title>微信小程序送 10 亿 Token 与 10 万张生图</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/微信小程序送 10 亿 Token 与 10 万张生图</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：需微信小程序账号，在公众平台报名成长计划，每账号一次。仅小程序、云开发服务端和控制台可消耗赠送额度，不能接通用 AI 工具。Token 用完转扣云开发资源点套餐，非资源点套餐直接失败；生图用完停止，现有生图模型 12 月 1 日 0 点下线，替代模型以官方通知为准。未有环境者另赠 6 个月个人版环境。
+限额：10 亿 Token；资源包自申请成功起 6 个月有效
+使用方式：hy4、hy4-preview（12 月 7 日 0 点下线）、hy3、deepseek-v4.1-flash、deepseek-v4.1-flash-1017；生图用 HY-Image-3.0-Plus-4090-Tob-v1.0、HY-Image-v3.0-I2I-ToB-v1.0.1（12 月 1 日 0 点下线）。入口：https://docs.cloudbase.net/ai/ai-inspire-plan
+到期：至 2026-12-31（以厂商页面为准）
+门槛：需实名 + 仅限客户端
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://docs.cloudbase.net/ai/ai-inspire-plan]]></description>
+    </item>
+    <item>
+      <title>智谱 AutoClaw 国内版双十一登录领 5000 万 Tokens</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/智谱 AutoClaw 国内版双十一登录领 5000 万 Tokens</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：11 月 9 日至 11 月 15 日登录 AutoClaw 国内版，每个账号可领一次 5000 万 Tokens，奖励于 11 月 15 日 23:59（北京时间）统一失效。仅在 AutoClaw 内使用，不是通用 API 额度；自接模型 API 另行计费。
+限额：5000 万 Token
+使用方式：AutoClaw 所有内置 GLM 模型，如 GLM-5.3、GLM-5.3-Flash、GLM-5-Turbo、GLM-5V-Turbo 及 Auto 模式；自接 API 另计费。入口：https://autoclaw.zhipuai.cn/blog/news/M11W2/
+到期：至 2026-11-15（以厂商页面为准）
+门槛：需实名 + 仅限客户端
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://autoclaw.zhipuai.cn/blog/news/M11W2/]]></description>
+    </item>
+    <item>
+      <title>AStudio 新用户下载登录领 1000 积分</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/AStudio 新用户下载登录领 1000 积分</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：新用户下载并登录 AStudio 客户端可领取 1000 积分，无需购买会员，用于 AStudio 内置模型的办公、代码与研究任务。需手机号登录；支持 Windows 10/11 64 位和 Apple 芯片 Mac。模型与部分付费接口共用积分。
+限额：1000 积分；领取后 3 个月有效
+使用方式：体验版可选的内置模型，官方列有 Spark、DeepSeek、GLM、Kimi、MiniMax 等系列；不含第三方独立服务。入口：https://agent.xfyun.cn/studio-guide/pricing
+到期：领取后 3 个月有效
+门槛：仅限客户端
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://agent.xfyun.cn/studio-guide/pricing]]></description>
+    </item>
+    <item>
+      <title>蚂蚁百灵 Ling-3.2-flash 限时免费调用</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/蚂蚁百灵 Ling-3.2-flash 限时免费调用</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：Ling-3.2-flash 于 11 月 5 日上线，前两周可通过百灵 API 免费调用，支持文本、图片和视频输入。首次使用 API 须绑定支付宝并开通模型服务；活动结束后恢复收费，价格以官网为准。
+限额：免费
+使用方式：仅 Ling-3.2-flash，其他百灵模型按各自规则计费。入口：https://developer.ant-ling.com/zh-CN/docs/models/price/
+到期：至 2026-11-18（以厂商页面为准）
+门槛：注册登录
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://developer.ant-ling.com/zh-CN/docs/models/price/]]></description>
+    </item>
+    <item>
+      <title>OpenCode 限时免费用 MiniMax、LongCat、DeepSeek 等模型</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/OpenCode 限时免费用 MiniMax、LongCat、DeepSeek 等模型</guid>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：免费模型仅限 OpenCode 内使用，无需账号。LongCat 2.5 每天限 100 次，托管于中国；与 MiniMax M3.1 Flash、DeepSeek 和 GLM 一样，输入不保留、不用于训练。其他模型未公布统一额度或截止。Iceman 数据保留并用于改进模型；Inkling 2 Small 数据可能用于训练，且不向欧盟、冰岛、列支敦士登、挪威、古巴、伊朗、朝鲜、俄罗斯、乌克兰和委内瑞拉开放。Beam 不向中国大陆及港澳等地区开放。
+限额：免费；LongCat 2.5 自 11 月 9 日起限免两周
+使用方式：中国大陆可用的 MiniMax M3.1 Flash Free、LongCat 2.5 Free、DeepSeek V4.1 Flash Free、GLM-5.3-Flash Free、MiMo-V2.6-Flash Free、Inkling 2 Small Free、Iceman Free 等指定免费模型；不含 Beam；仅限 OpenCode 内使用。入口：https://opencode.ai/docs/console/models/
+到期：LongCat 2.5 自 11 月 9 日起限免两周
+门槛：仅限客户端
+分类：限时活动 / 羊毛 / 地区：海外
+核实日期：2026-11-10（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://opencode.ai/docs/console/models/]]></description>
+    </item>
+    <item>
+      <title>StepAudio 3 四款预览模型限时免费调用</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/StepAudio 3 四款预览模型限时免费调用</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：StepAudio 3 Realtime、Chat、Gen、Music 四款 preview 模型限时免费，个人账号需先完成实名认证。官方限免至北京时间 11 月 17 日 11:59:59，12 点起新增正式付费版，预览版下线。TTS、独立 ASR、音色复刻和音色设计仍收费。
+限额：免费
+使用方式：stepaudio-3-realtime-preview、stepaudio-3-chat-preview、stepaudio-3-gen-preview、stepaudio-3-music-preview；不含 TTS、独立 ASR、音色复刻与音色设计。入口：https://platform.stepfun.com/docs/zh/guides/pricing/details
+到期：至 2026-11-17（以厂商页面为准）
+门槛：需实名
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://platform.stepfun.com/docs/zh/guides/pricing/details]]></description>
+    </item>
+    <item>
+      <title>WorkBuddy／CodeBuddy Hy4 限时免费额度</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/WorkBuddy／CodeBuddy Hy4 限时免费额度</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：活动期间在 WorkBuddy 或 CodeBuddy 中选择 Hy4，可用有限免费额度体验代码、文档与视觉理解任务。具体额度及用尽后的积分消耗以客户端提示为准。
+限额：免费
+使用方式：WorkBuddy／CodeBuddy 内的 Hy4；其他模型及腾讯云 TokenHub API 按各自规则计费。入口：https://www.tencent.com/zh-cn/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/
+到期：至 2026-11-15（以厂商页面为准）
+门槛：仅限客户端
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://www.tencent.com/zh-cn/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/]]></description>
+    </item>
+    <item>
+      <title>SoMark OXR 免费解析文档 API</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/SoMark OXR 免费解析文档 API</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <category>官方 API 免费层</category>
+      <description><![CDATA[免费内容：无需注册或申请密钥，可用 OXR 免费 API 将 PDF 和文档图片解析为 Markdown 或 JSON。请求需排队，官方不保证稳定性，不建议生产使用；免费服务会持续到运营方无法承担为止，具体次数未公布。国内用 free-oxr.somark.cn。
+限额：免费；持续时间以官方为准
+使用方式：仅 OXR 文档解析模型，不含 SoMark 其他服务。入口：https://somark.cn/oxr
+到期：持续时间以官方为准
+门槛：注册登录
+分类：官方 API 免费层 / 地区：国内
+核实日期：2026-11-09（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://somark.cn/oxr]]></description>
     </item>
   </channel>
 </rss>
