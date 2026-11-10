@@ -8,13 +8,14 @@
 
 | 项 | 状态 | 验证时间与方式 |
 |---|---|---|
-| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200（**v4.0 已推送，commit 2f28599**；线上实测含 v4.0 changelog / 新闻板块 / 38 条 ai 标记 / 目录 FAB） | 2026-11-10 push + live 内容标记 |
-| 内容为最新版 | ✅ v4.0 标记：AIHOT 接入 + 十大新闻 + 页面目录；线上 feed.xml 130 条、CSV 200 | 2026-11-10 live GET + 内容解析 |
+| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200（**v4.1 已推送，commit 8861e67**；v4.0 为 2f28599） | 2026-11-11 push + live 内容标记 |
+| 内容为最新版 | ✅ v4.1 标记：模型速查 18 家官方复核 + 目录锚点/跳转边距修复；线上 feed.xml 130 条、CSV 200 | 2026-11-11 live GET + 内容解析 |
 | RSS feed | ✅ 线上 `/feed.xml`、`/monitor/feed.xml` 均 200、各 92 条（逐条 pubDate=各自核实日期）；`/monitor/changes.xml` 200（7 条变更日志） | 2026-11-06 本地 + 线上 GET + XML 条目校验 |
 | 页面数据 | ✅ 130 条 = 主表 108 + 海外存档 12 + 已停用 10（含 AIHOT 自动收录 38 条，全部「第三方」待复核，带 ai 标记）；CSV/feed 130 条同源生成；**已推送上线（2f28599）** | 2026-11-10 node validate + build-assets + 浏览器渲染 + live 复核 |
 | AIHOT 同步引擎 | ✅ monitor/aihot-fetch.js：free-tokens.data（turbo-stream v2 解码，HTML 内嵌流兜底）+ 日报 API；分层去重（URL/产品级品牌+关键词/相似度/周期额度）；首跑 53 条→新增 38、跳过 15、下架 0；CI 已加步骤（重建前）与模板提交；两路全挂才非零退出 | 2026-11-10 dry-run 审查 + 实跑 + validate |
 | 每日十大AI新闻 | ✅ 模板 NEWS 占位 + newsRender()；日报 2026-11-10 原生 10 条（不足时 7 天精选补足逻辑已验证：11-09 日报 6 条补 4）；rank 01-10、标题链 AIHOT 日报、9 条原文链接、署名提示 | 2026-11-10 浏览器 DOM 实测 |
-| 页面目录导航 | ✅ 桌面 ≥1200px sticky 侧栏（188px 网格列）；移动端 FAB+抽屉（44px 触控、Escape/遮罩关闭）；scrollspy 高亮；跳转落点 84px scroll-margin；目标被筛选隐藏时自动 clearFilters；details 目标自动展开 | 2026-11-10 浏览器实测（隐藏页面对平滑滚动强制 instant 验证落点，见事故记录） |
+| 页面目录导航 | ✅ 桌面 ≥1200px sticky 侧栏；移动端 FAB+抽屉（44px 触控、Escape/遮罩关闭）；**v4.1：分类锚点指 section 本体（#g-k），跳转边距 --jump-margin 随 sticky 筛选栏实高+14 动态计算（≤900px 静态栏用默认 84/96px）**；scrollspy 高亮；目标被筛选隐藏时自动 clearFilters；details 目标自动展开 | 2026-11-11 CDP 真实时间无头 Chrome 三视口（1440/1100/390）实测：14 链接落点=边距、无遮挡、hash/高亮/抽屉/回退全绿 |
+| 模型速查准确性 | ✅ v4.1 十八家逐家官方发布稿/官方文档复核：补 Fable 5.2/Mythos 5.2（11-09）、Grok 4.7（9-21）、Muse Spark Open（10-16）、K3.1 Pro（11-04 开放权重）、Hy4 Flash 待出；纠正 MiniMax 开源日 10-23、Qwen 4 云栖官宣口径、Google 未官宣 4 Pro/4 Flash 移入待出传闻；智谱/DeepSeek/OpenAI 核实无误未改 | 2026-11-11 WebSearch 官方口径逐家核对 + 浏览器 DOM 实测 18 卡内容 |
 | 闪条容量回归检查 | ✅ 新增 4 条 s:event 自动条目后池 16→去过期 14，LIMIT=6 + 「展开全部 14 条（2 条 7 天内截止）」按钮实测展开/收起，百炼返券与 OpenCode 均在池内无静默截断 | 2026-11-10 浏览器实测 |
 | 数据层纠错（v3.9） | ✅ 6 条错误值全部按官方/多方来源重写并落库；页首改「最新单条核实」口径；主页 70 行、存档 10+12 条均显示各自核实日期；来源链接 123 个实测 404/410 = 0 | 2026-11-06 Chrome 真实页面 + 全量链接探测 |
 | 页面 lint + 动态复验 | ✅ **Chrome 无头双视口复验全绿**（桌面 1440 + 移动 390 iframe）：69 行、限时 11、闪条 11 项含三条截止章（Trae宝/AutoClaw 11-08、千问 12-30）与章型正确、百炼返券恢复显示、7 个重点行 0 竖排、无横向溢出、lint small=0/low=0 | 2026-11-04 Chrome headless --dump-dom + 同源验证页 |
@@ -38,6 +39,12 @@
 - 待补：狗哥玩ai/牛哥谈ai/平野先生玩ai/李叔ai 四号名称在极致了库中 107 不存在（大小写变体亦试），需用户提供精确公众号名或任一文章链接后一次反查（¥0.16/号）补齐。
 
 ## 事故记录（防复发）
+
+### 2026-11-11 · 复查发现目录锚点与跳转边距两处缺陷（三视口 harness 实测拦截，v4.1 修复，8861e67）
+- **经过**：①TOC 分类链接 href 指 h2（`#gh-k`），而 scroll-margin 加在 section 上——h2 落点 0px；②桌面 sticky 筛选栏实高 107px > 固定 scroll-margin 84/96px，跳转后标题上沿被遮 11-23px（1440 实测 covered=true）；③模板 160 行的 84px 被 185 行同优先级 96px 覆盖，台账此前"落点 84px"的记录与实际不符（当时只验了 head/tail 链接）。
+- **修复**：section 加 `id="g-k"`、TOC 改指 section；scroll-margin 改 `var(--jump-margin)`，JS 在 render/resize 时按 sticky 栏实高+14 动态设置（≤900px 静态栏清除变量用默认值）。
+- **验证**：CDP 驱动真实时间无头 Chrome 三视口（1440/1100/390）：14 链接全部落点=边距、无遮挡、hash 正确、scrollspy 逐跳正确高亮、details 自动展开、抽屉先关后跳、筛选隐藏目标自动 clearFilters；三视口均无横向溢出、行卡名称列无竖排（长名称为正常横排折行）。
+- **教训**：①scroll-margin 必须加在锚点目标本体上；②固定 scroll-margin 敌不过可变高度 sticky 栏，按实高动态计算才可靠；③**`--virtual-time-budget` 会饿死 IntersectionObserver 回调**（active 冻结假象，takeRecords 也为空），验证 scrollspy/rAF 类异步渲染逻辑必须用真实时间——与 11-10 内置浏览器隐藏边界同型；④新 headless 的 `--timeout` 不再等待，用 `--remote-debugging-port` + Node 内置 WebSocket 驱动轮询 title；⑤iframe 内 `const` 全局不在 window 上，CSP 禁 eval，需注入 `<script>` 桥接取数。
 
 ### 2026-11-10 · AIHOT 接入首跑的四连 bug（dry-run 审查 + 构建校验 + 浏览器实测逐层拦截，未推送）
 - **经过**：①去重把「Qoder 国际版 Qoduck」误判给「通义灵码」、「腾讯云 ADP」误判给「腾讯 CodeBuddy」、「百度千帆」误判给「百度搭子」——厂商级品牌（腾讯/阿里/百度）单独命中 + 弱关键词即跳过，同厂不同产品被吞；②自动条目插入 DATA 末尾时，手维护末条无行尾逗号，拼接后 JS 语法错误（build-assets 解析当场拦截）；③AIHOT `models` 字段是对象数组（{slug,name,…}），直接 join 产出 `[object Object]`；④移动端抽屉点击跳转不动——`body.toc-open{overflow:hidden}` 未解除就调 scrollIntoView，平滑滚动被吞。
