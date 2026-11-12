@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>大模型免费渠道全景表（全量 134 条，逐条核实日期）</title>
+    <title>大模型免费渠道全景表（全量 135 条，逐条核实日期）</title>
     <link>https://lm7644.github.io/free-llm-tracker/</link>
     <atom:link href="https://lm7644.github.io/free-llm-tracker/feed.xml" rel="self" type="application/rss+xml"/>
     <description>每条渠道含免费内容、限额、到期、来源链接与各自核实日期；口径为「单条核实日期」，不用单日覆盖全表。</description>
@@ -1183,6 +1183,24 @@ Trae 官网：https://www.trae.com.cn
 核实日期：2026-11-04（可信度：官方）
 来源：
 官方活动页：https://autoclaw.z.ai/blog/news/M11W1/]]></description>
+    </item>
+    <item>
+      <title>Qoder CN 专业版首月 19.9 元</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/Qoder CN 专业版首月 19.9 元</guid>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：双十一首购特惠：从未付费的 CN 个人账号首次月付订阅专业版，首月 19.9 元（原价 59 元），含 2000 Credits；高级版首月 169 元加赠 6000 Qwen 专属 Credits（首月合计 12000）；年付专业版 637.2 元首月加赠 2000 Credits
+限额：仅限从未成功付费的 CN 个人账号首购，与注册时间无关；19.9 特价份额有限先到先得；团队/企业/会员卡不适用
+使用方式：qoder.com.cn/pricing 登录 CN 账号 → 专业版月付订阅 → 能否享特价以价格页显示和实际支付为准
+到期：双十一特惠期，结束时间以官方活动页提前公告为准；次月起恢复原价 59 元/月（自动续费）
+门槛：Qoder CN 账号
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-12（可信度：官方）
+来源：
+官方活动页：https://docs.qoder.cn/events/purchase-offer
+官方定价页：https://qoder.com.cn/pricing
+红星新闻：https://www.dzwww.com/xinwen/shehuixinwen/202611/t20261112_18294523.htm]]></description>
     </item>
     <item>
       <title>千问办公 0.01 元月卡</title>
