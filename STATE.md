@@ -9,15 +9,16 @@
 | 项 | 状态 | 验证时间与方式 |
 |---|---|---|
 | 项目验收 | ✅ **2026-11-11 验收通过**（用户宣布：复查无误无遗漏 + 已推送上线即验收，两条件均满足）：本地=远端=5c51894；线上页面与本地构建规范化后逐字节一致；feed 130 条 / CSV 131 行线上=本地；无未提交/未跟踪遗漏 | 2026-11-11 API HEAD 核对 + 逐字节比对 + git status/diff 终审 |
-| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200（**v4.1 已推送，commit 8861e67**；v4.0 为 2f28599） | 2026-11-11 push + live 内容标记 |
-| 内容为最新版 | ✅ v4.1 标记：模型速查 18 家官方复核 + 目录锚点/跳转边距修复；线上 feed.xml 130 条、CSV 200 | 2026-11-11 live GET + 内容解析 |
+| 在线表格 | ✅ https://lm7644.github.io/free-llm-tracker/ HTTP 200（**v4.2 已推送，commit 6773d87**，rebase 于 CI 巡查 294c00e 之上；v4.1 为 8861e67）；线上实测含 19.9 条目 + v4.2 changelog | 2026-11-12 push + live 内容标记 |
+| 内容为最新版 | ✅ v4.2 标记：新增「Qoder CN 专业版首月 19.9 元」双十一首购（官方活动页+定价页互证，可信度「官方」）；线上 feed.xml 135 条、CSV 200 | 2026-11-12 live GET + 内容解析 |
 | RSS feed | ✅ 线上 `/feed.xml`、`/monitor/feed.xml` 均 200、各 92 条（逐条 pubDate=各自核实日期）；`/monitor/changes.xml` 200（7 条变更日志） | 2026-11-06 本地 + 线上 GET + XML 条目校验 |
-| 页面数据 | ✅ 130 条 = 主表 108 + 海外存档 12 + 已停用 10（含 AIHOT 自动收录 38 条，全部「第三方」待复核，带 ai 标记）；CSV/feed 130 条同源生成；**已推送上线（2f28599）** | 2026-11-10 node validate + build-assets + 浏览器渲染 + live 复核 |
+| 页面数据 | ✅ 135 条 = 主表 111 + 海外存档 12 + 已停用 12（AIHOT 自动收录 42 条带 ai 标记「第三方」待复核 + Qoder 19.9 官方条目）；CSV/feed 135 条同源生成；**已推送上线（6773d87）**。两日 CI 巡查（f4086c2/294c00e）新增 4 条 aihot、下架 2 条（已停用 10→12）、NEWS 更新至 2026-11-12，已 rebase 合并重建 | 2026-11-12 node validate + build-assets + 无头渲染（主表 111 行、event 区 28 行、19.9 行可见）+ live 复核 |
+| Qoder 19.9 首购条目（v4.2） | ✅ 用户实测报料 → 官方双来源互证落库：专业版首月 19.9（原 59、含 2000 Credits、限量先到先得、次月恢复 59 自动续费）；高级版 169 首月合计 12000 Qwen 专属 Credits、年付 637.2 加赠 2000 同录；仅限从未付费 CN 个人账号首购，团队/企业/会员卡不适用；来源：docs.qoder.cn/events/purchase-offer + qoder.com.cn/pricing + 红星新闻 | 2026-11-12 WebFetch 官方页逐字核对 + 渲染实测 |
 | AIHOT 同步引擎 | ✅ monitor/aihot-fetch.js：free-tokens.data（turbo-stream v2 解码，HTML 内嵌流兜底）+ 日报 API；分层去重（URL/产品级品牌+关键词/相似度/周期额度）；首跑 53 条→新增 38、跳过 15、下架 0；CI 已加步骤（重建前）与模板提交；两路全挂才非零退出 | 2026-11-10 dry-run 审查 + 实跑 + validate |
 | 每日十大AI新闻 | ✅ 模板 NEWS 占位 + newsRender()；日报 2026-11-10 原生 10 条（不足时 7 天精选补足逻辑已验证：11-09 日报 6 条补 4）；rank 01-10、标题链 AIHOT 日报、9 条原文链接、署名提示 | 2026-11-10 浏览器 DOM 实测 |
 | 页面目录导航 | ✅ 桌面 ≥1200px sticky 侧栏；移动端 FAB+抽屉（44px 触控、Escape/遮罩关闭）；**v4.1：分类锚点指 section 本体（#g-k），跳转边距 --jump-margin 随 sticky 筛选栏实高+14 动态计算（≤900px 静态栏用默认 84/96px）**；scrollspy 高亮；目标被筛选隐藏时自动 clearFilters；details 目标自动展开 | 2026-11-11 CDP 真实时间无头 Chrome 三视口（1440/1100/390）实测：14 链接落点=边距、无遮挡、hash/高亮/抽屉/回退全绿 |
 | 模型速查准确性 | ✅ v4.1 十八家逐家官方发布稿/官方文档复核：补 Fable 5.2/Mythos 5.2（11-09）、Grok 4.7（9-21）、Muse Spark Open（10-16）、K3.1 Pro（11-04 开放权重）、Hy4 Flash 待出；纠正 MiniMax 开源日 10-23、Qwen 4 云栖官宣口径、Google 未官宣 4 Pro/4 Flash 移入待出传闻；智谱/DeepSeek/OpenAI 核实无误未改 | 2026-11-11 WebSearch 官方口径逐家核对 + 浏览器 DOM 实测 18 卡内容 |
-| 闪条容量回归检查 | ✅ 新增 4 条 s:event 自动条目后池 16→去过期 14，LIMIT=6 + 「展开全部 14 条（2 条 7 天内截止）」按钮实测展开/收起，百炼返券与 OpenCode 均在池内无静默截断 | 2026-11-10 浏览器实测 |
+| 闪条容量回归检查 | ✅ v4.2 复验：s:event 池 17→去过期 15，LIMIT=6 + 「展开全部 15 条（其中 3 条 7 天内截止）」按钮在，19.9 条目在池内无静默截断 | 2026-11-12 无头渲染实测 |
 | 数据层纠错（v3.9） | ✅ 6 条错误值全部按官方/多方来源重写并落库；页首改「最新单条核实」口径；主页 70 行、存档 10+12 条均显示各自核实日期；来源链接 123 个实测 404/410 = 0 | 2026-11-06 Chrome 真实页面 + 全量链接探测 |
 | 页面 lint + 动态复验 | ✅ **Chrome 无头双视口复验全绿**（桌面 1440 + 移动 390 iframe）：69 行、限时 11、闪条 11 项含三条截止章（Trae宝/AutoClaw 11-08、千问 12-30）与章型正确、百炼返券恢复显示、7 个重点行 0 竖排、无横向溢出、lint small=0/low=0 | 2026-11-04 Chrome headless --dump-dom + 同源验证页 |
 | 仓库 Secrets | ✅ TAVILY_KEY（2026-11-01T14:46Z 添加）；DAJIALA_KEY 未配置 | 2026-11-01 15:31 API |
@@ -40,6 +41,11 @@
 - 待补：狗哥玩ai/牛哥谈ai/平野先生玩ai/李叔ai 四号名称在极致了库中 107 不存在（大小写变体亦试），需用户提供精确公众号名或任一文章链接后一次反查（¥0.16/号）补齐。
 
 ## 事故记录（防复发）
+
+### 2026-11-12 · github.com DNS 污染致推送挂起/重置（不改配置的绕行法）
+- **经过**：push 连续 Connection reset/挂起；实测 github.com:443 TCP 不通，DNS 解析到 20.205.243.166（超时），而 api.github.com、ssh.github.com:443 及多数 GitHub IP（140.82.112.3 等）可达。无 SSH key，SSH 绕行不可用。
+- **解法**：`git -c http.curloptResolve=github.com:443:140.82.112.3 push origin main`（单次命令级 CURLOPT_RESOLVE，不写 git 配置/hosts；IP 失效时先用 node net.connect 批量测可达 IP 再换）。fetch 同理。
+- **附带**：推送被拒 fetch first = CI 巡查已先行提交；rebase 时模板不同区域自动合并，feed/CSV 等派生产物冲突一律**以合并后模板重建解决**（勿手工解冲突），重建后 validate 再 push。
 
 ### 2026-11-11 · 复查发现目录锚点与跳转边距两处缺陷（三视口 harness 实测拦截，v4.1 修复，8861e67）
 - **经过**：①TOC 分类链接 href 指 h2（`#gh-k`），而 scroll-margin 加在 section 上——h2 落点 0px；②桌面 sticky 筛选栏实高 107px > 固定 scroll-margin 84/96px，跳转后标题上沿被遮 11-23px（1440 实测 covered=true）；③模板 160 行的 84px 被 185 行同优先级 96px 覆盖，台账此前"落点 84px"的记录与实际不符（当时只验了 head/tail 链接）。
