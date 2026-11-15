@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>大模型免费渠道全景表（全量 137 条，逐条核实日期）</title>
+    <title>大模型免费渠道全景表（全量 138 条，逐条核实日期）</title>
     <link>https://lm7644.github.io/free-llm-tracker/</link>
     <atom:link href="https://lm7644.github.io/free-llm-tracker/feed.xml" rel="self" type="application/rss+xml"/>
     <description>每条渠道含免费内容、限额、到期、来源链接与各自核实日期；口径为「单条核实日期」，不用单日覆盖全表。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 14 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 00:00:00 GMT</lastBuildDate>
     <item>
       <title>智谱开放平台 bigmodel</title>
       <link>https://lm7644.github.io/free-llm-tracker/</link>
@@ -1618,7 +1618,7 @@ AIHOT Token羊毛：https://aihot.news/free-tokens
       <title>fal FLUX 3 Max 每日免登录生成 1 个视频</title>
       <link>https://lm7644.github.io/free-llm-tracker/</link>
       <guid isPermaLink="false">free-llm-tracker/fal FLUX 3 Max 每日免登录生成 1 个视频</guid>
-      <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
       <category>已停用历史区</category>
       <description><![CDATA[免费内容：在 Sandbox 使用，无需注册或绑卡。顶部的免费总次数包含其他模型，不能全部用于 FLUX 3 Max；具体刷新时间以 Sandbox 为准。模型 API 按秒收费。
 限额：1 次
@@ -1626,7 +1626,7 @@ AIHOT Token羊毛：https://aihot.news/free-tokens
 到期：已结束（AIHOT 下架）
 门槛：仅限客户端
 分类：已停用历史区 / 地区：海外
-核实日期：2026-11-14（可信度：第三方）
+核实日期：2026-11-15（可信度：第三方）
 来源：
 AIHOT Token羊毛：https://aihot.news/free-tokens
 厂商页面（经 AIHOT 核实）：https://fal.ai/sandbox?models=db8o064regj1armnir30&op=video.text_to_video]]></description>
@@ -1652,7 +1652,7 @@ AIHOT Token羊毛：https://aihot.news/free-tokens
       <title>Qoder 国际版 Qoduck 每天限免</title>
       <link>https://lm7644.github.io/free-llm-tracker/</link>
       <guid isPermaLink="false">free-llm-tracker/Qoder 国际版 Qoduck 每天限免</guid>
-      <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
       <category>已停用历史区</category>
       <description><![CDATA[免费内容：Qoder 国际版新老个人账号选择 Qoduck 即可每天免费调用，免费账号和 Credits 余额为 0 的账号均可参与，无需领取；最高思考强度也不扣 Credits。每日次数有限，付费订阅次数更多，用尽后可等次日恢复，继续使用则按 0.5× 消耗 Credits。仅限 Qoder 国际版主应用，国内版、IDE、JetBrains 插件及 CLI 不适用，不能当通用 API。模型身份、具体次数和结束日期未公布。
 限额：免费；限时活动，结束日期未公布
@@ -1660,7 +1660,7 @@ AIHOT Token羊毛：https://aihot.news/free-tokens
 到期：已结束（AIHOT 下架）
 门槛：仅限客户端
 分类：已停用历史区 / 地区：国内
-核实日期：2026-11-14（可信度：第三方）
+核实日期：2026-11-15（可信度：第三方）
 来源：
 AIHOT Token羊毛：https://aihot.news/free-tokens
 厂商页面（经 AIHOT 核实）：https://docs.qoder.com/zh/events/qoduck-free]]></description>
@@ -2145,7 +2145,7 @@ AIHOT Token羊毛：https://aihot.news/free-tokens
       <title>WorkBuddy／CodeBuddy Hy4 限时免费额度</title>
       <link>https://lm7644.github.io/free-llm-tracker/</link>
       <guid isPermaLink="false">free-llm-tracker/WorkBuddy／CodeBuddy Hy4 限时免费额度</guid>
-      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
       <category>限时活动 / 羊毛</category>
       <description><![CDATA[免费内容：活动期间在 WorkBuddy 或 CodeBuddy 中选择 Hy4，可用有限免费额度体验代码、文档与视觉理解任务。具体额度及用尽后的积分消耗以客户端提示为准。
 限额：免费
@@ -2153,7 +2153,7 @@ AIHOT Token羊毛：https://aihot.news/free-tokens
 到期：至 2026-11-15（以厂商页面为准）
 门槛：仅限客户端
 分类：限时活动 / 羊毛 / 地区：国内
-核实日期：2026-11-13（可信度：第三方）
+核实日期：2026-11-14（可信度：第三方）
 来源：
 AIHOT Token羊毛：https://aihot.news/free-tokens
 厂商页面（经 AIHOT 核实）：https://www.tencent.com/zh-cn/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/]]></description>
@@ -2276,6 +2276,23 @@ AIHOT Token羊毛：https://aihot.news/free-tokens
 来源：
 AIHOT Token羊毛：https://aihot.news/free-tokens
 厂商页面（经 AIHOT 核实）：https://reducto.ai/pricing]]></description>
+    </item>
+    <item>
+      <title>Telnyx 新用户送 25 美元 AI 额度</title>
+      <link>https://lm7644.github.io/free-llm-tracker/</link>
+      <guid isPermaLink="false">free-llm-tracker/Telnyx 新用户送 25 美元 AI 额度</guid>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
+      <category>限时活动 / 羊毛</category>
+      <description><![CDATA[免费内容：用邮箱注册预试用账户后自动到账，无需绑卡；可抵 Telnyx Inference 等 AI 产品用量，用完即停。主动升级为完整账户后，原 25 美元优惠会被替换为 5 美元通用额度。
+限额：≈¥167；有效期以账户显示的剩余天数为准
+使用方式：Telnyx AI 产品中的所有模型，包括自营 Inference 的 DeepSeek V4.1 Flash、GLM-5.3、GLM-5.3 Flash、Kimi K3 等；也会与其他 AI 产品共用这份额度。入口：https://support.telnyx.com/en/articles/14327893-telnyx-pretrial-accounts
+到期：有效期以账户显示的剩余天数为准
+门槛：注册登录
+分类：限时活动 / 羊毛 / 地区：国内
+核实日期：2026-11-14（可信度：第三方）
+来源：
+AIHOT Token羊毛：https://aihot.news/free-tokens
+厂商页面（经 AIHOT 核实）：https://support.telnyx.com/en/articles/14327893-telnyx-pretrial-accounts]]></description>
     </item>
   </channel>
 </rss>
